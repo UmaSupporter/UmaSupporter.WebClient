@@ -2,22 +2,19 @@ import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 
-import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import MainRouter from "./router";
 import Header from "./components/Header";
-
-const client = new ApolloClient({
-  uri: 'http://localhost:5000/graphql',
-  cache: new InMemoryCache()
-});
+import UmaApolloProvider from "./apollo";
+import { baseUri, UriContext } from "./common";
 
 ReactDOM.render(
-  <ApolloProvider client={client}>
+  <UmaApolloProvider>
     <BrowserRouter>
+    <UriContext.Provider value={baseUri}>
       <Header />
       <MainRouter />
+    </UriContext.Provider>
     </BrowserRouter>
-  </ApolloProvider>,
+  </UmaApolloProvider>,
   document.getElementById("root")
 );
-

@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { UriContext } from "../../../common";
 
 export type SupportCard = {
   uuid: number
@@ -15,8 +16,10 @@ type Props = SupportCard & {
 
 const SupportCardComponent: React.FC<Props> = (props: Props) => {
   const { uuid, cardName, secondName, cardImage } = props;
+  const uri = useContext(UriContext);
+  console.log(uri)
   return (
-    <img onClick={() => props.onClickItem(uuid)} alt={`${cardName}-${secondName}`} height="150px" src={`http://localhost:5000/images/${cardImage}`} />
+    <img onClick={() => props.onClickItem(uuid)} alt={`${cardName}-${secondName}`} height="150px" src={`${uri}/images/${cardImage}`} />
   );
 };
 
