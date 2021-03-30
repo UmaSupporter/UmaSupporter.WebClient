@@ -1,0 +1,5 @@
+.SupportCardListContainer {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    flex: 1;
+}

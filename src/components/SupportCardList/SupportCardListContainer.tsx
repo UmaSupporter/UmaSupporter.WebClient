@@ -4,6 +4,7 @@ import { useSupportCardQuery } from "../../generated/graphql";
 import { CORE_SUPPORT_CARD_FIELD } from "../common/fragments";
 import { SupportCard } from "./SupportCard/SupportCard";
 import SupportCardList from "./SupportCardList";
+import "./SupportCardListContainer.css";
 
 gql`
   ${CORE_SUPPORT_CARD_FIELD}
@@ -50,7 +51,9 @@ const SupportCardListContainer: React.FC<Props> = (props: Props) => {
   }
 
   return (
-    <SupportCardList cards={cardList} onClickItem={props.onClickItem} />
+    <div className={"SupportCardListContainer"} >
+      <SupportCardList cards={cardList} onClickItem={props.onClickItem} />
+    </div>
   );
 };
 

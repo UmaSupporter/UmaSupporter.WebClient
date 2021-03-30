@@ -19,7 +19,11 @@ const SupportCardComponent: React.FC<Props> = (props: Props) => {
   const uri = useContext(UriContext);
   console.log(uri)
   return (
-    <img onClick={() => props.onClickItem(uuid)} alt={`${cardName}-${secondName}`} height="150px" src={`${uri}/images/${cardImage}`} />
+    <img 
+    onClick={() => props.onClickItem(uuid)} 
+    alt={`${cardName}-${secondName}`} 
+    height="150px" 
+    src={`${uri}/images/${cardImage}`} />
   );
 };
 

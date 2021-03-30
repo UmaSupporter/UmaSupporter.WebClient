@@ -33,6 +33,7 @@ const SelectedCardContainer: React.FC<Props> = (props: Props) => {
     cardName={data.supportCardId.cardName!}
     cardType={data.supportCardId.cardType!}
     secondName={data.supportCardId.secondName!}
+    cardImage={data.supportCardId.cardImage!}
     onDeleteItem={props.onDeleteItem}
    />
 };
