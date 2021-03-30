@@ -16,6 +16,7 @@ const SelectedCardList: React.FC<Props> = (props: Props) => {
   }
   </>
   <button onClick={() => props.onResetItem()}>reset</button>
+  
   </div>
 }
 

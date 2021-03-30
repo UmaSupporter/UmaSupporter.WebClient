@@ -6,7 +6,8 @@
     width: 100px;
     height: 100px;
     object-fit: cover;
-    border-radius: 7px;
+    border-radius: 18px;
+    border: solid 6px pink;
 }
 .SelectedCard-removeButton {
     position: absolute;

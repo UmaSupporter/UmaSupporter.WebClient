@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { UriContext } from "../../../common";
+import "./SupportCard.css";
 
 export type SupportCard = {
   uuid: number
@@ -22,8 +23,8 @@ const SupportCardComponent: React.FC<Props> = (props: Props) => {
     <img 
     onClick={() => props.onClickItem(uuid)} 
     alt={`${cardName}-${secondName}`} 
-    height="150px" 
-    src={`${uri}/images/${cardImage}`} />
+    src={`${uri}/images/${cardImage}`}
+    className={"SupportCard"} />
   );
 };
 

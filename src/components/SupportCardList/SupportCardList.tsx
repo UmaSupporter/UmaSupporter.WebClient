@@ -1,5 +1,6 @@
 import React from "react";
 import SupportCardComponent, { SupportCard } from "./SupportCard/SupportCard";
+import "./SupportCardList.css";
 
 type Props = {
   cards: SupportCard[]
@@ -8,7 +9,7 @@ type Props = {
 
 const SupportCardList: React.FC<Props> = (props: Props) => {
   return (
-    <div >
+    <div className={"SupportCardList"}>
       {props.cards.map(x =>
         // <span key={x.uuid} style={{ display: "inline" }} >
           <SupportCardComponent
