@@ -1,5 +1,5 @@
 import SelectedCardContainer from "./SelectedCard/SelectedCardContainer"
-import './SelectedCardList.css';
+import './SelectedCardList.scss';
 
 type Props = {
   uuids: number[]

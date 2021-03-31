@@ -1,7 +1,7 @@
 import React from "react";
 import SupportCardComponent from "./SupportCard/SupportCard";
 import { SupportCard } from "../../types";
-import "./SupportCardList.css";
+import "./SupportCardList.scss";
 
 type Props = {
   cards: SupportCard[]

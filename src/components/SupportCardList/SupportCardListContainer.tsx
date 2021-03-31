@@ -4,7 +4,7 @@ import { useSupportCardQuery } from "../../generated/graphql";
 import { CORE_SUPPORT_CARD_FIELD } from "../common/fragments";
 import { SupportCard } from "../../types";
 import SupportCardList from "./SupportCardList";
-import "./SupportCardListContainer.css";
+import "./SupportCardListContainer.scss";
 
 gql`
   ${CORE_SUPPORT_CARD_FIELD}

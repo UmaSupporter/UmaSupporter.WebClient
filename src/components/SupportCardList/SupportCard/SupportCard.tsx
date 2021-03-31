@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { UriContext } from "../../../common";
 import { SupportCard } from "../../../types";
-import "./SupportCard.css";
+import "./SupportCard.scss";
 
 type Props = SupportCard & {
   onClickItem: (uuid: number) => void

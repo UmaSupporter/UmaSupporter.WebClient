@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { UriContext } from "../../../common";
-import  "./SelectedCard.css";
+import  "./SelectedCard.scss";
 
 type Props = {
   uuid: number,

@@ -3,7 +3,7 @@ import { useReducer } from "react";
 import { Link } from "react-router-dom"
 import SelectedCardListContainer from "../../components/SelectedCardList";
 import SupportCardListContainer from "../../components/SupportCardList";
-import "./Main.css";
+import "./Main.scss";
 
 type AppendAction = {
   type: 'APPEND_CARD',
