@@ -2,7 +2,7 @@ import gql from "graphql-tag";
 import React from "react";
 import { useSupportCardQuery } from "../../generated/graphql";
 import { CORE_SUPPORT_CARD_FIELD } from "../common/fragments";
-import { SupportCard } from "./SupportCard/SupportCard";
+import { SupportCard } from "../../types";
 import SupportCardList from "./SupportCardList";
 import "./SupportCardListContainer.css";
 

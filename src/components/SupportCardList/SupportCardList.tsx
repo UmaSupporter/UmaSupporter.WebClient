@@ -1,5 +1,6 @@
 import React from "react";
-import SupportCardComponent, { SupportCard } from "./SupportCard/SupportCard";
+import SupportCardComponent from "./SupportCard/SupportCard";
+import { SupportCard } from "../../types";
 import "./SupportCardList.css";
 
 type Props = {
