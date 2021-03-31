@@ -1,15 +1,7 @@
 import React, { useContext } from "react";
 import { UriContext } from "../../../common";
+import { SupportCard } from "../../../types";
 import "./SupportCard.css";
-
-export type SupportCard = {
-  uuid: number
-  cardName: string,
-  secondName: string,
-  rareDegree: string,
-  cardImage: string,
-  cardType: string,
-}
 
 type Props = SupportCard & {
   onClickItem: (uuid: number) => void

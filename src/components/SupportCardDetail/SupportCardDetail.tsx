@@ -1,11 +1,14 @@
 import { Accordion, AccordionSummary, Avatar, createStyles, makeStyles, Theme, Typography } from "@material-ui/core"
 import { ExpandMore } from "@material-ui/icons"
-import React from "react"
-import { GetSupportCardOnIdWithEventQuery } from "../../generated/graphql"
+import React, { useContext } from "react"
+import { UriContext } from "../../common"
+import { CardEventWithChoice } from "../../types"
 import EventDetail from "../EventDetail"
 
 type Props = {
-  cards: GetSupportCardOnIdWithEventQuery
+  supportCardTitle: string,
+  cardImage: string,
+  event: CardEventWithChoice[]
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -22,30 +25,24 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const SupportCardDetail: React.FC<Props> = (props: Props) => {
   const classes = useStyles();
-  if (props.cards.supportCardId == null) return <></>
-  const supportCard = props.cards.supportCardId
-  const cardEvents = supportCard.cardEvent?.edges.map(x => x?.node)
+  const { supportCardTitle, event, cardImage } = props;
+  const uri = useContext(UriContext);
 
   return <div>
-    <Avatar alt={props.cards.supportCardId.cardName!} src={`http://localhost:5000/images/${props.cards.supportCardId.cardImage}`} />
+    <Avatar alt={supportCardTitle} src={`${uri}/images/${cardImage}`} />
     {
-      cardEvents?.map((x, i) => {
+      event.map((x, i) => {
         return <Accordion>
           <AccordionSummary
             expandIcon={<ExpandMore />}
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
-            <Typography className={classes.heading}>{x?.title}</Typography>
+            <Typography className={classes.heading}>{x.title}</Typography>
           </AccordionSummary>
           <EventDetail
-            title={x?.title}
-            choice={
-              x?.cardEventChoice?.edges
-                .filter(x => x?.node != null)
-                .map(x => { return { title: x!.node!.title!, effect: x!.node!.effect! } })
-            } />
-
+            title={x.title}
+            choice={x.choices} />
         </Accordion>
       })
     }

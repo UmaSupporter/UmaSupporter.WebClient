@@ -1,12 +1,9 @@
 import { AccordionDetails, Card, CardContent, Typography } from "@material-ui/core"
-type EventChoice = {
-  title: string
-  effect: string
-}
+import { CardEventChoice } from "../../types"
 
 type Props = {
-  title: string | null | undefined
-  choice: EventChoice[] | undefined | null
+  title: string
+  choice: CardEventChoice[]
 }
 
 const EventDetail: React.FC<Props> = (props: Props) => {
