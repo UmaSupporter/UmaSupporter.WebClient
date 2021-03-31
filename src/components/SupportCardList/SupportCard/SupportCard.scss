@@ -1,13 +1,15 @@
-.SupportCard-BackPanel {
-  border-radius: 15px;
+@mixin Card {
   aspect-ratio: 1/1.3;
+}
+.SupportCard-BackPanel {
+  @include Card();
+  border-radius: 15px;
   width: 100px;
-  padding: 3px;
-  // padding-bottom: 0px;
-  border: solid 2px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08), 0 3px 6px rgba(0, 0, 0, 0.11);
+  padding: 4px;
+  border: solid 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.11);
   margin: 8px 0px;
-  background: efefef;
+
   transition: transform 0.1s cubic-bezier(0.5, 0.13, 0.81, 0.44);
   overflow: hidden;
   &.available:hover {
@@ -17,29 +19,28 @@
   &.selected {
     filter: saturate(50%) brightness(50%);
   }
-  // &.지능 {
-  //   background: rgb(196, 69, 255);
-  // }
-  // &.스태미나 {
-  //   background: rgb(255, 126, 66);
-  // }
-  // &.근성 {
-  //   background: rgb(123, 233, 101);
-  // }
-  // &.파워 {
-  //   background: rgb(255, 238, 0);
-  // }
-  // &.친구 {
-  //   background: rgb(0, 60, 255);
-  // }
-  // &.스피드 {
-  //   background: rgb(255, 0, 0);
-  // }
+  &.R {
+    background: linear-gradient(160deg, white 0%, #9da5be 100%);
+  }
+  &.SR {
+    background: linear-gradient(160deg, #fff3d4 0%, #cf9811 100%);
+  }
+  &.SSR {
+    background: linear-gradient(
+      135deg,
+      rgba(239, 150, 223, 1) 0%,
+      rgb(223, 119, 255) 30%,
+      rgba(113, 173, 251, 1) 60%,
+      rgba(74, 220, 242, 1) 80%,
+      rgba(182, 247, 77, 1) 100%
+    );
+  }
 }
 .tint {
-  width: 106px;
-  aspect-ratio: 1/1.3;
-  margin-left: -3px;
+  @include Card();
+  position: relative;
+  width: 108px;
+  margin-left: -4px;
   background: linear-gradient(
     0deg,
     rgba(255, 255, 255, 1) 0%,
@@ -48,15 +49,22 @@
     rgba(201, 201, 201, 1) 77%,
     rgba(255, 255, 255, 1) 100%
   );
-  // mix-blend-mode: multiply;
-  margin-top: -137px;
-  top: 0px;
+  margin-top: -8px;
+  opacity: 0;
+  mix-blend-mode: multiply;
   z-index: 1;
+  &.hide {
+    opacity: 0;
+  }
 }
 .SupportCard {
+  @include Card();
+  position: relative;
   border-radius: 10px;
+  top: -131px;
   width: calc(100px - 4px);
-  aspect-ratio: 1/1.3;
   border: solid 2px rgba(0, 0, 0, 0.2);
+  opacity: 0.99;
   z-index: 2;
+  // margin-top: -155px;
 }
