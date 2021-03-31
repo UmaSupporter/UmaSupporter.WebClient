@@ -1,38 +1,40 @@
 .MainPage {
-    display: flex;
-    flex-direction: column;
-    height: calc(100vh - 64px);
-    background: #f2eff6;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 64px);
+  background: #f2eff6;
 }
 
 .MainPage-Dock {
-    padding: 16px 0px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    bottom: 0px;
+  padding: 16px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  bottom: 0px;
 }
 
 .MainPage-StartButton {
-    border: solid 2px hsla(0, 0%, 0%, 0.2);
-    border-radius: 8px;
-    background: linear-gradient(
-        135deg,
-        rgba(167, 224, 7, 1) 0%,
-        rgba(167, 224, 7, 1) 68%,
-        rgba(107, 187, 2, 1) 68%,
-        rgba(160, 221, 4, 1) 100%
-    );
-    width: 200px;
-    height: 50px;
-    text-decoration: none;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    color: white;
-    margin-top: 12px;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08), 0 3px 6px rgba(0, 0, 0, 0.11);
+  border: solid 2px hsla(0, 0%, 0%, 0.2);
+  border-radius: 8px;
+  background: linear-gradient(
+    135deg,
+    rgba(167, 224, 7, 1) 0%,
+    rgba(167, 224, 7, 1) 68%,
+    rgba(107, 187, 2, 1) 68%,
+    rgba(160, 221, 4, 1) 100%
+  );
+  width: 200px;
+  height: 50px;
+  text-decoration: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 18px;
+  text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+  color: white;
+  margin-top: 12px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08), 0 3px 6px rgba(0, 0, 0, 0.11);
 }
