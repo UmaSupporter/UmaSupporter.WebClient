@@ -32,7 +32,7 @@ const SupportCardDetail: React.FC<Props> = (props: Props) => {
     <Avatar alt={supportCardTitle} src={`${uri}/images/${cardImage}`} />
     {
       event.map((x, i) => {
-        return <Accordion>
+        return <Accordion key={i}>
           <AccordionSummary
             expandIcon={<ExpandMore />}
             aria-controls="panel1a-content"

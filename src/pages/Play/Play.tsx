@@ -12,8 +12,8 @@ const Play: React.FC<RouteComponentProps> = (props: RouteComponentProps) => {
   return (
     <>
       {
-        selectedList.map(x =>
-          <SupportCardDetailContainer uuid={x} />
+        selectedList.map((x, i) =>
+          <SupportCardDetailContainer uuid={x} key={i} />
         )
       }
     </>

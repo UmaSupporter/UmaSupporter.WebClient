@@ -26,11 +26,11 @@ const SupportCardDetailContainer: React.FC<Props> = (props: Props) => {
   if(error) return (<p>error</p>)
   if(data == null || data?.supportCardId == null) return (<p>data not exist</p>)
   
-  const events = data?.supportCardId?.cardEvent?.edges
+  const rawEvents = data?.supportCardId?.cardEvent?.edges
 
-  if(events == null) return (<p>data not exist</p>)
+  if(rawEvents == null) return (<p>data not exist</p>)
 
-  const eventWithChoice = events.map(x => { return {
+  const events = rawEvents.map(x => { return {
      title: x?.node?.title!,
      choices: x?.node?.cardEventChoice?.edges!
       .map(x => { return {
@@ -38,12 +38,12 @@ const SupportCardDetailContainer: React.FC<Props> = (props: Props) => {
         effect: x?.node?.effect!
       } as CardEventChoice
     })
-  } as CardEventWithChoice });
+  } as CardEventWithChoice }).filter(x => x.choices.length > 1);
 
   return <SupportCardDetail 
     supportCardTitle={data.supportCardId.cardName!}
     cardImage={data.supportCardId.cardImage!}
-    event={eventWithChoice} />
+    event={events} />
 }
 
 export default SupportCardDetailContainer

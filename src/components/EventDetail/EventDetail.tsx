@@ -14,7 +14,7 @@ const EventDetail: React.FC<Props> = (props: Props) => {
   return <AccordionDetails>
     {
       props.choice.map((x, i) => {
-        return <Card>
+        return <Card key={i}>
           <CardContent>
           <Typography variant="h5" component="h2">
             {x.title}
