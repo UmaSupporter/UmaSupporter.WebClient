@@ -1,0 +1,7 @@
+.SupportCardList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(12.5%, auto));
+    justify-items: center;
+    width: 1000px;
+    margin: 0px auto;
+}

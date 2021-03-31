@@ -1,0 +1,9 @@
+.SupportCard {
+    border-radius: 15px;
+    aspect-ratio: 1/1.3;
+    width: 100px;
+    object-fit: cover;
+    border: solid 4px pink;
+    margin: 8px 0px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08), 0 3px 6px rgba(0, 0, 0, 0.11);
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import SupportCardComponent, { SupportCard } from "./SupportCard/SupportCard";
+import "./SupportCardList.css";
 
 type Props = {
   cards: SupportCard[]
@@ -8,9 +9,9 @@ type Props = {
 
 const SupportCardList: React.FC<Props> = (props: Props) => {
   return (
-    <ul>
+    <div className={"SupportCardList"}>
       {props.cards.map(x =>
-        <li key={x.uuid} style={{ display: "inline" }} >
+        // <span key={x.uuid} style={{ display: "inline" }} >
           <SupportCardComponent
             onClickItem={props.onClickItem}
             uuid={x.uuid}
@@ -19,8 +20,9 @@ const SupportCardList: React.FC<Props> = (props: Props) => {
             rareDegree={x.rareDegree}
             cardImage={x.cardImage}
             cardType={x.cardType} />
-        </li>)}
-    </ul>
+        // </span>
+        )}
+    </div>
   );
 };
 
