@@ -8,15 +8,19 @@ type Props = SupportCard & {
 }
 
 const SupportCardComponent: React.FC<Props> = (props: Props) => {
-  const { uuid, cardName, secondName, cardImage } = props;
+  const { uuid, cardName, secondName, cardType, cardImage, selected } = props;
   const uri = useContext(UriContext);
   console.log(uri)
   return (
-    <img 
-    onClick={() => props.onClickItem(uuid)} 
-    alt={`${cardName}-${secondName}`} 
-    src={`${uri}/images/${cardImage}`}
-    className={"SupportCard"} />
+    <div className={`SupportCard-BackPanel ${cardType} ${selected?"selected":"available"}`}>
+      
+      <img 
+      onClick={() => props.onClickItem(uuid)} 
+      alt={`${cardName}-${secondName}`} 
+      src={`${uri}/images/${cardImage}`}
+      className={`SupportCard`} />
+      <div className={"tint"}/>  
+    </div>
   );
 };
 

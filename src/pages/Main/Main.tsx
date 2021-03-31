@@ -77,7 +77,7 @@ const Main: React.FC = () => {
   return (
     <div className={"MainPage"}>
       <Input onChange={onChangeCardType}/>
-      <SupportCardListContainer cardType={state.cardType} onClickItem={addCard} />
+      <SupportCardListContainer cardType={state.cardType} onClickItem={addCard} selectedList={state.uuids} />
       <div className="MainPage-Dock">
       <SelectedCardListContainer
         selectedList={state.uuids}
@@ -85,10 +85,8 @@ const Main: React.FC = () => {
         onResetItem={resetCard}
         />
         <Link to={`play?selected=${state.uuids.join(',')}`}className="MainPage-StartButton">
-        {/* <button type="button" > */}
           start!
-        {/* </button> */}
-      </Link>
+        </Link>
       </div>  
     </div>
 

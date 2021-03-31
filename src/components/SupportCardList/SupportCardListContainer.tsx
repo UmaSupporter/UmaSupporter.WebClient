@@ -17,7 +17,8 @@ gql`
 
 type Props = {
   onClickItem: (uuid: number) => void,
-  cardType: string
+  cardType: string,
+  selectedList: Array<Number>
 }
 
 const SupportCardListContainer: React.FC<Props> = (props: Props) => {
@@ -52,7 +53,7 @@ const SupportCardListContainer: React.FC<Props> = (props: Props) => {
 
   return (
     <div className={"SupportCardListContainer"} >
-      <SupportCardList cards={cardList} onClickItem={props.onClickItem} />
+      <SupportCardList cards={cardList} onClickItem={props.onClickItem} selectedList={props.selectedList}/>
     </div>
   );
 };

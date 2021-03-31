@@ -6,6 +6,7 @@ import "./SupportCardList.scss";
 type Props = {
   cards: SupportCard[]
   onClickItem: (uuid: number) => void
+  selectedList: Array<Number>
 }
 
 const SupportCardList: React.FC<Props> = (props: Props) => {
@@ -20,7 +21,9 @@ const SupportCardList: React.FC<Props> = (props: Props) => {
             secondName={x.secondName}
             rareDegree={x.rareDegree}
             cardImage={x.cardImage}
-            cardType={x.cardType} />
+            cardType={x.cardType}
+            selected={props.selectedList.includes(x.uuid)}
+            />
         // </span>
         )}
     </div>
