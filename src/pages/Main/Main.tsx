@@ -79,13 +79,13 @@ const Main: React.FC = () => {
       <Input onChange={onChangeCardType}/>
       <SupportCardListContainer cardType={state.cardType} onClickItem={addCard} selectedList={state.uuids} />
       <div className="MainPage-Dock">
-      <SelectedCardListContainer
-        selectedList={state.uuids}
-        onDeleteItem={deleteCard}
-        onResetItem={resetCard}
-        />
+        <SelectedCardListContainer
+          selectedList={state.uuids}
+          onDeleteItem={deleteCard}
+          onResetItem={resetCard}
+          />
         <Link to={`play?selected=${state.uuids.join(',')}`}className="MainPage-StartButton">
-          start!
+          start
         </Link>
       </div>  
     </div>
