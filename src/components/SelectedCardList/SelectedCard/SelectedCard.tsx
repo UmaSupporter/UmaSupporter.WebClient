@@ -13,7 +13,7 @@ type Props = {
 
 
 const SelectedCard: React.FC<Props> = (props: Props) => {
-  const { uuid, cardName, secondName,cardType, cardImage } = props;
+  const { uuid, cardName, secondName, cardImage } = props;
   const uri = useContext(UriContext);
   return <div className="SelectedCard">
     <img src={`${uri}/images/${cardImage}`} alt={`${cardName}-${secondName}`} className="SelectedCard-image"></img>
