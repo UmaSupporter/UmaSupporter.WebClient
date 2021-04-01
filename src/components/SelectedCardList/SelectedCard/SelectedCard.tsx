@@ -19,7 +19,6 @@ const SelectedCard: React.FC<Props> = (props: Props) => {
 
   return (
     <div className={`SelectedCard ${cardType} ${rareDegree}`}>
-      <div className={`tint ${rareDegree==="SSR"?"hide":""}` }/>
       <img 
         src={`${uri}/images/${cardImage}`} 
         alt={`${cardName}-${secondName}`} 

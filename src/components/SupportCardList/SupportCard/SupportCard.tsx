@@ -15,7 +15,6 @@ const SupportCardComponent: React.FC<Props> = (props: Props) => {
   
   return (
     <div className={`SupportCard-BackPanel ${cardType} ${selected?"selected":"available"} ${rareDegree}`}>
-      <div className={`tint ${rareDegree=="SSR"?"hide":""}` }/>
       <img 
       onClick={() => props.onClickItem(uuid)} 
       alt={`${cardName}-${secondName}`} 
