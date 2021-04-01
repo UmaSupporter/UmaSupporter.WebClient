@@ -7,19 +7,30 @@ type Props = {
   cardName: string,
   secondName: string,
   cardType: string,
-  cardImage: string
+  cardImage: string,
+  rareDegree: string
   onDeleteItem: (uuid: number) => void
 }
 
 
 const SelectedCard: React.FC<Props> = (props: Props) => {
-  const { uuid, cardName, secondName, cardImage } = props;
+  const { uuid, cardName, secondName, cardImage, cardType, rareDegree } = props;
   const uri = useContext(UriContext);
-  return <div className="SelectedCard">
-    <img src={`${uri}/images/${cardImage}`} alt={`${cardName}-${secondName}`} className="SelectedCard-image"></img>
-    {/* <p>{cardName} / {cardType} / {secondName}</p> */}
-    <button onClick={() => props.onDeleteItem(uuid)} className="SelectedCard-removeButton">X</button>
-  </div>
+
+  return (
+    <div className={`SelectedCard ${cardType} ${rareDegree}`}>
+      <div className={`tint ${rareDegree==="SSR"?"hide":""}` }/>
+      <img 
+        src={`${uri}/images/${cardImage}`} 
+        alt={`${cardName}-${secondName}`} 
+        className="SelectedCard-image"></img>
+      <button 
+        onClick={() => props.onDeleteItem(uuid)}
+        className="SelectedCard-removeButton">
+          X
+      </button>
+    </div>
+  );
 }
 
 export default SelectedCard

@@ -1,29 +1,30 @@
+@import '../../common/Card.scss';
+@mixin SelectedCard {
+  aspect-ratio: 1;
+}
 .SelectedCard {
-    width: 120px;
+  @include SelectedCard();
+  @include CardBackPanel;
+  margin: 0px 8px;
 }
 .SelectedCard-image {
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 18px;
-    border: solid 6px pink;
-    transition: transform 0.5s cubic-bezier(0.65, 0.01, 0.35, 0.99);
+  @include SelectedCard();
+  @include CardImage;
 }
 .SelectedCard-removeButton {
-    position: absolute;
-    background: #f44336;
-    color: white;
-    font-size: 8px;
-    margin-top: 4px;
-    margin-left: -24px;
-    font-weight: bold;
-    border: none;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
+  position: absolute;
+  background: #f44336;
+  color: white;
+  font-size: 8px;
+  margin-top: 4px;
+  margin-left: -24px;
+  font-weight: bold;
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
 }
 .SelectedCard-removeButton:focus {
-    outline: none;
+  outline: none;
 }

@@ -1,17 +1,6 @@
-@mixin Card {
+@import '../../common/Card.scss';
+@mixin SupportCard {
   aspect-ratio: 1/1.3;
-}
-.SupportCard-BackPanel {
-  @include Card();
-  border-radius: 15px;
-  width: 100px;
-  padding: 4px;
-  border: solid 1px rgba(0, 0, 0, 0.1);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.11);
-  margin: 8px 0px;
-
-  transition: transform 0.1s cubic-bezier(0.5, 0.13, 0.81, 0.44);
-  overflow: hidden;
   &.available:hover {
     transform: scale(1.05);
     cursor: pointer;
@@ -19,52 +8,13 @@
   &.selected {
     filter: saturate(50%) brightness(50%);
   }
-  &.R {
-    background: linear-gradient(160deg, white 0%, #9da5be 100%);
-  }
-  &.SR {
-    background: linear-gradient(160deg, #fff3d4 0%, #cf9811 100%);
-  }
-  &.SSR {
-    background: linear-gradient(
-      135deg,
-      rgba(239, 150, 223, 1) 0%,
-      rgb(223, 119, 255) 30%,
-      rgba(113, 173, 251, 1) 60%,
-      rgba(74, 220, 242, 1) 80%,
-      rgba(182, 247, 77, 1) 100%
-    );
-  }
 }
-.tint {
-  @include Card();
-  position: relative;
-  width: 108px;
-  margin-left: -4px;
-  background: linear-gradient(
-    0deg,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(221, 221, 221, 1) 49%,
-    rgba(172, 172, 172, 1) 49%,
-    rgba(201, 201, 201, 1) 77%,
-    rgba(255, 255, 255, 1) 100%
-  );
-  margin-top: -8px;
-  opacity: 0;
-  mix-blend-mode: multiply;
-  z-index: 1;
-  &.hide {
-    opacity: 0;
-  }
+.SupportCard-BackPanel {
+  @include CardBackPanel;
+  @include SupportCard();
 }
+
 .SupportCard {
-  @include Card();
-  position: relative;
-  border-radius: 10px;
-  top: -131px;
-  width: calc(100px - 4px);
-  border: solid 2px rgba(0, 0, 0, 0.2);
-  opacity: 0.99;
-  z-index: 2;
-  // margin-top: -155px;
+  @include SupportCard();
+  @include CardImage();
 }

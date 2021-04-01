@@ -34,6 +34,7 @@ const SelectedCardContainer: React.FC<Props> = (props: Props) => {
     cardType={data.supportCardId.cardType!}
     secondName={data.supportCardId.secondName!}
     cardImage={data.supportCardId.cardImage!}
+    rareDegree={data.supportCardId.rareDegree!}
     onDeleteItem={props.onDeleteItem}
    />
 };

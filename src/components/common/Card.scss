@@ -1,0 +1,35 @@
+@mixin CardBackPanel {
+  border-radius: 15px;
+  width: 100px;
+  padding: 4px;
+  border: solid 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.11);
+  margin: 8px 0px;
+  transition: transform 0.1s cubic-bezier(0.5, 0.13, 0.81, 0.44);
+  overflow: hidden;
+  &.R {
+    background: linear-gradient(160deg, white 0%, #9da5be 100%);
+  }
+  &.SR {
+    background: linear-gradient(160deg, #fff3d4 0%, #cf9811 100%);
+  }
+  &.SSR {
+    background: linear-gradient(
+      135deg,
+      rgba(239, 150, 223, 1) 0%,
+      rgb(223, 119, 255) 30%,
+      rgba(113, 173, 251, 1) 60%,
+      rgba(74, 220, 242, 1) 80%,
+      rgba(182, 247, 77, 1) 100%
+    );
+  }
+}
+@mixin CardImage {
+  position: relative;
+  border-radius: 10px;
+  width: calc(100px - 4px);
+  object-fit: cover;
+  border: solid 2px rgba(0, 0, 0, 0.2);
+  opacity: 0.99;
+  image-rendering: optimizeQuality;
+}
