@@ -1,25 +1,35 @@
 import React, { useContext } from "react";
 import { UriContext } from "../../../common";
-import  "./SelectedCard.css";
+import  "./SelectedCard.scss";
 
 type Props = {
   uuid: number,
   cardName: string,
   secondName: string,
   cardType: string,
-  cardImage: string
+  cardImage: string,
+  rareDegree: string
   onDeleteItem: (uuid: number) => void
 }
 
 
 const SelectedCard: React.FC<Props> = (props: Props) => {
-  const { uuid, cardName, secondName, cardImage } = props;
+  const { uuid, cardName, secondName, cardImage, cardType, rareDegree } = props;
   const uri = useContext(UriContext);
-  return <div className="SelectedCard">
-    <img src={`${uri}/images/${cardImage}`} alt={`${cardName}-${secondName}`} className="SelectedCard-image"></img>
-    {/* <p>{cardName} / {cardType} / {secondName}</p> */}
-    <button onClick={() => props.onDeleteItem(uuid)} className="SelectedCard-removeButton">X</button>
-  </div>
+
+  return (
+    <div className={`SelectedCard ${cardType} ${rareDegree}`}>
+      <img 
+        src={`${uri}/images/${cardImage}`} 
+        alt={`${cardName}-${secondName}`} 
+        className="SelectedCard-image"></img>
+      <button 
+        onClick={() => props.onDeleteItem(uuid)}
+        className="SelectedCard-removeButton">
+          X
+      </button>
+    </div>
+  );
 }
 
 export default SelectedCard

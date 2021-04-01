@@ -1,5 +1,5 @@
 import SelectedCardContainer from "./SelectedCard/SelectedCardContainer"
-import './SelectedCardList.css';
+import './SelectedCardList.scss';
 
 type Props = {
   uuids: number[]
@@ -8,15 +8,13 @@ type Props = {
 }
 
 const SelectedCardList: React.FC<Props> = (props: Props) => {
-  
   return <div className="SelectedCardList">
-  <>
-  {
-    props.uuids.map(x => <SelectedCardContainer onDeleteItem={props.onDeleteItem} uuid={x} />)
-  }
-  </>
-  <button onClick={() => props.onResetItem()}>reset</button>
-  
+    {props.uuids.map(x =>
+        <SelectedCardContainer 
+          onDeleteItem={props.onDeleteItem}
+          uuid={x} />
+      )}
+    <button onClick={() => props.onResetItem()}>reset</button>
   </div>
 }
 

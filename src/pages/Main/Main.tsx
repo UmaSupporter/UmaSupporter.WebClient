@@ -3,7 +3,7 @@ import { useReducer } from "react";
 import { Link } from "react-router-dom"
 import SelectedCardListContainer from "../../components/SelectedCardList";
 import SupportCardListContainer from "../../components/SupportCardList";
-import "./Main.css";
+import "./Main.scss";
 
 type AppendAction = {
   type: 'APPEND_CARD',
@@ -77,18 +77,19 @@ const Main: React.FC = () => {
   return (
     <div className={"MainPage"}>
       <Input onChange={onChangeCardType}/>
-      <SupportCardListContainer cardType={state.cardType} onClickItem={addCard} />
+      <SupportCardListContainer
+        cardType={state.cardType}
+        onClickItem={addCard}
+        selectedList={state.uuids} />
       <div className="MainPage-Dock">
-      <SelectedCardListContainer
-        selectedList={state.uuids}
-        onDeleteItem={deleteCard}
-        onResetItem={resetCard}
-        />
+        <SelectedCardListContainer
+          selectedList={state.uuids}
+          onDeleteItem={deleteCard}
+          onResetItem={resetCard}
+          />
         <Link to={`play?selected=${state.uuids.join(',')}`}className="MainPage-StartButton">
-        {/* <button type="button" > */}
-          start!
-        {/* </button> */}
-      </Link>
+          start
+        </Link>
       </div>  
     </div>
 

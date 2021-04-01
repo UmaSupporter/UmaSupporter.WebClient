@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 import SupportCardListContainer from '../../components/SupportCardList';
 
 function App() {
