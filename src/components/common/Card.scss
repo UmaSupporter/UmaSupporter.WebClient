@@ -1,4 +1,5 @@
 @mixin CardBackPanel {
+  box-sizing: content-box;
   border-radius: 15px;
   width: 100px;
   padding: 4px;
