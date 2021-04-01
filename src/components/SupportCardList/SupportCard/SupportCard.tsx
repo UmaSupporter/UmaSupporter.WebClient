@@ -5,6 +5,7 @@ import "./SupportCard.scss";
 
 type Props = SupportCard & {
   onClickItem: (uuid: number) => void
+  selected: boolean
 }
 
 const SupportCardComponent: React.FC<Props> = (props: Props) => {
