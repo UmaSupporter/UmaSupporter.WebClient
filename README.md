@@ -1,4 +1,7 @@
 # Umamusume Supporter Client
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 [![Netlify Status](https://api.netlify.com/api/v1/badges/4ee9162c-4267-44a3-a938-a3593d29e261/deploy-status)](https://app.netlify.com/sites/dreamy-northcutt-cfb2f0/deploys)
 
 이 프로젝트는 [우마서포터](https://uma.sonagi.dev)의 프론트엔드 클라이언트입니다.
@@ -23,3 +26,23 @@ yarn start
 
 ## 프로덕션 빌드
 main 브랜치에 머지되면 자동으로 [우마서포터](https://uma.sonagi.dev)에 올라가게 됩니다.
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="http://justie.me"><img src="https://avatars.githubusercontent.com/u/7118300?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ben</b></sub></a><br /><a href="https://github.com/riemannulus/umamusume-client/commits?author=JUSTIVE" title="Tests">⚠️</a> <a href="#design-JUSTIVE" title="Design">🎨</a> <a href="https://github.com/riemannulus/umamusume-client/commits?author=JUSTIVE" title="Code">💻</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
