@@ -1,70 +1,25 @@
-# Getting Started with Create React App
+# Umamusume Supporter Client
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4ee9162c-4267-44a3-a938-a3593d29e261/deploy-status)](https://app.netlify.com/sites/dreamy-northcutt-cfb2f0/deploys)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+이 프로젝트는 [우마서포터](https://uma.sonagi.dev)의 프론트엔드 클라이언트입니다.
+[Netlify](https://netlify.com)에 의해 서빙되고 있습니다.
 
-## Available Scripts
+백엔드 서버는 [umamusume-server](https://github.com/riemannulus/umamusume-server) 를 참고해 주세요.
 
-In the project directory, you can run:
+## 개발환경
+이 저장소는 [yarn](https://yarnpkg.com)을 사용하고 있습니다.
+이 프로젝트에 기여하기 위한 개발환경 셋업은 다음 순서를 따라 주십시오.
 
-### `yarn start`
+1. yarn과 node를 설치한 PC에서 다음 명령어를 입력합니다.
+```
+yarn install
+```
+2. 실행시켜 주십시오.
+```
+yarn start
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+이제 코드베이스가 변경될 경우 자동으로 watch하여 화면에 반영될 것입니다.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 프로덕션 빌드
+main 브랜치에 머지되면 자동으로 [우마서포터](https://uma.sonagi.dev)에 올라가게 됩니다.
