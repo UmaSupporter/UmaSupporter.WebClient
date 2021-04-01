@@ -77,7 +77,10 @@ const Main: React.FC = () => {
   return (
     <div className={"MainPage"}>
       <Input onChange={onChangeCardType}/>
-      <SupportCardListContainer cardType={state.cardType} onClickItem={addCard} selectedList={state.uuids} />
+      <SupportCardListContainer
+        cardType={state.cardType}
+        onClickItem={addCard}
+        selectedList={state.uuids} />
       <div className="MainPage-Dock">
         <SelectedCardListContainer
           selectedList={state.uuids}
