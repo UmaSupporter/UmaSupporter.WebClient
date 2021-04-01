@@ -5,10 +5,10 @@ import PlayPageRouter from "./pages/Play/router"
 const MainRouter: React.FC = () => {
   return (
     <>
-    <MainPageRouter />
-    <Switch>
-      <PlayPageRouter />
-    </Switch>
+      <Switch>
+        <MainPageRouter />
+        <PlayPageRouter />
+      </Switch>
     </>
   )
 }
