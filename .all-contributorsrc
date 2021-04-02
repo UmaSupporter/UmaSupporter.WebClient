@@ -15,6 +15,16 @@
         "design",
         "code"
       ]
+    },
+    {
+      "login": "x86chi",
+      "name": "Muhun Kim",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5278201?v=4",
+      "profile": "http://frontend.moe",
+      "contributions": [
+        "a11y",
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
