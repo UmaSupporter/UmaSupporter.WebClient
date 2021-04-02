@@ -4,6 +4,7 @@ import { useSupportCardQuery } from "../../generated/graphql";
 import { CORE_SUPPORT_CARD_FIELD } from "../common/fragments";
 import { SupportCard } from "../../types";
 import SupportCardList from "./SupportCardList";
+import { rareDegreeCompare } from "../../common/utils";
 
 gql`
   ${CORE_SUPPORT_CARD_FIELD}
@@ -35,7 +36,7 @@ const SupportCardListContainer: React.FC<Props> = (props: Props) => {
       cardImage: x?.cardImage,
       cardType: x?.cardType,
     } as SupportCard
-  });
+  }).sort(rareDegreeCompare).reverse();
 
   if (props.cardType !== "") {
     cardList = data.supportCard.map(x => {
