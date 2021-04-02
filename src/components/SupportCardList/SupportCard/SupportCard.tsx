@@ -14,15 +14,18 @@ const SupportCardComponent: React.FC<Props> = (props: Props) => {
   console.log(uri)
   
   return (
-    <div className={`SupportCard-BackPanel ${cardType} ${selected?"selected":"available"} ${rareDegree}`}>
-      <img 
-      onClick={() => props.onClickItem(uuid)} 
-      alt={`${cardName}-${secondName}`} 
-      src={`${uri}/images/${cardImage}`}
-      className={`SupportCard`} />
-      
-    </div>
-  );
-};
+    <button
+      className={`SupportCard-BackPanel ${cardType} ${
+        selected ? 'selected' : 'available'
+      } ${rareDegree}`}
+      onClick={() => props.onClickItem(uuid)}>
+      <img
+        alt={`${cardName}-${secondName}`}
+        src={`${uri}/images/${cardImage}`}
+        className={`SupportCard`}
+      />
+    </button>
+  )
+}
 
 export default SupportCardComponent;

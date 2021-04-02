@@ -1,6 +1,6 @@
 import { Input } from "@material-ui/core";
 import { useReducer } from "react";
-import { Link } from "react-router-dom"
+import { useHistory } from "react-router-dom"
 import SelectedCardListContainer from "../../components/SelectedCardList";
 import SupportCardListContainer from "../../components/SupportCardList";
 import "./Main.scss";
@@ -66,12 +66,19 @@ const selectedCardReducer = (state: State, action: Action): State => {
 
 const Main: React.FC = () => {
   const [state, dispatch] = useReducer(selectedCardReducer, {uuids: [], cardType: ""}, resetState);
+
+  const history = useHistory();
+
   const addCard = (uuid: number) => dispatch({ type: 'APPEND_CARD', payload: uuid })
   const deleteCard = (uuid: number) => dispatch({ type: 'DELETE_CARD', payload: uuid })
   const resetCard = () => dispatch({ type: 'RESET' })
 
   const onChangeCardType = (event: React.ChangeEvent<HTMLInputElement>) => {
     dispatch({type: 'SET_CARD_TYPE', payload: event.target.value == null ? "" : event.target.value})
+  }
+
+  const onSubmit = (event: unknown) => {
+    history.push(`/play?selected=${state.uuids.join(", ")}`)
   }
 
   return (
@@ -82,14 +89,14 @@ const Main: React.FC = () => {
         onClickItem={addCard}
         selectedList={state.uuids} />
       <div className="MainPage-Dock">
-        <SelectedCardListContainer
-          selectedList={state.uuids}
-          onDeleteItem={deleteCard}
-          onResetItem={resetCard}
-          />
-        <Link to={`play?selected=${state.uuids.join(',')}`}className="MainPage-StartButton">
-          start
-        </Link>
+      <SelectedCardListContainer
+        selectedList={state.uuids}
+        onDeleteItem={deleteCard}
+        onResetItem={resetCard}
+        />
+        <button onClick={onSubmit} className="MainPage-StartButton">
+          start!
+      	</button>
       </div>  
     </div>
 
