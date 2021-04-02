@@ -1,6 +1,6 @@
 # Umamusume Supporter Client
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 [![Netlify Status](https://api.netlify.com/api/v1/badges/4ee9162c-4267-44a3-a938-a3593d29e261/deploy-status)](https://app.netlify.com/sites/dreamy-northcutt-cfb2f0/deploys)
 
@@ -37,6 +37,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="http://justie.me"><img src="https://avatars.githubusercontent.com/u/7118300?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ben</b></sub></a><br /><a href="https://github.com/riemannulus/umamusume-client/commits?author=JUSTIVE" title="Tests">⚠️</a> <a href="#design-JUSTIVE" title="Design">🎨</a> <a href="https://github.com/riemannulus/umamusume-client/commits?author=JUSTIVE" title="Code">💻</a></td>
+    <td align="center"><a href="http://frontend.moe"><img src="https://avatars.githubusercontent.com/u/5278201?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Muhun Kim</b></sub></a><br /><a href="#a11y-x86chi" title="Accessibility">️️️️♿️</a> <a href="https://github.com/riemannulus/umamusume-client/commits?author=x86chi" title="Code">💻</a></td>
   </tr>
 </table>
 
