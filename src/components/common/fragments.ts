@@ -4,10 +4,13 @@ export const CORE_SUPPORT_CARD_FIELD = gql`
   fragment CoreSupportCardField on SupportCardType {
       uuid
       cardName
+      cardNameKr
       secondName
+      secondNameKr
       rareDegree
       cardImage
       cardType
+      cardTypeKr
   }
 `;
 

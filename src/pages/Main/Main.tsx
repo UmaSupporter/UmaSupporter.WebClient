@@ -1,4 +1,4 @@
-import { Input } from "@material-ui/core";
+import { Input, Typography } from "@material-ui/core";
 import { useReducer } from "react";
 import { useHistory } from "react-router-dom"
 import SelectedCardListContainer from "../../components/SelectedCardList";
@@ -83,23 +83,32 @@ const Main: React.FC = () => {
 
   return (
     <div className={"MainPage"}>
-      <Input onChange={onChangeCardType}/>
-      <SupportCardListContainer
-        cardType={state.cardType}
-        onClickItem={addCard}
-        selectedList={state.uuids} />
-      <div className="MainPage-Dock">
-      <SelectedCardListContainer
-        selectedList={state.uuids}
-        onDeleteItem={deleteCard}
-        onResetItem={resetCard}
-        />
-        <button onClick={onSubmit} className="MainPage-StartButton">
-          start!
-      	</button>
-      </div>  
-    </div>
+      <div className={"UmaList"}>
 
+      </div>
+      <div className={"CardList"}>
+        <div>
+          즐겨찾기
+        </div>
+        <div>
+          최근 선택한 카드
+        </div>
+        <div className={"CardListGrid"}>
+          <SupportCardListContainer
+          onClickItem={addCard}
+          cardType={state.cardType}
+          selectedList={state.uuids}
+          />
+        </div>
+      </div>
+      <div className={"UmaEventChoice EventChoice"}>
+
+      </div>
+        
+      <div className={"CardEventChoice EventChoice"}>
+
+      </div>
+    </div>
   )
 }
 

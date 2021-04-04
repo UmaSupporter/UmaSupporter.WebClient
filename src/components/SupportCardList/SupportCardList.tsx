@@ -28,7 +28,7 @@ const SupportCardList: React.FC<Props> = (props: Props) => {
           //  </span>
           )}
       </div>
-    </div>
+      </div>
   );
 };
 

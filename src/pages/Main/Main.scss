@@ -1,8 +1,37 @@
 .MainPage {
   display: flex;
-  flex-direction: column;
-  height: calc(100vh - 64px);
   background: #f2eff6;
+  flex:1;
+  overflow:hidden;
+}
+
+.CardList {
+  display: flex;
+  flex-direction: column;
+  height:100%;
+  flex:3;
+  .CardListGrid{
+    flex:1;
+    height:100%;
+    overflow: scroll;
+  }
+}
+
+.EventChoice{
+  display:flex;
+  flex:1;
+}
+
+.RecentCardList {
+  height: 150px;
+}
+
+.UmaList {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex:2;
 }
 
 .MainPage-Dock {

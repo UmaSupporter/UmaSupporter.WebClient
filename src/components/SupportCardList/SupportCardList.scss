@@ -3,11 +3,12 @@
   overflow-y: scroll;
   flex: 1;
 }
+
 .SupportCardList {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(12.5%, auto));
+  grid-template-columns: repeat(auto-fill, minmax(auto, 12.5%));
   justify-items: center;
-  width: 1000px;
+  width: 100%;
   margin: 0px auto;
   flex: 1;
 }
