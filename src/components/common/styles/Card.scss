@@ -1,4 +1,5 @@
 @import "./Animation.scss";
+$cardRadius:10px;
 @mixin CardBackPanel {
   @include animation(0.2s,appearance, cubic-bezier(0.25,1,0.8,1.2));
   box-sizing: content-box;
@@ -41,7 +42,7 @@
 }
 @mixin CardImage {
   position: relative;
-  border-radius: 10px;
+  border-radius: $cardRadius;
   width: calc(100px - 4px);
   object-fit: cover;
   border: solid 2px rgba(0, 0, 0, 0.2);
@@ -49,7 +50,15 @@
   image-rendering: optimizeQuality;
 }
 
-@mixin CardPlaceHolder{
+@mixin CardPlaceholder{
   width: 100px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
   padding: 4px;
+  margin:0px 8px;
+  border-radius:$cardRadius;
+  background:#ececec;
+  border:dotted 4px #e8e8e8;
+  font-weight:bold;
 }

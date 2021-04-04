@@ -10,7 +10,7 @@ type Props = SupportCard & {
 }
 
 const SupportCardComponent: React.FC<Props> = (props: Props) => {
-  const { uuid, cardName, secondName, cardType, cardImage, selected, rareDegree } = props;
+  const { uuid, cardName, secondName, cardType, cardImage, rareDegree } = props;
   const uri = useContext(UriContext);
   console.log(uri)
   

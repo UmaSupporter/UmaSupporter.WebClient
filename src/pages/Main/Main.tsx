@@ -1,5 +1,4 @@
 import React, { useReducer } from "react";
-import { useHistory } from "react-router-dom"
 import SelectedCardListContainer from "../../components/SelectedCardList";
 import SupportCardListContainer from "../../components/SupportCardList";
 import SupportCardDetailContainer from "../../components/SupportCardDetail";
@@ -87,8 +86,6 @@ const selectedCardReducer = (state: State, action: Action): State => {
 
 const Main: React.FC = () => {
   const [state, dispatch] = useReducer(selectedCardReducer, {cardUuids: [], cardType: ""}, resetState);
-
-  const history = useHistory();
 
   const addFavoriteCard = (uuid: number) => dispatch({ type: 'APPEND_CARD', payload: uuid })
   const deleteCard = (uuid: number) => dispatch({ type: 'DELETE_CARD', payload: uuid })
