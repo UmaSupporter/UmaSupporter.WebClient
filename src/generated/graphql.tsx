@@ -291,6 +291,20 @@ export type SupportCardQuery = (
   )>>> }
 );
 
+export type GetUmaOnIdWithEventQueryVariables = Exact<{
+  uuid: Scalars['Int'];
+}>;
+
+
+export type GetUmaOnIdWithEventQuery = (
+  { __typename?: 'Query' }
+  & { umamusumeId?: Maybe<(
+    { __typename?: 'UmamusumeType' }
+    & Pick<UmamusumeType, 'uuid' | 'umaName' | 'secondName' | 'rareDegree' | 'umaImage'>
+    & UmaEventWithChoiceFragment
+  )> }
+);
+
 export type UmaListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -350,6 +364,49 @@ export type CardEventWithChoiceFragment = (
   )> }
 );
 
+export type UmaEventChoiceFragment = (
+  { __typename?: 'UmaEventType' }
+  & { umaEventChoice?: Maybe<(
+    { __typename?: 'UmaEventChoiceTypeConnection' }
+    & { edges: Array<Maybe<(
+      { __typename?: 'UmaEventChoiceTypeEdge' }
+      & { node?: Maybe<(
+        { __typename?: 'UmaEventChoiceType' }
+        & Pick<UmaEventChoiceType, 'title' | 'titleKr' | 'effect' | 'effectKr'>
+      )> }
+    )>> }
+  )> }
+);
+
+export type UmaEventFragment = (
+  { __typename?: 'UmamusumeType' }
+  & { umaEvent?: Maybe<(
+    { __typename?: 'UmaEventTypeConnection' }
+    & { edges: Array<Maybe<(
+      { __typename?: 'UmaEventTypeEdge' }
+      & { node?: Maybe<(
+        { __typename?: 'UmaEventType' }
+        & Pick<UmaEventType, 'title' | 'titleKr'>
+      )> }
+    )>> }
+  )> }
+);
+
+export type UmaEventWithChoiceFragment = (
+  { __typename?: 'UmamusumeType' }
+  & { umaEvent?: Maybe<(
+    { __typename?: 'UmaEventTypeConnection' }
+    & { edges: Array<Maybe<(
+      { __typename?: 'UmaEventTypeEdge' }
+      & { node?: Maybe<(
+        { __typename?: 'UmaEventType' }
+        & Pick<UmaEventType, 'title' | 'titleKr'>
+        & UmaEventChoiceFragment
+      )> }
+    )>> }
+  )> }
+);
+
 export const CoreSupportCardFieldFragmentDoc = gql`
     fragment CoreSupportCardField on SupportCardType {
   uuid
@@ -398,6 +455,45 @@ export const CardEventWithChoiceFragmentDoc = gql`
   }
 }
     ${CardEventChoiceFragmentDoc}`;
+export const UmaEventFragmentDoc = gql`
+    fragment UmaEvent on UmamusumeType {
+  umaEvent {
+    edges {
+      node {
+        title
+        titleKr
+      }
+    }
+  }
+}
+    `;
+export const UmaEventChoiceFragmentDoc = gql`
+    fragment UmaEventChoice on UmaEventType {
+  umaEventChoice {
+    edges {
+      node {
+        title
+        titleKr
+        effect
+        effectKr
+      }
+    }
+  }
+}
+    `;
+export const UmaEventWithChoiceFragmentDoc = gql`
+    fragment UmaEventWithChoice on UmamusumeType {
+  umaEvent {
+    edges {
+      node {
+        title
+        titleKr
+        ...UmaEventChoice
+      }
+    }
+  }
+}
+    ${UmaEventChoiceFragmentDoc}`;
 export const GetSupportCardOnIdDocument = gql`
     query getSupportCardOnId($uuid: Int!) {
   supportCardId(uuid: $uuid) {
@@ -505,6 +601,46 @@ export function useSupportCardLazyQuery(baseOptions?: Apollo.LazyQueryHookOption
 export type SupportCardQueryHookResult = ReturnType<typeof useSupportCardQuery>;
 export type SupportCardLazyQueryHookResult = ReturnType<typeof useSupportCardLazyQuery>;
 export type SupportCardQueryResult = Apollo.QueryResult<SupportCardQuery, SupportCardQueryVariables>;
+export const GetUmaOnIdWithEventDocument = gql`
+    query getUmaOnIdWithEvent($uuid: Int!) {
+  umamusumeId(uuid: $uuid) {
+    uuid
+    umaName
+    secondName
+    rareDegree
+    umaImage
+    ...UmaEventWithChoice
+  }
+}
+    ${UmaEventWithChoiceFragmentDoc}`;
+
+/**
+ * __useGetUmaOnIdWithEventQuery__
+ *
+ * To run a query within a React component, call `useGetUmaOnIdWithEventQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetUmaOnIdWithEventQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetUmaOnIdWithEventQuery({
+ *   variables: {
+ *      uuid: // value for 'uuid'
+ *   },
+ * });
+ */
+export function useGetUmaOnIdWithEventQuery(baseOptions: Apollo.QueryHookOptions<GetUmaOnIdWithEventQuery, GetUmaOnIdWithEventQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetUmaOnIdWithEventQuery, GetUmaOnIdWithEventQueryVariables>(GetUmaOnIdWithEventDocument, options);
+      }
+export function useGetUmaOnIdWithEventLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetUmaOnIdWithEventQuery, GetUmaOnIdWithEventQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetUmaOnIdWithEventQuery, GetUmaOnIdWithEventQueryVariables>(GetUmaOnIdWithEventDocument, options);
+        }
+export type GetUmaOnIdWithEventQueryHookResult = ReturnType<typeof useGetUmaOnIdWithEventQuery>;
+export type GetUmaOnIdWithEventLazyQueryHookResult = ReturnType<typeof useGetUmaOnIdWithEventLazyQuery>;
+export type GetUmaOnIdWithEventQueryResult = Apollo.QueryResult<GetUmaOnIdWithEventQuery, GetUmaOnIdWithEventQueryVariables>;
 export const UmaListDocument = gql`
     query umaList {
   umamusume {

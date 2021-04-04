@@ -2,5 +2,5 @@
 
 .SelectedCardPlaceholder{
   @include SelectedCard;
-  @include CardPlaceholder
+  @include CardPlaceholder()
 }

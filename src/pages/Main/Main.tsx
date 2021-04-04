@@ -4,6 +4,7 @@ import SupportCardListContainer from "../../components/SupportCardList";
 import SupportCardDetailContainer from "../../components/SupportCardDetail";
 import UmaListContainer from "../../components/UmaList";
 import "./Main.scss";
+import UmaDetailContainer from "../../components/UmaDetail";
 
 type SetUmaAction = {
   type: 'SET_UMA_ACTION',
@@ -102,17 +103,24 @@ const Main: React.FC = () => {
       </div>
       <div className={"CardList"}>
         <div>
-          즐겨찾기
+          <p className={"MainPagelabel"}>
+            즐겨찾기
+          </p>
           <SelectedCardListContainer 
+          onClickItem={setCard}
           selectedList={state.favoriteCardUuids} 
           onDeleteItem={deleteCard}
           onResetItem={resetCard}/>
         </div>
-        <div>
+        {/* <div className={"MainPageRecentCard"}>
+          <p className={"MainPagelabel"}>
           최근 선택한 카드
-        </div>
-        <div>
+          </p>
+        </div> */}
+        <div className={"MainPageCardList"}>
+          <p className={"MainPagelabel"}>
           카드 리스트
+          </p>
         </div>
         <div className={"CardListGrid"}>
           <SupportCardListContainer
@@ -122,12 +130,14 @@ const Main: React.FC = () => {
           />
         </div>
       </div>
-      <div className={"UmaEventChoice EventChoice"}>
-
-      </div>
-        
-      <div className={"CardEventChoice EventChoice"}>
-        <SupportCardDetailContainer uuid={state.cardUuid}/>
+      <div className={"UmaEventArea"}>
+        <div className={"UmaEventChoice EventChoice"}>
+          <UmaDetailContainer uuid={state.umaUuid} />
+        </div>
+          
+        <div className={"CardEventChoice EventChoice"}>
+          <SupportCardDetailContainer uuid={state.cardUuid}/>
+        </div>
       </div>
     </div>
   )

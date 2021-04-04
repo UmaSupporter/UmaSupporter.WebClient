@@ -52,3 +52,46 @@ export const CARD_EVENT_FIELD_WITH_CHOICES = gql`
       }
   }
 `;
+
+export const UMA_EVENT_CHOICE_FIELD = gql`
+  fragment UmaEventChoice on UmaEventType {
+      umaEventChoice {
+          edges {
+              node {
+                  title
+                  titleKr
+                  effect
+                  effectKr
+              }
+          }
+      }
+  }
+`;
+
+export const UMA_EVENT_FIELD = gql`
+  fragment UmaEvent on UmamusumeType {
+      umaEvent{
+        edges{
+          node {
+            title
+            titleKr
+          }
+        }
+      }
+  }
+`;
+
+export const UMA_EVENT_FIELD_WITH_CHOICES = gql`
+  ${UMA_EVENT_CHOICE_FIELD}
+  fragment UmaEventWithChoice on UmamusumeType {
+      umaEvent{
+        edges{
+          node {
+            title
+            titleKr
+            ...UmaEventChoice
+          }
+        }
+      }
+  }
+`;

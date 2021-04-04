@@ -3,6 +3,7 @@ import { useGetSupportCardOnIdWithEventQuery } from "../../generated/graphql";
 import { CardEventChoice, CardEventWithChoice } from "../../types";
 import { CARD_EVENT_FIELD_WITH_CHOICES } from "../common/fragments";
 import SupportCardDetail from "./SupportCardDetail";
+import SupportCardDetailNotExistComponent from "./SupportCardDetailNotExistComponent"
 
 gql`
   ${CARD_EVENT_FIELD_WITH_CHOICES}
@@ -24,11 +25,11 @@ const SupportCardDetailContainer: React.FC<Props> = (props: Props) => {
   });
   if(loading) return (<p>loading...</p>)
   if(error) return (<p>error</p>)
-  if(data == null || data?.supportCardId == null) return (<p>data not exist</p>)
+  if(data == null || data?.supportCardId == null) return <SupportCardDetailNotExistComponent /> 
   
   const rawEvents = data?.supportCardId?.cardEvent?.edges
 
-  if(rawEvents == null) return (<p>data not exist</p>)
+  if(rawEvents == null) return <SupportCardDetailNotExistComponent />
 
   const events = rawEvents.map(x => { return {
      title: x?.node?.title!,
@@ -41,8 +42,10 @@ const SupportCardDetailContainer: React.FC<Props> = (props: Props) => {
   } as CardEventWithChoice }).filter(x => x.choices.length > 1);
 
   return <SupportCardDetail 
-    supportCardTitle={data.supportCardId.cardName!}
+    supportCardName={data.supportCardId.cardName!}
+    supportCardSecondName={data.supportCardId.secondName!}
     cardImage={data.supportCardId.cardImage!}
+    rareDegree={data.supportCardId.rareDegree!}
     event={events} />
 }
 

@@ -1,0 +1,35 @@
+@import "../styles/Typography.scss";
+@import "../styles/Card.scss";
+@mixin HeroImage{
+  aspect-ratio: 1;
+  cursor: default;
+}
+.Hero{
+  display:flex;
+  margin:8px 0px;
+  
+  .heroImage{
+    @include HeroImage;
+    @include CardBackPanel();
+    width:100px;
+    height:100px;
+    object-fit: cover;
+    margin-right:8px;
+    border-radius:10px;
+    .heroImageContent{
+      @include HeroImage;
+      @include CardImage();
+      object-fit: cover;
+      image-rendering: optimizeQuality;
+    }
+  }
+  .heroLabels{
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    @include theme-text4
+  }
+  .heroLabel{
+    margin:0px;
+  }
+}

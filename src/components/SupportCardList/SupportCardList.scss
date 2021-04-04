@@ -12,3 +12,10 @@
   flex: 1;
   grid-gap:10px;
 }
+
+@media (max-width:768px){
+  .SupportCardList{
+    height:0px;
+    visibility:hidden;
+  }
+}

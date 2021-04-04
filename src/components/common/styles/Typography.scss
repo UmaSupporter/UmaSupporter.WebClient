@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+KR:wght@400;700&family=Noto+Sans:wght@400;700&display=swap');
+@import "./theme/light.scss";
+@import "./theme/dark.scss";
+@mixin text($bold: false) {
+  @if $bold {
+    font-weight: bold;
+  }
+}
+@mixin text1($bold: false) {
+  font-size: var(--font-size1);
+  @include text($bold);
+}
+@mixin text2($bold: false) {
+  font-size: var(--font-size2);
+  @include text($bold);
+}
+@mixin text3($bold: false) {
+  font-size: var(--font-size3);
+  @include text($bold);
+}
+@mixin text4($bold: false) {
+  font-size: var(--font-size4);
+  @include text($bold);
+}
+@mixin text5($bold: false) {
+  font-size: var(--font-size5);
+  @include text($bold);
+}
+@mixin text6($bold: false) {
+  font-size: var(--font-size6);
+  @include text($bold);
+}
+@mixin text7($bold: false) {
+  font-size: var(--font-size7);
+  @include text($bold);
+}
+
+//* theme-texts
+@mixin theme-text($bold: false) {
+  @include text($bold);
+  color: var(--text-color);
+}
+@mixin theme-text1($bold: false) {
+  @include theme-text($bold);
+  font-size: var(--font-size1);
+}
+@mixin theme-text2($bold: false) {
+  @include theme-text($bold);
+  font-size: var(--font-size2);
+}
+@mixin theme-text3($bold: false) {
+  @include theme-text($bold);
+  font-size: var(--font-size3);
+}
+@mixin theme-text4($bold: false) {
+  @include theme-text($bold);
+  font-size: var(--font-size4);
+}
+@mixin theme-text5($bold: false) {
+  @include theme-text($bold);
+  font-size: var(--font-size5);
+}
+@mixin theme-text6($bold: false) {
+  @include theme-text($bold);
+  font-size: var(--font-size6);
+}
+@mixin theme-text7($bold: false) {
+  @include theme-text($bold);
+  font-size: var(--font-size7);
+}
+#root{
+  *{
+    font-family: 'Noto Sans KR','Noto Sans JP', sans-serif;
+  }
+  --bold:700w;
+  --normal:400w;
+  //* texts
+}

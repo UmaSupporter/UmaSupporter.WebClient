@@ -1,10 +1,10 @@
 import { AccordionDetails, Card, CardContent, Typography } from "@material-ui/core"
-import { CardEventChoice } from "../../types"
+import { CardEventChoice, UmaEventChoice } from "../../types"
 import "./EventDetail.scss";
 
 type Props = {
   title: string
-  choice: CardEventChoice[]
+  choice: CardEventChoice[] | UmaEventChoice[]
 }
 
 const EventDetail: React.FC<Props> = (props: Props) => {
@@ -17,15 +17,13 @@ const EventDetail: React.FC<Props> = (props: Props) => {
       props.choice.map((x, i) => {
         return <Card key={i}>
           <CardContent>
-          <Typography variant="h5" component="h2">
+          <Typography variant="h5" component="h5">
             {x.title}
           </Typography>
-          <Typography variant="body2" component="p">
             <p style={{
               whiteSpace:'pre-line'}}>
               {x.effect}
             </p>
-          </Typography>
           </CardContent>
         </Card>
       })

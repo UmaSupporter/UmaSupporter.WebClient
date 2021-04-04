@@ -1,0 +1,12 @@
+#root{
+  --R-Gradient : linear-gradient(160deg, white 0%, #9da5be 100%);
+  --SR-Gradient : linear-gradient(160deg, #fff3d4 0%, #cf9811 100%);
+  --SSR-Gradient : linear-gradient(
+      135deg,
+      rgba(239, 150, 223, 1) 0%,
+      rgb(223, 119, 255) 30%,
+      rgba(113, 173, 251, 1) 60%,
+      rgba(74, 220, 242, 1) 80%,
+      rgba(182, 247, 77, 1) 100%
+    );
+}

@@ -4,6 +4,7 @@ import SelectedCardList from "./SelectedCardList";
 type Props = {
   selectedList: number[],
   onDeleteItem: (uuid: number) => void
+  onClickItem: (uuid: number) => void
   onResetItem: () => void
 }
 
@@ -12,6 +13,7 @@ const SelectedCardListContainer: React.FC<Props> = (props: Props) => {
     <SelectedCardList
       uuids={props.selectedList}
       onDeleteItem={props.onDeleteItem}
+      onClickItem={props.onClickItem}
       onResetItem={props.onResetItem}
       />
   </>

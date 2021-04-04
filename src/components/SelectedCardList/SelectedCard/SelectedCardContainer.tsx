@@ -17,6 +17,7 @@ gql`
 type Props = {
   uuid: number
   onDeleteItem: (uuid: number) => void
+  onClickItem: (uuid:number) => void
 }
 
 const SelectedCardContainer: React.FC<Props> = (props: Props) => {
@@ -37,6 +38,7 @@ const SelectedCardContainer: React.FC<Props> = (props: Props) => {
     cardImage={data.supportCardId.cardImage!}
     rareDegree={data.supportCardId.rareDegree!}
     onDeleteItem={props.onDeleteItem}
+    onClickItem={props.onClickItem}
    />
 };
 

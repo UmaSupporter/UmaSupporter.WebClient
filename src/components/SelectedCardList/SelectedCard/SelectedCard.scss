@@ -4,12 +4,12 @@
 }
 .SelectedCard {
   @include SelectedCard();
-  @include CardBackPanel;
+  @include CardBackPanel();
   margin: 0px 8px;
 }
 .SelectedCard-image {
   @include SelectedCard();
-  @include CardImage;
+  @include CardImage();
 }
 .SelectedCard-removeButton {
   position: absolute;

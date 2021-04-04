@@ -14,9 +14,10 @@ const SupportCardList: React.FC<Props> = (props: Props) => {
   return (
     <div className={"SupportCardListWrapper"}>
       <div className={"SupportCardList"}>
-        {props.cards.map(x =>
+        {props.cards.map((x, i) =>
           // <span key={x.uuid} style={{ display: "inline" }} >
             <SupportCardComponent
+              key={i}
               onClickItem={props.onClickItem}
               onDoubleClickItem={props.onDoubleClickItem}
               uuid={x.uuid}

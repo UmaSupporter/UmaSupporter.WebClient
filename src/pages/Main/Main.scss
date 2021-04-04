@@ -1,9 +1,14 @@
+@import "../../components/common/styles/App.scss";
 .MainPage {
   display: flex;
-  background: #f2eff6;
+  background: var(--background);
   height: calc(100vh - 64px);
   overflow:hidden;
   flex:1;
+}
+.MainPagelabel{
+  @include theme-text4(true);
+  padding-left:8px;
 }
 
 .CardList {
@@ -18,6 +23,10 @@
   }
 }
 
+.UmaEventArea{
+  display:flex;
+  flex:3;
+}
 .EventChoice{
   display:flex;
   flex:1;
@@ -28,10 +37,9 @@
 }
 
 .UmaListSection {
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   width:350px;
   height: 100%;
 }
@@ -68,4 +76,26 @@
   color: white;
   margin-top: 12px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08), 0 3px 6px rgba(0, 0, 0, 0.11);
+}
+
+@media (max-width:768px){
+  .MainPage{
+    flex-direction: column;
+  }
+  .UmaListSection{
+    height:0px;
+    visibility: hidden;
+  }
+  .MainPageRecentCard{
+    height:0px;
+    visibility: hidden;
+  }
+  .MainPageCardList{
+    height:0px;
+    visibility: hidden;
+  }
+  .CardListGrid{
+    height:0px!important;
+    visibility: hidden;
+  }
 }

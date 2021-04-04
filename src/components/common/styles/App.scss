@@ -1,0 +1,11 @@
+@import "./Typography.scss";
+#root{
+  ::-webkit-scrollbar-thumb{
+    border-radius:5px;
+    background-color: red !important;
+  }
+  // ::-webkit-scrollbar-button,
+  // ::-webkit-scrollbar-corner{
+  //   visibility: hidden;
+  // }
+}

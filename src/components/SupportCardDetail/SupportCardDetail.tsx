@@ -1,14 +1,16 @@
-import { Accordion, AccordionSummary, Avatar, createStyles, makeStyles, Theme, Typography } from "@material-ui/core"
+import { Accordion, AccordionSummary, createStyles, makeStyles, Theme, Typography } from "@material-ui/core"
 import { ExpandMore } from "@material-ui/icons"
-import React, { useContext } from "react"
-import { UriContext } from "../../common"
+import React from "react"
 import { CardEventWithChoice } from "../../types"
+import Hero from "../common/Hero"
 import EventDetail from "../EventDetail"
 import "./SupportCardDetail.scss"
 
 
 type Props = {
-  supportCardTitle: string,
+  supportCardName: string,
+  supportCardSecondName : string,
+  rareDegree: string,
   cardImage: string,
   event: CardEventWithChoice[]
 }
@@ -27,11 +29,14 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const SupportCardDetail: React.FC<Props> = (props: Props) => {
   const classes = useStyles();
-  const { supportCardTitle, event, cardImage } = props;
-  const uri = useContext(UriContext);
+  const { supportCardName, supportCardSecondName,event, cardImage, rareDegree } = props;
 
   return <div className={"SupportCardDetail"}>
-    <Avatar alt={supportCardTitle} src={`${uri}/images/${cardImage}`} />
+    <Hero name={supportCardName} secondName={supportCardSecondName} image={cardImage} rareDegree={rareDegree}/>
+    {/* <Avatar alt={supportCardName} src={`${uri}/images/${cardImage}`} /> */}
+    <div className={"EventListWrapper"}>
+      <div className={"EventList"}>
+        
     {
       event.map((x, i) => {
         return <Accordion key={i}>
@@ -48,6 +53,8 @@ const SupportCardDetail: React.FC<Props> = (props: Props) => {
         </Accordion>
       })
     }
+      </div>
+    </div>
   </div>
 }
 

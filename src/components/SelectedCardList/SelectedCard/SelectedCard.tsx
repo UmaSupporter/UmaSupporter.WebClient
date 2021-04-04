@@ -10,6 +10,7 @@ type Props = {
   cardImage: string,
   rareDegree: string
   onDeleteItem: (uuid: number) => void
+  onClickItem:(uuid:number)=> void
 }
 
 
@@ -22,7 +23,10 @@ const SelectedCard: React.FC<Props> = (props: Props) => {
       <img 
         src={`${uri}/images/${cardImage}`} 
         alt={`${cardName}-${secondName}`} 
-        className="SelectedCard-image"></img>
+        className="SelectedCard-image"
+        onClick={()=>props.onClickItem(uuid)}
+        />
+
       <button 
         onClick={() => props.onDeleteItem(uuid)}
         className="SelectedCard-removeButton">

@@ -4,6 +4,7 @@ import './SelectedCardList.scss';
 type Props = {
   uuids: number[]
   onDeleteItem: (uuid: number) => void,
+  onClickItem: (uuid:number) => void,
   onResetItem: () => void
 }
 
@@ -12,6 +13,7 @@ const SelectedCardList: React.FC<Props> = (props: Props) => {
     {props.uuids.map(x =>
         <SelectedCardContainer 
           onDeleteItem={props.onDeleteItem}
+          onClickItem={props.onClickItem}
           uuid={x} />
       )}
     <button onClick={() => props.onResetItem()}>reset</button>

@@ -7,14 +7,14 @@
     transform: scale(1.05);
     cursor: pointer;
   }
-  @include CardBackPanel;
-  @include SupportCard();
+  @include CardBackPanel();
+  @include SupportCard;
   &:focus{
     outline: unset;
   }
 }
 
 .SupportCard {
-  @include SupportCard();
+  @include SupportCard;
   @include CardImage();
 }
