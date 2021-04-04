@@ -4,6 +4,8 @@ import React, { useContext } from "react"
 import { UriContext } from "../../common"
 import { CardEventWithChoice } from "../../types"
 import EventDetail from "../EventDetail"
+import "./SupportCardDetail.scss"
+
 
 type Props = {
   supportCardTitle: string,
@@ -28,7 +30,7 @@ const SupportCardDetail: React.FC<Props> = (props: Props) => {
   const { supportCardTitle, event, cardImage } = props;
   const uri = useContext(UriContext);
 
-  return <div>
+  return <div className={"SupportCardDetail"}>
     <Avatar alt={supportCardTitle} src={`${uri}/images/${cardImage}`} />
     {
       event.map((x, i) => {

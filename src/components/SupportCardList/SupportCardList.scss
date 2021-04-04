@@ -1,13 +1,14 @@
 .SupportCardListWrapper {
-  overflow-x: hidden;
-  overflow-y: scroll;
+  overflow: hidden;
   flex: 1;
 }
+
 .SupportCardList {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(12.5%, auto));
-  justify-items: center;
-  width: 1000px;
+  grid-template-columns: repeat(auto-fit, minmax(auto, 110px));
+  justify-content: center;
+  width: 100%;
   margin: 0px auto;
   flex: 1;
+  grid-gap:10px;
 }

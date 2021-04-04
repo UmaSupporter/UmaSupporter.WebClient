@@ -5,6 +5,7 @@ import "./SupportCard.scss";
 
 type Props = SupportCard & {
   onClickItem: (uuid: number) => void
+  onDoubleClickItem: (uuid:number) => void
   selected: boolean
 }
 
@@ -15,10 +16,9 @@ const SupportCardComponent: React.FC<Props> = (props: Props) => {
   
   return (
     <button
-      className={`SupportCard-BackPanel ${cardType} ${
-        selected ? 'selected' : 'available'
-      } ${rareDegree}`}
-      onClick={() => props.onClickItem(uuid)}>
+      className={`SupportCard-BackPanel ${cardType} ${rareDegree}`}
+      onClick={() => props.onClickItem(uuid)}
+      onDoubleClick={()=>props.onDoubleClickItem(uuid)}>
       <img
         alt={`${cardName}-${secondName}`}
         src={`${uri}/images/${cardImage}`}

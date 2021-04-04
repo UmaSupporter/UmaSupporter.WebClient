@@ -17,7 +17,7 @@ gql`
 
 type Props = {
   onClickItem: (uuid: number) => void,
-  cardType: string,
+  onDoubleClickItem: (uuid: number) => void,
   selectedList: Array<Number>
 }
 
@@ -38,23 +38,14 @@ const SupportCardListContainer: React.FC<Props> = (props: Props) => {
     } as SupportCard
   }).sort(rareDegreeCompare).reverse();
 
-  if (props.cardType !== "") {
-    cardList = data.supportCard.map(x => {
-      return {
-        uuid: Number(x?.uuid),
-        cardName: x?.cardName,
-        secondName: x?.secondName,
-        rareDegree: x?.rareDegree,
-        cardImage: x?.cardImage,
-        cardType: x?.cardType,
-      } as SupportCard
-    }).filter(x => x.cardType === props.cardType)
-  }
-
   return (
     // <div className={"SupportCardListContainer"} >
     <>
-      <SupportCardList cards={cardList} onClickItem={props.onClickItem} selectedList={props.selectedList}/>
+      <SupportCardList 
+      cards={cardList}
+      onClickItem={props.onClickItem}
+      selectedList={props.selectedList}
+      onDoubleClickItem={props.onDoubleClickItem}/>
     </>
   );
 };

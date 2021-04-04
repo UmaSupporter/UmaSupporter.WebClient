@@ -20,6 +20,8 @@ export type Query = {
   node?: Maybe<Node>;
   supportCard?: Maybe<Array<Maybe<SupportCardType>>>;
   supportCardId?: Maybe<SupportCardType>;
+  umamusume?: Maybe<Array<Maybe<UmamusumeType>>>;
+  umamusumeId?: Maybe<UmamusumeType>;
 };
 
 
@@ -38,6 +40,17 @@ export type QuerySupportCardIdArgs = {
   uuid: Scalars['Int'];
 };
 
+
+export type QueryUmamusumeArgs = {
+  umaName?: Maybe<Scalars['String']>;
+  rareDegree?: Maybe<Scalars['Int']>;
+};
+
+
+export type QueryUmamusumeIdArgs = {
+  uuid: Scalars['Int'];
+};
+
 /** An object with an ID */
 export type Node = {
   /** The ID of the object. */
@@ -48,11 +61,14 @@ export type SupportCardType = Node & {
   __typename?: 'SupportCardType';
   uuid: Scalars['ID'];
   cardName?: Maybe<Scalars['String']>;
+  cardNameKr?: Maybe<Scalars['String']>;
   cardType?: Maybe<Scalars['String']>;
+  cardTypeKr?: Maybe<Scalars['String']>;
   cardImage?: Maybe<Scalars['String']>;
   gamewithWikiId?: Maybe<Scalars['Int']>;
   rareDegree?: Maybe<Scalars['String']>;
   secondName?: Maybe<Scalars['String']>;
+  secondNameKr?: Maybe<Scalars['String']>;
   cardEvent?: Maybe<CardEventTypeConnection>;
   /** The ID of the object. */
   id: Scalars['ID'];
@@ -100,6 +116,7 @@ export type CardEventType = Node & {
   __typename?: 'CardEventType';
   uuid: Scalars['ID'];
   title?: Maybe<Scalars['String']>;
+  titleKr?: Maybe<Scalars['String']>;
   supportCardId?: Maybe<Scalars['Int']>;
   supportCard?: Maybe<SupportCardType>;
   cardEventChoice?: Maybe<CardEventChoiceTypeConnection>;
@@ -136,9 +153,101 @@ export type CardEventChoiceType = Node & {
   __typename?: 'CardEventChoiceType';
   uuid: Scalars['ID'];
   title?: Maybe<Scalars['String']>;
+  titleKr?: Maybe<Scalars['String']>;
   effect?: Maybe<Scalars['String']>;
+  effectKr?: Maybe<Scalars['String']>;
   eventId?: Maybe<Scalars['Int']>;
   event?: Maybe<CardEventType>;
+  /** The ID of the object. */
+  id: Scalars['ID'];
+};
+
+export type UmamusumeType = Node & {
+  __typename?: 'UmamusumeType';
+  uuid: Scalars['ID'];
+  umaName?: Maybe<Scalars['String']>;
+  umaNameKr?: Maybe<Scalars['String']>;
+  secondName?: Maybe<Scalars['String']>;
+  secondNameKr?: Maybe<Scalars['String']>;
+  umaImage?: Maybe<Scalars['String']>;
+  gamewithWikiId?: Maybe<Scalars['Int']>;
+  rareDegree?: Maybe<Scalars['Int']>;
+  umaEvent?: Maybe<UmaEventTypeConnection>;
+  /** The ID of the object. */
+  id: Scalars['ID'];
+};
+
+
+export type UmamusumeTypeUmaEventArgs = {
+  before?: Maybe<Scalars['String']>;
+  after?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+};
+
+export type UmaEventTypeConnection = {
+  __typename?: 'UmaEventTypeConnection';
+  /** Pagination data for this connection. */
+  pageInfo: PageInfo;
+  /** Contains the nodes in this connection. */
+  edges: Array<Maybe<UmaEventTypeEdge>>;
+};
+
+/** A Relay edge containing a `UmaEventType` and its cursor. */
+export type UmaEventTypeEdge = {
+  __typename?: 'UmaEventTypeEdge';
+  /** The item at the end of the edge */
+  node?: Maybe<UmaEventType>;
+  /** A cursor for use in pagination */
+  cursor: Scalars['String'];
+};
+
+export type UmaEventType = Node & {
+  __typename?: 'UmaEventType';
+  uuid: Scalars['ID'];
+  title?: Maybe<Scalars['String']>;
+  titleKr?: Maybe<Scalars['String']>;
+  umamusumeId?: Maybe<Scalars['Int']>;
+  umamusume?: Maybe<UmamusumeType>;
+  umaEventChoice?: Maybe<UmaEventChoiceTypeConnection>;
+  /** The ID of the object. */
+  id: Scalars['ID'];
+};
+
+
+export type UmaEventTypeUmaEventChoiceArgs = {
+  before?: Maybe<Scalars['String']>;
+  after?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+};
+
+export type UmaEventChoiceTypeConnection = {
+  __typename?: 'UmaEventChoiceTypeConnection';
+  /** Pagination data for this connection. */
+  pageInfo: PageInfo;
+  /** Contains the nodes in this connection. */
+  edges: Array<Maybe<UmaEventChoiceTypeEdge>>;
+};
+
+/** A Relay edge containing a `UmaEventChoiceType` and its cursor. */
+export type UmaEventChoiceTypeEdge = {
+  __typename?: 'UmaEventChoiceTypeEdge';
+  /** The item at the end of the edge */
+  node?: Maybe<UmaEventChoiceType>;
+  /** A cursor for use in pagination */
+  cursor: Scalars['String'];
+};
+
+export type UmaEventChoiceType = Node & {
+  __typename?: 'UmaEventChoiceType';
+  uuid: Scalars['ID'];
+  title?: Maybe<Scalars['String']>;
+  titleKr?: Maybe<Scalars['String']>;
+  effect?: Maybe<Scalars['String']>;
+  effectKr?: Maybe<Scalars['String']>;
+  eventId?: Maybe<Scalars['Int']>;
+  event?: Maybe<UmaEventType>;
   /** The ID of the object. */
   id: Scalars['ID'];
 };
@@ -182,9 +291,20 @@ export type SupportCardQuery = (
   )>>> }
 );
 
+export type UmaListQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type UmaListQuery = (
+  { __typename?: 'Query' }
+  & { umamusume?: Maybe<Array<Maybe<(
+    { __typename?: 'UmamusumeType' }
+    & Pick<UmamusumeType, 'uuid' | 'umaName' | 'secondName' | 'rareDegree' | 'umaImage'>
+  )>>> }
+);
+
 export type CoreSupportCardFieldFragment = (
   { __typename?: 'SupportCardType' }
-  & Pick<SupportCardType, 'uuid' | 'cardName' | 'secondName' | 'rareDegree' | 'cardImage' | 'cardType'>
+  & Pick<SupportCardType, 'uuid' | 'cardName' | 'cardNameKr' | 'secondName' | 'secondNameKr' | 'rareDegree' | 'cardImage' | 'cardType' | 'cardTypeKr'>
 );
 
 export type CardEventChoiceFragment = (
@@ -234,10 +354,13 @@ export const CoreSupportCardFieldFragmentDoc = gql`
     fragment CoreSupportCardField on SupportCardType {
   uuid
   cardName
+  cardNameKr
   secondName
+  secondNameKr
   rareDegree
   cardImage
   cardType
+  cardTypeKr
 }
     `;
 export const CardEventFragmentDoc = gql`
@@ -382,3 +505,41 @@ export function useSupportCardLazyQuery(baseOptions?: Apollo.LazyQueryHookOption
 export type SupportCardQueryHookResult = ReturnType<typeof useSupportCardQuery>;
 export type SupportCardLazyQueryHookResult = ReturnType<typeof useSupportCardLazyQuery>;
 export type SupportCardQueryResult = Apollo.QueryResult<SupportCardQuery, SupportCardQueryVariables>;
+export const UmaListDocument = gql`
+    query umaList {
+  umamusume {
+    uuid
+    umaName
+    secondName
+    rareDegree
+    umaImage
+  }
+}
+    `;
+
+/**
+ * __useUmaListQuery__
+ *
+ * To run a query within a React component, call `useUmaListQuery` and pass it any options that fit your needs.
+ * When your component renders, `useUmaListQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useUmaListQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useUmaListQuery(baseOptions?: Apollo.QueryHookOptions<UmaListQuery, UmaListQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<UmaListQuery, UmaListQueryVariables>(UmaListDocument, options);
+      }
+export function useUmaListLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<UmaListQuery, UmaListQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<UmaListQuery, UmaListQueryVariables>(UmaListDocument, options);
+        }
+export type UmaListQueryHookResult = ReturnType<typeof useUmaListQuery>;
+export type UmaListLazyQueryHookResult = ReturnType<typeof useUmaListLazyQuery>;
+export type UmaListQueryResult = Apollo.QueryResult<UmaListQuery, UmaListQueryVariables>;

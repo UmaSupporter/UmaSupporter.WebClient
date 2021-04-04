@@ -2,6 +2,7 @@ import gql from "graphql-tag";
 import { useGetSupportCardOnIdQuery } from "../../../generated/graphql";
 import { CORE_SUPPORT_CARD_FIELD } from "../../common/fragments";
 import SelectedCard from "./SelectedCard";
+import SelectedCardPlaceholder from "./SelectedCardPlaceholder";
 
 gql`
   ${CORE_SUPPORT_CARD_FIELD}
@@ -21,10 +22,10 @@ type Props = {
 const SelectedCardContainer: React.FC<Props> = (props: Props) => {
   const { loading, error, data } = useGetSupportCardOnIdQuery({
     variables: {
-       uuid: props.uuid
+      uuid: props.uuid
     } 
   });
-  if (loading) return (<p>loading...</p>)
+  if (loading)return <SelectedCardPlaceholder/>
   if (error) return (<p>error</p>)
   if (data == null || data.supportCardId == null) return (<p>data not exist</p>)
 

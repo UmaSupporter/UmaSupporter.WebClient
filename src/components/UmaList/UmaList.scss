@@ -1,0 +1,19 @@
+.UmaList{
+  display:flex;
+  flex-direction: column;
+  height: 100%;
+  width:100%;
+}
+.UmaComponentList{
+  flex:1;
+  overflow-y:auto;
+  padding: 0px 8px;
+  height: 100%;
+}
+
+.UmaGrid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(auto, 100px));
+  grid-gap: 4px;
+  justify-content: center;
+}

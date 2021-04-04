@@ -6,6 +6,7 @@ import "./SupportCardList.scss";
 type Props = {
   cards: SupportCard[]
   onClickItem: (uuid: number) => void
+  onDoubleClickItem:(uuid:number) => void
   selectedList: Array<Number>
 }
 
@@ -17,6 +18,7 @@ const SupportCardList: React.FC<Props> = (props: Props) => {
           // <span key={x.uuid} style={{ display: "inline" }} >
             <SupportCardComponent
               onClickItem={props.onClickItem}
+              onDoubleClickItem={props.onDoubleClickItem}
               uuid={x.uuid}
               cardName={x.cardName}
               secondName={x.secondName}
@@ -28,7 +30,7 @@ const SupportCardList: React.FC<Props> = (props: Props) => {
           //  </span>
           )}
       </div>
-    </div>
+      </div>
   );
 };
 

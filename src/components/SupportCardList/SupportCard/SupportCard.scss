@@ -1,17 +1,17 @@
 @import '../../common/Card.scss';
 @mixin SupportCard {
   aspect-ratio: 1/1.3;
-  &.available:hover {
+}
+.SupportCard-BackPanel {
+  &:hover {
     transform: scale(1.05);
     cursor: pointer;
   }
-  &.selected {
-    filter: saturate(50%) brightness(50%);
-  }
-}
-.SupportCard-BackPanel {
   @include CardBackPanel;
   @include SupportCard();
+  &:focus{
+    outline: unset;
+  }
 }
 
 .SupportCard {

@@ -1,5 +1,6 @@
 import { AccordionDetails, Card, CardContent, Typography } from "@material-ui/core"
 import { CardEventChoice } from "../../types"
+import "./EventDetail.scss";
 
 type Props = {
   title: string
@@ -20,7 +21,10 @@ const EventDetail: React.FC<Props> = (props: Props) => {
             {x.title}
           </Typography>
           <Typography variant="body2" component="p">
-            {x.effect}
+            <p style={{
+              whiteSpace:'pre-line'}}>
+              {x.effect}
+            </p>
           </Typography>
           </CardContent>
         </Card>

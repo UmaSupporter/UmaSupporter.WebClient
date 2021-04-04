@@ -1,9 +1,15 @@
-import { Input } from "@material-ui/core";
-import { useReducer } from "react";
+import React, { useReducer } from "react";
 import { useHistory } from "react-router-dom"
 import SelectedCardListContainer from "../../components/SelectedCardList";
 import SupportCardListContainer from "../../components/SupportCardList";
+import SupportCardDetailContainer from "../../components/SupportCardDetail";
+import UmaListContainer from "../../components/UmaList";
 import "./Main.scss";
+
+type SetUmaAction = {
+  type: 'SET_UMA_ACTION',
+  payload: number
+}
 
 type AppendAction = {
   type: 'APPEND_CARD',
@@ -15,9 +21,9 @@ type DeleteAction = {
   payload: number
 }
 
-type SetCardType = {
-  type: 'SET_CARD_TYPE',
-  payload: string
+type SetCardAction = {
+  type: 'SET_CARD',
+  payload: number
 }
 
 type ResetAction = {
@@ -26,36 +32,51 @@ type ResetAction = {
 
 const resetState = (): State => {
   return {
-    uuids: [],
-    cardType: ""
+    favoriteCardUuids: [],
+    cardUuid: 0,
+    umaUuid: 0,
   }
 }
 
-type Action = AppendAction | DeleteAction | ResetAction | SetCardType
+type Action = AppendAction 
+              | DeleteAction 
+              | ResetAction 
+              | SetUmaAction 
+              | SetCardAction
 
 type State = {
-  uuids: number[],
-  cardType: string
+  favoriteCardUuids: number[],
+  umaUuid: number,
+  cardUuid: number
 }
 
 const selectedCardReducer = (state: State, action: Action): State => {
   switch (action.type) {
-    case 'APPEND_CARD':
-      if(state.uuids.length >= 6) return state;
-      if(state.uuids.includes(action.payload)) return state;
+    case 'SET_UMA_ACTION':
       return {
-        uuids: [...state.uuids, action.payload],
-        cardType: state.cardType
+        favoriteCardUuids: state.favoriteCardUuids,
+        umaUuid: action.payload,
+        cardUuid: state.cardUuid
+      }
+    case 'APPEND_CARD':
+      if(state.favoriteCardUuids.length >= 6) return state;
+      if(state.favoriteCardUuids.includes(action.payload)) return state;
+      return {
+        favoriteCardUuids: [...state.favoriteCardUuids, action.payload],
+        umaUuid: state.umaUuid,
+        cardUuid: state.cardUuid
       }
     case 'DELETE_CARD':
       return {
-        uuids: state.uuids.filter(x => x !== action.payload),
-        cardType: state.cardType
+        favoriteCardUuids: state.favoriteCardUuids.filter(x => x !== action.payload),
+        umaUuid: state.umaUuid,
+        cardUuid: state.cardUuid
       };
-    case 'SET_CARD_TYPE':
+    case 'SET_CARD':
       return {
-        uuids: state.uuids,
-        cardType: action.payload
+        favoriteCardUuids: state.favoriteCardUuids,
+        umaUuid: state.umaUuid,
+        cardUuid: action.payload
       }
     case 'RESET':
       return resetState()
@@ -65,41 +86,53 @@ const selectedCardReducer = (state: State, action: Action): State => {
 }
 
 const Main: React.FC = () => {
-  const [state, dispatch] = useReducer(selectedCardReducer, {uuids: [], cardType: ""}, resetState);
+  const [state, dispatch] = useReducer(selectedCardReducer, {cardUuids: [], cardType: ""}, resetState);
 
   const history = useHistory();
 
-  const addCard = (uuid: number) => dispatch({ type: 'APPEND_CARD', payload: uuid })
+  const addFavoriteCard = (uuid: number) => dispatch({ type: 'APPEND_CARD', payload: uuid })
   const deleteCard = (uuid: number) => dispatch({ type: 'DELETE_CARD', payload: uuid })
   const resetCard = () => dispatch({ type: 'RESET' })
-
-  const onChangeCardType = (event: React.ChangeEvent<HTMLInputElement>) => {
-    dispatch({type: 'SET_CARD_TYPE', payload: event.target.value == null ? "" : event.target.value})
-  }
-
-  const onSubmit = (event: unknown) => {
-    history.push(`/play?selected=${state.uuids.join(", ")}`)
-  }
+  const setUmamusume = (uuid: number) => dispatch({ type: 'SET_UMA_ACTION', payload: uuid })
+  const setCard = (uuid: number) => dispatch({ type: 'SET_CARD', payload: uuid })
 
   return (
     <div className={"MainPage"}>
-      <Input onChange={onChangeCardType}/>
-      <SupportCardListContainer
-        cardType={state.cardType}
-        onClickItem={addCard}
-        selectedList={state.uuids} />
-      <div className="MainPage-Dock">
-      <SelectedCardListContainer
-        selectedList={state.uuids}
-        onDeleteItem={deleteCard}
-        onResetItem={resetCard}
+      <div className={"UmaListSection"}>
+        <UmaListContainer
+          onClickItem={setUmamusume}
         />
-        <button onClick={onSubmit} className="MainPage-StartButton">
-          start!
-      	</button>
-      </div>  
-    </div>
+      </div>
+      <div className={"CardList"}>
+        <div>
+          즐겨찾기
+          <SelectedCardListContainer 
+          selectedList={state.favoriteCardUuids} 
+          onDeleteItem={deleteCard}
+          onResetItem={resetCard}/>
+        </div>
+        <div>
+          최근 선택한 카드
+        </div>
+        <div>
+          카드 리스트
+        </div>
+        <div className={"CardListGrid"}>
+          <SupportCardListContainer
+          onClickItem={setCard}
+          onDoubleClickItem={addFavoriteCard}
+          selectedList={state.favoriteCardUuids}
+          />
+        </div>
+      </div>
+      <div className={"UmaEventChoice EventChoice"}>
 
+      </div>
+        
+      <div className={"CardEventChoice EventChoice"}>
+        <SupportCardDetailContainer uuid={state.cardUuid}/>
+      </div>
+    </div>
   )
 }
 

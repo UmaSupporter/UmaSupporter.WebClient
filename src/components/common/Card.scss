@@ -1,4 +1,6 @@
+@import "./Animation.scss";
 @mixin CardBackPanel {
+  @include animation(0.2s,appearance, cubic-bezier(0.25,1,0.8,1.2));
   box-sizing: content-box;
   border-radius: 15px;
   width: 100px;
@@ -8,6 +10,18 @@
   margin: 8px 0px;
   transition: transform 0.1s cubic-bezier(0.5, 0.13, 0.81, 0.44);
   overflow: hidden;
+  
+  @include keyframes(appearance){
+    0% {
+      transform: scale(0.8);
+      opacity:0;
+    }
+    100% {
+      transform: scale(1.0);
+      opacity:1;
+    }
+  }
+  
   &.R {
     background: linear-gradient(160deg, white 0%, #9da5be 100%);
   }
@@ -33,4 +47,9 @@
   border: solid 2px rgba(0, 0, 0, 0.2);
   opacity: 0.99;
   image-rendering: optimizeQuality;
+}
+
+@mixin CardPlaceHolder{
+  width: 100px;
+  padding: 4px;
 }

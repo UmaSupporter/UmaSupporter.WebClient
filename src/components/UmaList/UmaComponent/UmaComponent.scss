@@ -1,0 +1,11 @@
+$umaSize: 80px;
+.UmaComponent{
+  border-radius: 10px;
+  overflow:hidden;
+  width:$umaSize;
+  height:$umaSize;
+}
+.umaComponentImage{
+  width:$umaSize;
+  height:$umaSize;
+}
