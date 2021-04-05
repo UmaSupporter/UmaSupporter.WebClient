@@ -329,7 +329,7 @@ export type CardEventChoiceFragment = (
       { __typename?: 'CardEventChoiceTypeEdge' }
       & { node?: Maybe<(
         { __typename?: 'CardEventChoiceType' }
-        & Pick<CardEventChoiceType, 'title' | 'effect'>
+        & Pick<CardEventChoiceType, 'title' | 'effect' | 'effectKr'>
       )> }
     )>> }
   )> }
@@ -438,6 +438,7 @@ export const CardEventChoiceFragmentDoc = gql`
       node {
         title
         effect
+        effectKr
       }
     }
   }

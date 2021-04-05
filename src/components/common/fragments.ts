@@ -21,6 +21,7 @@ export const CARD_EVENT_CHOICE_FIELD = gql`
               node {
                   title
                   effect
+                  effectKr
               }
           }
       }
