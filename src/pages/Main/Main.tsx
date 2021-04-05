@@ -1,10 +1,11 @@
-import React, { useReducer } from "react";
+import React, { useEffect, useReducer } from "react";
 import SelectedCardListContainer from "../../components/SelectedCardList";
 import SupportCardListContainer from "../../components/SupportCardList";
 import SupportCardDetailContainer from "../../components/SupportCardDetail";
 import UmaListContainer from "../../components/UmaList";
 import "./Main.scss";
 import UmaDetailContainer from "../../components/UmaDetail";
+import { Mixpanel, TRACK } from "../../common/mixpanel";
 
 type SetUmaAction = {
   type: 'SET_UMA_ACTION',
@@ -88,11 +89,15 @@ const selectedCardReducer = (state: State, action: Action): State => {
 const Main: React.FC = () => {
   const [state, dispatch] = useReducer(selectedCardReducer, {cardUuids: [], cardType: ""}, resetState);
 
-  const addFavoriteCard = (uuid: number) => dispatch({ type: 'APPEND_CARD', payload: uuid })
+  const addFavoriteCard = (uuid: number) => { Mixpanel.track(TRACK.SET_FAVORITE, {uuid: uuid}); dispatch({ type: 'APPEND_CARD', payload: uuid })}
   const deleteCard = (uuid: number) => dispatch({ type: 'DELETE_CARD', payload: uuid })
   const resetCard = () => dispatch({ type: 'RESET' })
-  const setUmamusume = (uuid: number) => dispatch({ type: 'SET_UMA_ACTION', payload: uuid })
-  const setCard = (uuid: number) => dispatch({ type: 'SET_CARD', payload: uuid })
+  const setUmamusume = (uuid: number) => { Mixpanel.track(TRACK.SET_UMA, {uuid: uuid}); dispatch({ type: 'SET_UMA_ACTION', payload: uuid })} 
+  const setCard = (uuid: number) => { Mixpanel.track(TRACK.SET_CARD, {uuid: uuid}); dispatch({ type: 'SET_CARD', payload: uuid })}
+
+  useEffect(() => {
+    Mixpanel.track(TRACK.MAINPAGE, {})
+  }, [])
 
   return (
     <div className={"MainPage"}>
