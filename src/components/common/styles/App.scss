@@ -1,11 +1,8 @@
 @import "./Typography.scss";
+@import "./Palette.scss";
 #root{
-  ::-webkit-scrollbar-thumb{
-    border-radius:5px;
-    background-color: red !important;
+  html{
+    overflow: hidden;
+    height:100vh;
   }
-  // ::-webkit-scrollbar-button,
-  // ::-webkit-scrollbar-corner{
-  //   visibility: hidden;
-  // }
 }

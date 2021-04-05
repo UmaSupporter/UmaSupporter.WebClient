@@ -13,6 +13,7 @@ type Props = {
   rareDegree: string,
   cardImage: string,
   event: CardEventWithChoice[]
+  toggleCardPage:()=>void
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -32,7 +33,12 @@ const SupportCardDetail: React.FC<Props> = (props: Props) => {
   const { supportCardName, supportCardSecondName,event, cardImage, rareDegree } = props;
 
   return <div className={"SupportCardDetail"}>
-    <Hero name={supportCardName} secondName={supportCardSecondName} image={cardImage} rareDegree={rareDegree}/>
+    <Hero 
+    name={supportCardName}
+    secondName={supportCardSecondName}
+    image={cardImage}
+    rareDegree={rareDegree}
+    action={props.toggleCardPage}/>
     {/* <Avatar alt={supportCardName} src={`${uri}/images/${cardImage}`} /> */}
     <div className={"EventListWrapper"}>
       <div className={"EventList"}>

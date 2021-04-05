@@ -1,14 +1,19 @@
 @import "../../components/common/styles/Typography.scss";
+@import "../../components/common/styles/LayerCard.scss";
 .SupportCardDetail{
-  padding:0px 4px;
+  @include LayerCard;
   display:flex;
   flex-direction: column;
+  width:100%;
 }
 .MuiAvatar-root{
   border-radius: 8px!important;
 }
 .Label{
   @include theme-text4(true);
+  p{
+    padding-left:8px;
+  }
 }
 
 .EventListWrapper{

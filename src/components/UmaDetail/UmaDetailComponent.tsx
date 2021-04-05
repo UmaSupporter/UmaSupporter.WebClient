@@ -10,7 +10,8 @@ type Props = {
   secondName: string,
   umaImage: string,
   rareDegree: string,
-  event: UmaEventWithChoice[]
+  event: UmaEventWithChoice[],
+  toggleUmaPage:()=>void
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -34,7 +35,8 @@ const UmaDetailComponent: React.FC<Props> = (props: Props) => {
       name={umaName}
       secondName={secondName}
       image={umaImage}
-      rareDegree={rareDegree}/>
+      rareDegree={rareDegree}
+      action={props.toggleUmaPage}/>
     <div className={"EventListWrapper"}>
       <div className={"EventList"}>
       {

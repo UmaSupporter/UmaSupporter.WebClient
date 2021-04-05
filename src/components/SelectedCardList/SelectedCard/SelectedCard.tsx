@@ -27,11 +27,11 @@ const SelectedCard: React.FC<Props> = (props: Props) => {
         onClick={()=>props.onClickItem(uuid)}
         />
 
-      <button 
+      <div 
         onClick={() => props.onDeleteItem(uuid)}
         className="SelectedCard-removeButton">
-          X
-      </button>
+          {/* X */}
+      </div>
     </div>
   );
 }

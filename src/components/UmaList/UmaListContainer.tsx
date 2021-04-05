@@ -16,7 +16,8 @@ gql`
 `;
 
 type Props ={
-  onClickItem:(uuid:number)=>void
+  onClickItem:(uuid:number)=>void,
+  showUmaPage:boolean
 }
 
 const UmaListContainer: React.FC<Props> = (props: Props) => {

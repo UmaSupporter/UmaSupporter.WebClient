@@ -1,3 +1,4 @@
+@import '../../common/styles/Card.scss';
 $umaSize: 80px;
 .UmaComponent{
   cursor: pointer;
@@ -9,4 +10,5 @@ $umaSize: 80px;
 .umaComponentImage{
   width:$umaSize;
   height:$umaSize;
+  @include hoverable
 }

@@ -12,18 +12,18 @@
   @include CardImage();
 }
 .SelectedCard-removeButton {
-  position: absolute;
-  background: #f44336;
+  background: #e0245e;
   color: white;
   font-size: 8px;
-  margin-top: 4px;
-  margin-left: -24px;
-  font-weight: bold;
   border: none;
   border-radius: 50%;
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   cursor: pointer;
+  transform: translateZ(0px);
+  margin-top:-105px;
+  margin-left:76px;
+  // padding:5px;
 }
 .SelectedCard-removeButton:focus {
   outline: none;

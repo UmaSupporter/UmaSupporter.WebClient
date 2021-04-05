@@ -10,12 +10,17 @@ type Props = {
 
 const SelectedCardList: React.FC<Props> = (props: Props) => {
   return <div className="SelectedCardList">
-    {props.uuids.map(x =>
-        <SelectedCardContainer 
-          onDeleteItem={props.onDeleteItem}
-          onClickItem={props.onClickItem}
-          uuid={x} />
-      )}
+    <div className={"SelectedCardWrapper"}>
+      <div className="SelectedCards">
+        {props.uuids.map((x, i) =>
+          <SelectedCardContainer 
+            key={i}
+            onDeleteItem={props.onDeleteItem}
+            onClickItem={props.onClickItem}
+            uuid={x} />
+        )}
+      </div>
+    </div>
     <button onClick={() => props.onResetItem()}>reset</button>
   </div>
 }

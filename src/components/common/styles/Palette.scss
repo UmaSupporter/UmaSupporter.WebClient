@@ -10,3 +10,14 @@
       rgba(182, 247, 77, 1) 100%
     );
 }
+
+@mixin Accent{
+  border: solid 2px hsla(0, 0%, 0%, 0.2);
+  background: linear-gradient(
+    135deg,
+    rgba(167, 224, 7, 1) 0%,
+    rgba(167, 224, 7, 1) 68%,
+    rgba(107, 187, 2, 1) 68%,
+    rgba(160, 221, 4, 1) 100%
+  );
+}

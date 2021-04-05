@@ -40,3 +40,12 @@ export type UmaEvent = {
 export type UmaEventWithChoice = UmaEvent & {
   choices: UmaEventChoice[];
 };
+
+export enum CARD_TYPE {
+  SPEED = 'スピード',
+  STAMINA = 'スタミナ',
+  POWER = 'パワー',
+  GUTS = '根性',
+  INTELLIGENT= '賢さ',
+  FRIEND = '友人'
+};

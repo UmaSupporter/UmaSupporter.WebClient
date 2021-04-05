@@ -1,8 +1,19 @@
+@import "../../components/common/styles/ScrollBar.scss";
 .SelectedCardList {
   display: flex;
   flex-direction: row;
   width: 100%;
   justify-content: center;
   bottom: 24px;
-  height: 110px;
+  height: 130px;
+}
+
+.SelectedCardWrapper{
+  @include ThemeScrollBar();
+  flex:1;
+  overflow-x:auto;
+}
+.SelectedCards{
+  display:flex;
+  width:fit-content;
 }

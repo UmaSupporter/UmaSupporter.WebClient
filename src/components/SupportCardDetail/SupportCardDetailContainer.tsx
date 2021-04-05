@@ -16,7 +16,8 @@ gql`
 `;
 
 type Props = {
-    uuid: number
+  uuid: number
+  toggleCardPage:()=>void
 }
 
 const SupportCardDetailContainer: React.FC<Props> = (props: Props) => {
@@ -46,7 +47,8 @@ const SupportCardDetailContainer: React.FC<Props> = (props: Props) => {
     supportCardSecondName={data.supportCardId.secondName!}
     cardImage={data.supportCardId.cardImage!}
     rareDegree={data.supportCardId.rareDegree!}
-    event={events} />
+    event={events}
+    toggleCardPage={props.toggleCardPage} />
 }
 
 export default SupportCardDetailContainer

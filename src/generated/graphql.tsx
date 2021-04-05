@@ -280,6 +280,19 @@ export type GetSupportCardOnIdWithEventQuery = (
   )> }
 );
 
+export type SupportCardByIdQueryVariables = Exact<{
+  uuid: Scalars['Int'];
+}>;
+
+
+export type SupportCardByIdQuery = (
+  { __typename?: 'Query' }
+  & { supportCardId?: Maybe<(
+    { __typename?: 'SupportCardType' }
+    & CoreSupportCardFieldFragment
+  )> }
+);
+
 export type SupportCardQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -568,6 +581,41 @@ export function useGetSupportCardOnIdWithEventLazyQuery(baseOptions?: Apollo.Laz
 export type GetSupportCardOnIdWithEventQueryHookResult = ReturnType<typeof useGetSupportCardOnIdWithEventQuery>;
 export type GetSupportCardOnIdWithEventLazyQueryHookResult = ReturnType<typeof useGetSupportCardOnIdWithEventLazyQuery>;
 export type GetSupportCardOnIdWithEventQueryResult = Apollo.QueryResult<GetSupportCardOnIdWithEventQuery, GetSupportCardOnIdWithEventQueryVariables>;
+export const SupportCardByIdDocument = gql`
+    query supportCardById($uuid: Int!) {
+  supportCardId(uuid: $uuid) {
+    ...CoreSupportCardField
+  }
+}
+    ${CoreSupportCardFieldFragmentDoc}`;
+
+/**
+ * __useSupportCardByIdQuery__
+ *
+ * To run a query within a React component, call `useSupportCardByIdQuery` and pass it any options that fit your needs.
+ * When your component renders, `useSupportCardByIdQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useSupportCardByIdQuery({
+ *   variables: {
+ *      uuid: // value for 'uuid'
+ *   },
+ * });
+ */
+export function useSupportCardByIdQuery(baseOptions: Apollo.QueryHookOptions<SupportCardByIdQuery, SupportCardByIdQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<SupportCardByIdQuery, SupportCardByIdQueryVariables>(SupportCardByIdDocument, options);
+      }
+export function useSupportCardByIdLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<SupportCardByIdQuery, SupportCardByIdQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<SupportCardByIdQuery, SupportCardByIdQueryVariables>(SupportCardByIdDocument, options);
+        }
+export type SupportCardByIdQueryHookResult = ReturnType<typeof useSupportCardByIdQuery>;
+export type SupportCardByIdLazyQueryHookResult = ReturnType<typeof useSupportCardByIdLazyQuery>;
+export type SupportCardByIdQueryResult = Apollo.QueryResult<SupportCardByIdQuery, SupportCardByIdQueryVariables>;
 export const SupportCardDocument = gql`
     query supportCard {
   supportCard {

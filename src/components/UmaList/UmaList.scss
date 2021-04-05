@@ -1,6 +1,8 @@
 @import "../common/styles/Typography.scss";
-
+@import "../common/styles/LayerCard.scss";
+@import "../common/styles/ScrollBar.scss";
 .UmaList{
+  @include LayerCard;
   display:flex;
   flex-direction: column;
   height: 100%;
@@ -15,12 +17,13 @@
   overflow-y:auto;
   padding: 0px 8px;
   height: calc(100% - 24px);
+  
 }
 
 .UmaGrid{
   display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(auto, 100px));
+  grid-template-columns: repeat(auto-fit, minmax(auto, 80px));
   grid-gap: 4px;
   height:max-content;
-  justify-content: center;
+  justify-content: flex-start;
 }

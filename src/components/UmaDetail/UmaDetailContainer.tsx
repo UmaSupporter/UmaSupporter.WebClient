@@ -20,7 +20,8 @@ gql`
 `;
 
 type Props = {
-  uuid: number
+  uuid: number,
+  toggleUmaPage:()=>void
 }
 
 const UmaDetailContainer: React.FC<Props> = (props: Props) => {
@@ -50,7 +51,9 @@ const UmaDetailContainer: React.FC<Props> = (props: Props) => {
     umaImage={data.umamusumeId.umaImage!}
     secondName={data.umamusumeId.secondName!}
     rareDegree={String(data.umamusumeId.rareDegree!)}
-    event={events} />
+    event={events}
+    toggleUmaPage={props.toggleUmaPage}
+    />
 }
 
 export default UmaDetailContainer;

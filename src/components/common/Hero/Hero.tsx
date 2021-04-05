@@ -7,13 +7,14 @@ type Props = {
   secondName: string,
   rareDegree:string
   image: string,
+  action:()=>void
 }
 
 const Hero: React.FC<Props> = (props: Props) => {
   const { name, image, secondName,rareDegree} = props;
   const uri = useContext(UriContext);
 
-  return <div className={`Hero`} >
+  return <div className={`Hero`} onClick={()=>props.action()} >
     <div className={`heroImage ${rareDegree}`}>
       <img src={`${uri}/images/${image}`} alt={`${name} - ${secondName}`} className={"heroImageContent"}/>
     </div>

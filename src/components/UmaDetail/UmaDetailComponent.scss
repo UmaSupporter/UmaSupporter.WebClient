@@ -1,18 +1,28 @@
 @import "../../components/common/styles/App.scss";
-
+@import "../../components/common/styles/LayerCard.scss";
+@import "../../components/common/styles/ScrollBar.scss";
 .UmaDetail{
-  padding:0px 4px;
+  @include LayerCard;
   display:flex;
   flex-direction: column;
+  width:100%;
 }
 .MuiAvatar-root{
-  border-radius: 8px!important;
+  border-radius: 12px!important;
 }
 .Label{
   @include theme-text4(true);
+  p{
+    padding-left:8px;
+  }
 }
 
 .EventListWrapper{
+  @include ThemeScrollBar;
   flex:1;
   overflow-y:auto;
+}
+
+.UmaNotExist{
+  display:flex;
 }

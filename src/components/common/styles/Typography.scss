@@ -1,6 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+KR:wght@400;700&family=Noto+Sans:wght@400;700&display=swap');
-@import "./theme/light.scss";
-@import "./theme/dark.scss";
+@import url('https://fonts.googleapis.com/css2?family=Jua&family=Kosugi+Maru&display=swap');
+@import "./theme/theme.scss";
 @mixin text($bold: false) {
   @if $bold {
     font-weight: bold;
@@ -38,6 +37,7 @@
 //* theme-texts
 @mixin theme-text($bold: false) {
   @include text($bold);
+  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
   color: var(--text-color);
 }
 @mixin theme-text1($bold: false) {
@@ -70,7 +70,7 @@
 }
 #root{
   *{
-    font-family: 'Noto Sans KR','Noto Sans JP', sans-serif;
+    font-family: 'Jua','Kosugi Maru', sans-serif;
   }
   --bold:700w;
   --normal:400w;

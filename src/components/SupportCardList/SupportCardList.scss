@@ -6,11 +6,11 @@
 .SupportCardList {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(auto, 110px));
-  justify-content: center;
+  justify-content: flex-start;
   width: 100%;
   margin: 0px auto;
   flex: 1;
-  grid-gap:10px;
+  grid-gap:4px;
 }
 
 @media (max-width:768px){

@@ -1,4 +1,3 @@
-import { StayCurrentPortraitTwoTone } from "@material-ui/icons"
 import { CARD_TYPE } from "../../types"
 
 type SetFilterAction = {
