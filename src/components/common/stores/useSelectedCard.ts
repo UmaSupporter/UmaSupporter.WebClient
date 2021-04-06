@@ -26,7 +26,7 @@ let creator: StateCreator<Store> = (set, get) => ({
   showCardPage: true,
   resetFavorite: () => set({
     favoriteCardUuids: [],
-  }, true),
+  }),
   toggleFavoriteCard(uuid: number) {
     Mixpanel.track(TRACK.SET_FAVORITE, {uuid})
     if(get().favoriteCardUuids.includes(uuid)) {
