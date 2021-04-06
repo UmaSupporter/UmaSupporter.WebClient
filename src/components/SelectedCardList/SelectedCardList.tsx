@@ -5,7 +5,6 @@ type Props = {
   uuids: number[]
   onDeleteItem: (uuid: number) => void,
   onClickItem: (uuid:number) => void,
-  onResetItem: () => void
 }
 
 const SelectedCardList: React.FC<Props> = (props: Props) => {
@@ -21,7 +20,6 @@ const SelectedCardList: React.FC<Props> = (props: Props) => {
         )}
       </div>
     </div>
-    <button onClick={() => props.onResetItem()}>reset</button>
   </div>
 }
 

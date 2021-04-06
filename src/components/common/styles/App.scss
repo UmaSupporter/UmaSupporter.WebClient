@@ -1,8 +1,11 @@
-@import "./Typography.scss";
-@import "./Palette.scss";
-#root{
-  html{
+@import './Typography.scss';
+@import './Palette.scss';
+#root {
+  html {
     overflow: hidden;
-    height:100vh;
+    height: 100vh;
   }
+}
+body {
+  margin: 0;
 }

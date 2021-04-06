@@ -1,36 +1,37 @@
-@import "../styles/Typography.scss";
-@import "../styles/Card.scss";
-@mixin HeroImage{
+@import '../styles/Typography.scss';
+@import '../styles/Card.scss';
+@mixin HeroImage {
   aspect-ratio: 1;
   cursor: default;
 }
-.Hero{
-  display:flex;
-  margin:8px 0px;
-  
-  .heroImage{
+.Hero {
+  display: flex;
+  margin: 8px;
+  background: #d8c4a722;
+  padding: 8px;
+  border-radius: 4px;
+  .heroImage {
     @include HeroImage;
-    // @include CardBackPanel();
-    width:100px;
-    height:100px;
+    width: 80px;
+    height: 80px;
     object-fit: cover;
-    margin-right:8px;
-    border-radius:10px;
-    .heroImageContent{
+    margin-right: 8px;
+    border-radius: 10px;
+    .heroImageContent {
       @include HeroImage;
       @include CardImage();
       object-fit: cover;
       image-rendering: optimizeQuality;
     }
   }
-  .heroLabels{
-    display:flex;
-    flex-direction:column;
+  .heroLabels {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    font-weight:bold;
-    @include theme-text4
+    font-weight: bold;
+    @include theme-text3;
   }
-  .heroLabel{
-    margin:0px;
+  .heroLabel {
+    margin: 0px;
   }
 }

@@ -1,16 +1,17 @@
-.CardTypeFilterIcon{
-  width:30px;
-  height:30px;
-  margin:0px 2px;
-  cursor:pointer;
-  filter:saturate(50%) brightness(70%);
-  transition:filter 0.1s cubic-bezier(0.5, 0.13, 0.81, 0.44);
-  &.selected{
-    filter:saturate(100%) brightness(100%);
+.CardTypeFilterIcon {
+  user-select: none;
+  width: 30px;
+  height: 30px;
+  margin: 0px 2px;
+  cursor: pointer;
+  filter: saturate(50%) brightness(70%);
+  transition: filter 0.1s cubic-bezier(0.5, 0.13, 0.81, 0.44);
+  &.selected {
+    filter: saturate(100%) brightness(100%);
   }
 }
-.CardTypeFilterList{
-  display:flex;
+.CardTypeFilterList {
+  display: flex;
   justify-content: center;
   margin: 8px 0px;
-} 
+}

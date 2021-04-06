@@ -1,72 +1,85 @@
-@import "../../components/common/styles/App.scss";
-@import "../../components/common/styles/ScrollBar.scss";
-@import "../../components/common/styles/LayerCard.scss";
+@import '../../components/common/styles/App.scss';
+@import '../../components/common/styles/ScrollBar.scss';
+@import '../../components/common/styles/LayerCard.scss';
+@import '../../components/common/styles/Palette.scss';
 .MainPage {
   display: flex;
-  overflow:hidden;
+  overflow: hidden;
+  flex-direction: column;
   background: var(--background);
-  height:100vh;
+  height: 100vh;
+  padding: 0px 100px;
+  justify-content: center;
+  // align-items: center;
 }
-.MainPagelabel{
-  @include theme-text4(true);
-  padding-left:8px;
+.MainPageTitleBar {
+  @include Accent;
+  @include text2();
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 18px;
+  color: white;
+  display: flex;
+  height: 64px;
+  margin: 8px;
+  border-radius: 10px;
+  .github {
+    height: 30px;
+    width: 30px;
+    fill: white;
+    cursor: pointer;
+  }
+}
+.MainPageContent {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  padding: 8px;
+}
+.MainPagelabel {
+  @include text3();
+  user-select: none;
+  background: rgba(167, 224, 7, 1);
+  color: white;
+  padding: 4px 8px;
+  margin: 4px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .resetFavorite {
+    stroke-width: 4px;
+    display: inline-flex;
+    align-items: center;
+    transition: transform 0.1s cubic-bezier(0.5, 0.13, 0.81, 0.44);
+    cursor: pointer;
+    &:hover {
+      transform: scale(0.8);
+    }
+  }
 }
 
-@mixin floatingCard{
-  position:absolute;
-  width:calc(25% - 32px);
-  height: calc(100vh - 32px);
-  padding:16px;
-}
 .CardListArea {
-  @include floatingCard;
-  right:0px;
+  flex: 1;
 }
 .UmaListSection {
-  @include floatingCard;
+  flex: 1;
 }
 
-.UmaEventArea{
-  margin:0px 25%;
-  display:flex;
-  width:50%;
+.UmaEventArea {
+  display: flex;
+  flex: 2;
 }
-.EventChoice{
-  display:flex;
-  width:50%;
-  padding:16px;
+.EventChoice {
+  display: flex;
+  flex: 1;
 }
-
-@media (max-width:1200px){
-  .MainPage{
-    flex-direction: row;
+@media (max-width: 1200px) {
+  .MainPage {
+    padding: 0px;
   }
-  .UmaEventArea{
-    flex:1;
-    width:100%;
-    margin:0px;
-  }
-  @mixin floatingCard{
-    padding:0px;
-    height:100%;
-  }
-  .UmaListSection{
-    @include floatingCard;
-    width:50%;
-    margin-left:calc(-100% - 32px);
-    &.activated{
-      margin-left:0%;
-    }
-    z-index: 1;
-  }
-  .CardListArea{
-    @include floatingCard;
-    width:50%;
-    margin-left:calc(-200% - 32px);
-    visibility:hidden;
-    &.activated{
-      visibility:visible;
-      margin-left:0%;
-    }
+  .MainPageContent {
+    padding: 0px;
   }
 }

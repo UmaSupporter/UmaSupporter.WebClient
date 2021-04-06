@@ -14,7 +14,6 @@ const SelectedCardListContainer: React.FC<Props> = (props: Props) => {
       uuids={props.selectedList}
       onDeleteItem={props.onDeleteItem}
       onClickItem={props.onClickItem}
-      onResetItem={props.onResetItem}
       />
   </>
 };

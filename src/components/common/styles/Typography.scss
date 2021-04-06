@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Jua&family=Kosugi+Maru&display=swap');
-@import "./theme/theme.scss";
+@import './theme/theme.scss';
+
 @mixin text($bold: false) {
   @if $bold {
     font-weight: bold;
@@ -68,11 +69,18 @@
   @include theme-text($bold);
   font-size: var(--font-size7);
 }
-#root{
-  *{
-    font-family: 'Jua','Kosugi Maru', sans-serif;
+#root {
+  * {
+    font-family: 'Jua', 'Kosugi Maru', sans-serif;
   }
-  --bold:700w;
-  --normal:400w;
+  --bold: 700w;
+  --normal: 400w;
+  --font-size1: 32px;
+  --font-size2: 24px;
+  --font-size3: 18px;
+  --font-size4: 14px;
+  --font-size5: 12px;
+  --font-size6: 10px;
+  --font-size7: 9px;
   //* texts
 }
