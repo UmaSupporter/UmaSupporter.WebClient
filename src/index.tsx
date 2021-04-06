@@ -1,6 +1,5 @@
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
-import "./index.css";
 
 import MainRouter from "./router";
 import UmaApolloProvider from "./apollo";
