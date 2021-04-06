@@ -1,23 +1,15 @@
 import React, { useReducer } from "react"
 import { convertToCardType } from "../../common/utils"
 import { CardTypeFilterComponent } from "../../components/CardFilter"
+import useSelectedCard from "../../components/common/stores/useSelectedCard"
 import SelectedCardListContainer from "../../components/SelectedCardList"
 import SupportCardListContainer from "../../components/SupportCardList"
 import { CARD_TYPE } from "../../types"
 import "./CardList.scss"
 import { filterReducer } from "./CardListReducer"
 
-type Props = {
-  selectedList: number[],
-  onClickItem:(uuid:number)=>void,
-  onDeleteItem:(uuid:number)=>void,
-  onDoubleClickItem:(uuid:number)=>void,
-  onResetItem:()=>void,
-  showCardPage:boolean
-}
-
-const CardListView: React.FC<Props> = (props: Props) => {
-  const {selectedList, onClickItem, onDeleteItem, onDoubleClickItem, onResetItem} = props
+const CardListView: React.FC = () => {
+  const onResetItem = useSelectedCard(state => state.resetFavorite)
   const [state, dispatch] = useReducer(filterReducer, {filters: new Set<CARD_TYPE>()});
 
   const toggleFilter = (cardType: CARD_TYPE) =>  dispatch({ type: 'TOGGLE_FILTER', payload: cardType })
@@ -39,11 +31,7 @@ const CardListView: React.FC<Props> = (props: Props) => {
           </div>
         </div>
       </div>
-      <SelectedCardListContainer
-        onClickItem={onClickItem}
-        selectedList={selectedList}
-        onDeleteItem={onDeleteItem}
-        onResetItem={onResetItem} />
+      <SelectedCardListContainer />
     </div>
     <div className={"MainPageCardList"}>
       <p className={"MainPagelabel"}>
@@ -53,9 +41,6 @@ const CardListView: React.FC<Props> = (props: Props) => {
     <CardTypeFilterComponent cardTypes={currentCardType} onClickType={toggleFilter}/>
     <div className={"CardListGrid"}>
       <SupportCardListContainer
-        onClickItem={onClickItem}
-        onDoubleClickItem={onDoubleClickItem}
-        selectedList={selectedList}
         filters={state.filters}
       />
     </div>

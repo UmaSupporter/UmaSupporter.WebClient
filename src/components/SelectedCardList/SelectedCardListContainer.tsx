@@ -1,20 +1,18 @@
 import React from "react";
+import useSelectedCard from "../common/stores/useSelectedCard";
 import SelectedCardList from "./SelectedCardList";
+import shallow from "zustand/shallow";
 
-type Props = {
-  selectedList: number[],
-  onDeleteItem: (uuid: number) => void
-  onClickItem: (uuid: number) => void
-  onResetItem: () => void
-}
+const SelectedCardListContainer: React.FC = () => {
+  const [selectedList, onDeleteItem, onClickItem] = 
+    useSelectedCard(state => [state.favoriteCardUuids, state.deleteFavoriteCard, state.toggleFavoriteCard], shallow)
 
-const SelectedCardListContainer: React.FC<Props> = (props: Props) => {
   return <>
     <SelectedCardList
-      uuids={props.selectedList}
-      onDeleteItem={props.onDeleteItem}
-      onClickItem={props.onClickItem}
-      />
+      uuids={selectedList}
+      onDeleteItem={onDeleteItem}
+      onClickItem={onClickItem}
+    />
   </>
 };
 

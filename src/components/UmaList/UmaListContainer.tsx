@@ -1,6 +1,7 @@
 import gql from "graphql-tag";
 import { useUmaListQuery } from "../../generated/graphql";
 import { Uma } from "../../types";
+import useSelectedCard from "../common/stores/useSelectedCard";
 import UmaList from "./UmaList";
 
 gql`
@@ -15,12 +16,8 @@ gql`
   }
 `;
 
-type Props ={
-  onClickItem:(uuid:number)=>void,
-  showUmaPage:boolean
-}
-
-const UmaListContainer: React.FC<Props> = (props: Props) => {
+const UmaListContainer: React.FC = () => {
+  const onClickItem = useSelectedCard(state => state.setUmamusume)
   const {loading, error, data} = useUmaListQuery();
   if (loading) return (<p>loading...</p>)
   if (error) return (<p>error</p>)
@@ -36,7 +33,7 @@ const UmaListContainer: React.FC<Props> = (props: Props) => {
 
   return <UmaList 
     umas={umamusumeList}
-    clickItem={props.onClickItem}
+    clickItem={onClickItem}
   />;
 };
 

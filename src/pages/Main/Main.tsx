@@ -37,35 +37,20 @@ const Main: React.FC = () => {
       </div>
       <div className={"MainPageContent"}>
         <div className={`UmaListSection ${state.showUmaPage ? "activated" : ""}`}>
-          <UmaListContainer
-            onClickItem={state.setUmamusume}
-            showUmaPage={state.showUmaPage}
-          />
+          <UmaListContainer />
         </div>
 
         <div className={`UmaEventArea _${[state.showUmaPage, state.showCardPage].map(x => Number(!x)).reduce((a, b) => a + b)}`}>
           <div className={`UmaEventChoice EventChoice ${!state.showUmaPage ? "activated" : ""}`}>
-            <UmaDetailContainer
-              uuid={state.umaUuid}
-              toggleUmaPage={state.toggleUmaPage}
-            />
+            <UmaDetailContainer />
           </div>
 
           <div className={`CardEventChoice EventChoice ${!state.showCardPage ? "activated" : ""}`}>
-            <SupportCardDetailContainer
-              uuid={state.cardUuid}
-              toggleCardPage={state.toggleCardPage} />
+            <SupportCardDetailContainer />
           </div>
         </div>
         <div className={`CardListArea ${state.showCardPage ? "activated" : ""}`}>
-          <CardListView
-            selectedList={state.favoriteCardUuids}
-            onClickItem={state.setCard}
-            onDeleteItem={state.deleteFavoriteCard}
-            onDoubleClickItem={state.toggleFavoriteCard}
-            onResetItem={state.resetFavorite}
-            showCardPage={state.showCardPage}
-          />
+          <CardListView />
         </div>
       </div>
     </div>

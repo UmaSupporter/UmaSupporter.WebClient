@@ -2,6 +2,7 @@ import gql from "graphql-tag";
 import { useGetSupportCardOnIdWithEventQuery } from "../../generated/graphql";
 import { CardEventChoice, CardEventWithChoice } from "../../types";
 import { CARD_EVENT_FIELD_WITH_CHOICES } from "../common/fragments";
+import useSelectedCard from "../common/stores/useSelectedCard";
 import SupportCardDetail from "./SupportCardDetail";
 import SupportCardDetailNotExistComponent from "./SupportCardDetailNotExistComponent"
 
@@ -15,14 +16,11 @@ gql`
   }
 `;
 
-type Props = {
-  uuid: number
-  toggleCardPage:()=>void
-}
-
-const SupportCardDetailContainer: React.FC<Props> = (props: Props) => {
+const SupportCardDetailContainer: React.FC = () => {
+  const uuid = useSelectedCard(state => state.umaUuid);
+  const toggleCardPage = useSelectedCard(state => state.toggleCardPage);
   const {loading, error, data} = useGetSupportCardOnIdWithEventQuery({
-      variables: props
+      variables: { uuid }
   });
   if(loading) return (<p>loading...</p>)
   if(error) return (<p>error</p>)
@@ -48,7 +46,7 @@ const SupportCardDetailContainer: React.FC<Props> = (props: Props) => {
     cardImage={data.supportCardId.cardImage!}
     rareDegree={data.supportCardId.rareDegree!}
     event={events}
-    toggleCardPage={props.toggleCardPage} />
+    toggleCardPage={toggleCardPage} />
 }
 
 export default SupportCardDetailContainer

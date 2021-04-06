@@ -5,6 +5,8 @@ import { CORE_SUPPORT_CARD_FIELD } from "../common/fragments";
 import { CARD_TYPE, SupportCard } from "../../types";
 import SupportCardList from "./SupportCardList";
 import { convertToCardType, rareDegreeCompare } from "../../common/utils";
+import useSelectedCard from "../common/stores/useSelectedCard";
+import shallow from "zustand/shallow";
 
 gql`
   ${CORE_SUPPORT_CARD_FIELD}
@@ -16,13 +18,12 @@ gql`
 `;
 
 type Props = {
-  onClickItem: (uuid: number) => void,
-  onDoubleClickItem: (uuid: number) => void,
   filters: Set<CARD_TYPE>,
-  selectedList: Array<Number>
 }
 
-const SupportCardListContainer: React.FC<Props> = (props: Props) => {
+const SupportCardListContainer: React.FC<Props> = (props) => {
+  const [selectedList, onClickItem, onDoubleClickItem] = 
+    useSelectedCard(state => [state.favoriteCardUuids, state.setCard, state.toggleFavoriteCard], shallow)
   const { loading, error, data } = useSupportCardQuery();
   if (loading) return (<p>loading...</p>)
   if (error) return (<p>error</p>)
@@ -47,9 +48,9 @@ const SupportCardListContainer: React.FC<Props> = (props: Props) => {
     <>
       <SupportCardList 
       cards={cardList}
-      selectedList={props.selectedList}
-      onClickItem={props.onClickItem}
-      onDoubleClickItem={props.onDoubleClickItem}/>
+      onClickItem={onClickItem}
+      selectedList={selectedList}
+      onDoubleClickItem={onDoubleClickItem}/>
     </>
   );
 };

@@ -2,6 +2,7 @@ import gql from "graphql-tag";
 import { useGetUmaOnIdWithEventQuery } from "../../generated/graphql";
 import { UmaEventChoice, UmaEventWithChoice } from "../../types";
 import { UMA_EVENT_FIELD_WITH_CHOICES } from "../common/fragments";
+import useSelectedCard from "../common/stores/useSelectedCard";
 import UmaDetailComponent from "./UmaDetailComponent";
 import UmaDetailNotExistComponent from "./UmaDetailNotExistComponent";
 
@@ -19,15 +20,12 @@ gql`
   }
 `;
 
-type Props = {
-  uuid: number,
-  toggleUmaPage:()=>void
-}
-
-const UmaDetailContainer: React.FC<Props> = (props: Props) => {
+const UmaDetailContainer: React.FC = () => {
+  const uuid = useSelectedCard(state => state.umaUuid);
+  const toggleUmaPage = useSelectedCard(state => state.toggleUmaPage);
   const {loading, error, data} = useGetUmaOnIdWithEventQuery({
-    variables: props
-})
+    variables: { uuid }
+  })
   if(loading) return (<p>loading...</p>)
   if(error) return (<p>error</p>)
   if(data == null || data?.umamusumeId == null) return <UmaDetailNotExistComponent />
@@ -52,7 +50,7 @@ const UmaDetailContainer: React.FC<Props> = (props: Props) => {
     secondName={data.umamusumeId.secondName!}
     rareDegree={String(data.umamusumeId.rareDegree!)}
     event={events}
-    toggleUmaPage={props.toggleUmaPage}
+    toggleUmaPage={toggleUmaPage}
     />
 }
 
