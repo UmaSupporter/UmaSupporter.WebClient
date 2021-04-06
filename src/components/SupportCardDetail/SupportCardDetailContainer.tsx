@@ -16,11 +16,14 @@ gql`
   }
 `;
 
-const SupportCardDetailContainer: React.FC = () => {
-  const uuid = useSelectedCard(state => state.umaUuid);
+type Props = {
+    uuid: number
+}
+
+const SupportCardDetailContainer: React.FC<Props> = (props: Props) => {
   const toggleCardPage = useSelectedCard(state => state.toggleCardPage);
   const {loading, error, data} = useGetSupportCardOnIdWithEventQuery({
-      variables: { uuid }
+      variables: props
   });
   if(loading) return (<p>loading...</p>)
   if(error) return (<p>error</p>)

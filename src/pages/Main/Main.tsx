@@ -9,9 +9,10 @@ import CardListView from "../../views/CardList";
 import logoImage from "../../img/logo.png";
 import donationLogo from "../../img/donation.svg";
 import useSelectedCard from "../../components/common/stores/useSelectedCard";
+import shallow from "zustand/shallow"
 
 const Main: React.FC = () => {
-  const state = useSelectedCard()
+  const [showUmaPage, showCardPage, uuid] = useSelectedCard(state => [state.showUmaPage, state.showCardPage, state.cardUuid], shallow)
 
   useEffect(() => {
     Mixpanel.track(TRACK.MAINPAGE, {})
@@ -36,20 +37,20 @@ const Main: React.FC = () => {
         </span>
       </div>
       <div className={"MainPageContent"}>
-        <div className={`UmaListSection ${state.showUmaPage ? "activated" : ""}`}>
+        <div className={`UmaListSection ${showUmaPage ? "activated" : ""}`}>
           <UmaListContainer />
         </div>
 
-        <div className={`UmaEventArea _${[state.showUmaPage, state.showCardPage].map(x => Number(!x)).reduce((a, b) => a + b)}`}>
-          <div className={`UmaEventChoice EventChoice ${!state.showUmaPage ? "activated" : ""}`}>
+        <div className={`UmaEventArea _${[showUmaPage, showCardPage].map(x => Number(!x)).reduce((a, b) => a + b)}`}>
+          <div className={`UmaEventChoice EventChoice ${!showUmaPage ? "activated" : ""}`}>
             <UmaDetailContainer />
           </div>
 
-          <div className={`CardEventChoice EventChoice ${!state.showCardPage ? "activated" : ""}`}>
-            <SupportCardDetailContainer />
+          <div className={`CardEventChoice EventChoice ${!showCardPage ? "activated" : ""}`}>
+            <SupportCardDetailContainer uuid={uuid} />
           </div>
         </div>
-        <div className={`CardListArea ${state.showCardPage ? "activated" : ""}`}>
+        <div className={`CardListArea ${showCardPage ? "activated" : ""}`}>
           <CardListView />
         </div>
       </div>
