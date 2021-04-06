@@ -30,7 +30,12 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const SupportCardDetail: React.FC<Props> = (props: Props) => {
   const classes = useStyles();
+  const [expanded, setExpanded] = React.useState<string | false>(false);
   const { supportCardName, supportCardSecondName,event, cardImage, rareDegree } = props;
+
+  const handleChange = (panel: string) => (event: React.ChangeEvent<{}>, isExpanded: boolean) => {
+    setExpanded(isExpanded ? panel : false);
+  };
 
   return <div className={"SupportCardDetail"}>
     <Hero 
@@ -45,7 +50,7 @@ const SupportCardDetail: React.FC<Props> = (props: Props) => {
         
     {
       event.map((x, i) => {
-        return <Accordion key={i}>
+        return <Accordion key={i} expanded={expanded === `panel${i}`} onChange={handleChange(`panel${i}`)}>
           <AccordionSummary
             expandIcon={<ExpandMore />}
             aria-controls="panel1a-content"
