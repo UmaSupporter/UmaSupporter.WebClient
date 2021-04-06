@@ -1,22 +1,24 @@
-@import "../../components/common/styles/Typography.scss";
-@import "../../components/common/styles/LayerCard.scss";
-.SupportCardDetail{
+@import '../../components/common/styles/Typography.scss';
+@import '../../components/common/styles/LayerCard.scss';
+.SupportCardDetail {
   @include LayerCard;
-  display:flex;
+  display: flex;
   flex-direction: column;
-  width:100%;
+  width: 100%;
+  margin: 8px;
 }
-.MuiAvatar-root{
-  border-radius: 8px!important;
+.MuiAvatar-root {
+  border-radius: 8px !important;
 }
-.Label{
-  @include theme-text4(true);
-  p{
-    padding-left:8px;
+.Label {
+  @include theme-text3(true);
+  p {
+    padding-left: 8px;
   }
 }
 
-.EventListWrapper{
-  flex:1;
-  overflow-y:auto;
+.EventListWrapper {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px;
 }

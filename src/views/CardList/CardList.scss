@@ -1,16 +1,17 @@
-@import "../../components/common/styles/LayerCard.scss";
-@import "../../components/common/styles/ScrollBar.scss";
+@import '../../components/common/styles/LayerCard.scss';
+@import '../../components/common/styles/ScrollBar.scss';
 .CardList {
   display: flex;
-  height:100%;
-  right:0px;
+  height: calc(100% - 16px);
+  right: 0px;
+  margin: 8px;
   @include LayerCard;
   flex-direction: column;
-  .CardListGrid{
+  .CardListGrid {
     @include ThemeScrollBar;
-    flex:1;
-    height:100%;
+    flex: 1;
+    height: 100%;
     overflow-y: scroll;
-    padding:0px 16px;
+    padding: 8px;
   }
 }

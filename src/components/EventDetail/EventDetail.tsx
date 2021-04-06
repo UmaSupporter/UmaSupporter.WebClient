@@ -17,7 +17,7 @@ const EventDetail: React.FC<Props> = (props: Props) => {
       props.choice.map((x, i) => {
         return <Card key={i}>
           <CardContent>
-          <Typography variant="h5" component="h5">
+          <Typography variant="h5" component="h5" className={"EventTitle"}>
             {x.title}
           </Typography>
             <p style={{

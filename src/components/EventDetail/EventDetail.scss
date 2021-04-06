@@ -1,6 +1,10 @@
-.MuiTypography-root{
-    &.MuiTypography-h5{
-        font-size: 14px!important;
-        // font-weight:bold;
-    }
+@import '../common/styles/Typography.scss';
+.MuiTypography-root {
+  &.MuiTypography-h5 {
+    font-size: 14px !important;
+    // font-weight:bold;
+  }
+  &.EventTitle {
+    @include theme-text4();
+  }
 }

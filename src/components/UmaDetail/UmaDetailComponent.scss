@@ -1,28 +1,31 @@
-@import "../../components/common/styles/App.scss";
-@import "../../components/common/styles/LayerCard.scss";
-@import "../../components/common/styles/ScrollBar.scss";
-.UmaDetail{
+@import '../../components/common/styles/App.scss';
+@import '../../components/common/styles/LayerCard.scss';
+@import '../../components/common/styles/ScrollBar.scss';
+.UmaDetail {
   @include LayerCard;
-  display:flex;
+  display: flex;
   flex-direction: column;
-  width:100%;
+  width: 100%;
+  margin: 8px;
 }
-.MuiAvatar-root{
-  border-radius: 12px!important;
+.MuiAvatar-root {
+  border-radius: 12px !important;
 }
-.Label{
-  @include theme-text4(true);
-  p{
-    padding-left:8px;
+.Label {
+  @include theme-text3(true);
+  p {
+    padding: 4px 8px;
+    margin: 4px;
+    margin-bottom: 8px;
   }
 }
 
-.EventListWrapper{
+.EventListWrapper {
   @include ThemeScrollBar;
-  flex:1;
-  overflow-y:auto;
+  flex: 1;
+  overflow-y: auto;
 }
 
-.UmaNotExist{
-  display:flex;
+.UmaNotExist {
+  display: flex;
 }

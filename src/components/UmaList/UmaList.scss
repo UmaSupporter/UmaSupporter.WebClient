@@ -1,29 +1,32 @@
-@import "../common/styles/Typography.scss";
-@import "../common/styles/LayerCard.scss";
-@import "../common/styles/ScrollBar.scss";
-.UmaList{
+@import '../common/styles/Typography.scss';
+@import '../common/styles/LayerCard.scss';
+@import '../common/styles/ScrollBar.scss';
+.UmaList {
   @include LayerCard;
-  display:flex;
+  display: flex;
   flex-direction: column;
-  height: 100%;
-  flex:1;
+  height: calc(100% - 16px);
+  flex: 1;
+  margin: 8px;
 }
 
-.UmaListLabel{
+.UmaListLabel {
   @include theme-text5();
 }
-.UmaComponentList{
-  flex:1;
-  overflow-y:auto;
-  padding: 0px 8px;
+.UmaComponentList {
+  @include ThemeScrollBar;
+  flex: 1;
+  margin: 8px;
+  overflow-y: auto;
+  padding: 8px;
   height: calc(100% - 24px);
-  
+  border-radius: 4px;
 }
 
-.UmaGrid{
-  display:grid;
+.UmaGrid {
+  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(auto, 80px));
   grid-gap: 4px;
-  height:max-content;
-  justify-content: flex-start;
+  height: max-content;
+  justify-content: space-evenly;
 }

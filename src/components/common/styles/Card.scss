@@ -1,32 +1,34 @@
-@import "./Palette.scss";
-@import "./Animation.scss";
+@import './Palette.scss';
+@import './Animation.scss';
 
-$cardRadius:10px;
+$cardRadius: 10px;
 
-@mixin CardBackPanel() {
-  @include animation(0.2s,appearance, cubic-bezier(0.25,1,0.8,1.2));
+@mixin CardBackPanel($width: 80) {
+  @include animation(0.2s, appearance, cubic-bezier(0.25, 1, 0.8, 1.2));
+  user-select: none;
   box-sizing: content-box;
   border-radius: 15px;
-  width: 100px;
-  padding: 4px;
+  width: $width + 0px;
+  padding: 2px;
   border: solid 1px rgba(0, 0, 0, 0.1);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.11);
-  // margin: 8px 0px;
   transition: transform 0.2s cubic-bezier(0.5, 0.13, 0.81, 0.44);
   overflow: hidden;
-  cursor:pointer;
-  
-  @include keyframes(appearance){
+  align-self: center;
+  justify-self: center;
+  cursor: pointer;
+
+  @include keyframes(appearance) {
     0% {
       transform: scale(0.8);
-      opacity:0;
+      opacity: 0;
     }
     100% {
-      transform: scale(1.0);
-      opacity:1;
+      transform: scale(1);
+      opacity: 1;
     }
   }
-  
+
   &.R {
     background: var(--R-Gradient);
   }
@@ -37,29 +39,30 @@ $cardRadius:10px;
     background: var(--SSR-Gradient);
   }
 }
-@mixin CardImage() {
+@mixin CardImage($width: 80) {
+  user-select: none;
   position: relative;
   border-radius: $cardRadius;
-  width: calc(100px - 4px);
+  width: $width - 4px;
   object-fit: cover;
   border: solid 2px rgba(0, 0, 0, 0.2);
   opacity: 0.99;
   image-rendering: optimizeQuality;
 }
 
-@mixin CardPlaceholder{
-  width: 100px;
-  display:flex;
+@mixin CardPlaceholder($width: 80) {
+  width: $width;
+  display: flex;
   justify-content: center;
   align-items: center;
   padding: 4px;
-  margin:0px 8px;
-  border-radius:$cardRadius;
-  background:#ececec;
-  border:dotted 4px #e8e8e8;
+  margin: 0px 8px;
+  border-radius: $cardRadius;
+  background: #ececec;
+  border: dotted 4px #e8e8e8;
 }
 
-@mixin hoverable{
+@mixin hoverable {
   &:hover {
     transition: transform 0.1s cubic-bezier(0.5, 0.13, 0.81, 0.44);
     transform: scale(0.95);

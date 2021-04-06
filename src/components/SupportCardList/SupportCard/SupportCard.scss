@@ -2,11 +2,19 @@
 @mixin SupportCard {
   aspect-ratio: 1/1.3;
 }
+.SupportCardWrapper {
+  display: inline-flex;
+  flex-direction: column;
+  background: #8f8f8f22;
+  border-radius: 15px;
+  padding: 2px;
+  width: fit-content;
+}
 .SupportCard-BackPanel {
   @include hoverable;
-  @include CardBackPanel();
+  @include CardBackPanel;
   @include SupportCard;
-  &:focus{
+  &:focus {
     outline: unset;
   }
 }
@@ -16,25 +24,45 @@
   @include CardImage();
 }
 
-.SupportCardLikeButton{
-  margin-top:-38px;
-  width:24px;
-  height:24px;
+.SupportCardLikeButton {
+  width: 16px;
+  height: 16px;
   z-index: 2;
   transform: translateZ(0px);
-  background:white;
-  backdrop-filter:blur(5px);
+  backdrop-filter: blur(5px);
   opacity: 0.8;
   border-radius: 11px;
-  padding:4px;
 }
-.SupportCardLikeIcon{
-  &.liked{
-    fill:#e0245e;
+.SupportCardAuxInfo {
+  display: flex;
+  padding-top: 2px;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.SupportCardLikeIcon {
+  &.liked {
+    fill: #e0245e;
   }
-  transition: fill 0.1s cubic-bezier(0.5, 0.13, 0.81, 0.44);
-  fill:#dbbcc6;
-  margin:2px;
-  width:20px;
-  height:20px;
+  *:hover {
+    fill: #dda2b5;
+    transform: scale(0.85);
+    transform-origin: center center;
+    transition-property: fill, transform;
+    transition-duration: 0.1s;
+    transition-timing-function: cubic-bezier(0.5, 0.13, 0.81, 0.44);
+  }
+  user-select: none;
+  cursor: pointer;
+  transition-property: fill, transform;
+  transition-duration: 0.1s;
+  transition-timing-function: cubic-bezier(0.5, 0.13, 0.81, 0.44);
+  fill: #dbbcc6;
+  margin: 2px;
+  width: 14px;
+  height: 14px;
+}
+.SupportCardTypeIcon {
+  user-select: none;
+  width: 16px;
+  height: 16px;
 }
