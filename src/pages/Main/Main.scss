@@ -29,16 +29,18 @@
 .MainPageTitleBar {
   @include TitleBar;
   .titleLogo {
-    height: 64px;
+    height: 48px;
+    margin-left: 8px;
   }
   @include text2();
   justify-content: space-between;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.11);
   align-items: center;
   padding: 0px 18px;
   color: white;
   display: flex;
   height: 64px;
-  margin: 8px;
+  margin: 8px 16px;
   border-radius: 10px;
   .github {
     height: 30px;
@@ -55,8 +57,8 @@
 }
 .MainPagelabel {
   @include text3();
+  @include Accent;
   user-select: none;
-  background: rgba(107, 187, 2, 1);
   color: white;
   padding: 4px 8px;
   margin: 4px;

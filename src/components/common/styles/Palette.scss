@@ -1,3 +1,5 @@
+@import './theme/theme.scss';
+
 #root {
   --R-Gradient: linear-gradient(160deg, white 0%, #9da5be 100%);
   --SR-Gradient: linear-gradient(160deg, #fff3d4 0%, #cf9811 100%);
@@ -12,7 +14,7 @@
 }
 
 @mixin Accent {
-  border: solid 2px hsla(0, 0%, 0%, 0.2);
+  border: solid 1px hsla(0, 0%, 0%, 0.2);
   background: linear-gradient(
     135deg,
     rgba(167, 224, 7, 1) 0%,
@@ -22,11 +24,11 @@
   );
 }
 @mixin TitleBar {
-  border: solid 2px rgba(107, 187, 2, 1);
+  // border: solid 2px rgba(107, 187, 2, 1);
   background: linear-gradient(
     135deg,
-    hsla(240, 100%, 98%, 0) 0%,
-    hsla(240, 100%, 95%, 0.5) 68%,
+    var(--layer1) 0%,
+    var(--layer1) 68%,
     rgba(107, 187, 2, 1) 68%,
     rgba(160, 221, 4, 1) 100%
   );

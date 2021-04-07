@@ -1,6 +1,13 @@
-@import "./SelectedCard.scss";
+@import './SelectedCard.scss';
 
-.SelectedCardPlaceholder{
+.SelectedCardPlaceholder {
   @include SelectedCard;
-  @include CardPlaceholder()
+  @include CardPlaceholder();
+}
+
+@media (max-width: 1200px) {
+  .SelectedCardPlaceholder {
+    @include SelectedCard;
+    @include CardPlaceholder(60);
+  }
 }
