@@ -2,16 +2,16 @@
 @mixin ThemeScrollBar {
   &::-webkit-scrollbar {
     visibility: hidden;
-    width: 8px;
-    height: 8px;
+    width: 5px;
+    height: 5px;
     position: absolute;
     right: 0px;
     margin-left: -10px;
   }
   &::-webkit-scrollbar-thumb {
-    background: #424242;
-    width: 8px;
-    height: 8px;
+    background: #88888888;
+    width: 5px;
+    height: 5px;
     // @include Accent;
     border-radius: 5px;
   }

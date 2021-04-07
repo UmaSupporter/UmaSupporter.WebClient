@@ -6,10 +6,12 @@
 }
 .Hero {
   display: flex;
-  margin: 8px;
+  justify-self: stretch;
+  // margin: 8px;
   background: #d8c4a722;
   padding: 8px;
   border-radius: 4px;
+
   .heroImage {
     @include HeroImage;
     width: 80px;

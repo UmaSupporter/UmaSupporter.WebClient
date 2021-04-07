@@ -11,10 +11,12 @@
     rgba(74, 220, 242, 1) 80%,
     rgba(182, 247, 77, 1) 100%
   );
+  --accentgreen: rgba(167, 224, 7, 1);
 }
 
 @mixin Accent {
-  border: solid 1px hsla(0, 0%, 0%, 0.2);
+  // border: solid 1px hsla(0, 0%, 0%, 0.2);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2);
   background: linear-gradient(
     135deg,
     rgba(167, 224, 7, 1) 0%,

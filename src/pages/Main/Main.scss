@@ -13,41 +13,53 @@
   // align-items: center;
 }
 .TitleBarRightItems {
+  background-color: transparent;
   display: inline-flex;
+  a {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    &:hover {
+      background: #ffffff22;
+    }
+    img {
+      width: 24px;
+      height: 24px;
+    }
+  }
   .donationLink {
     margin-right: 10px;
   }
   .donationLogo {
-    width: 30px;
-    height: 30px;
     fill: white;
     color: white;
     stroke: white;
+  }
+  .github {
+    height: 24px;
+    width: 24px;
+    fill: white;
+    cursor: pointer;
   }
 }
 
 .MainPageTitleBar {
   @include TitleBar;
   .titleLogo {
-    height: 48px;
+    height: 36px;
     margin-left: 8px;
   }
+
   @include text2();
   justify-content: space-between;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.11);
   align-items: center;
   padding: 0px 18px;
   color: white;
   display: flex;
-  height: 64px;
+  height: 48px;
   margin: 8px 16px;
+  margin-bottom: 0px;
   border-radius: 10px;
-  .github {
-    height: 30px;
-    width: 30px;
-    fill: white;
-    cursor: pointer;
-  }
 }
 .MainPageContent {
   flex: 1;
@@ -97,9 +109,31 @@
   .MainPage {
     padding: 0px;
   }
+
   .MainPageTitleBar {
     border-radius: 0px;
     margin: 0px;
+    background: var(--layer1);
+    .TitleBarRightItems {
+      background: var(--accentgreen);
+      padding: 8px 10px;
+      border-radius: 20px;
+      a {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        &:hover {
+          background: #ffffff22;
+        }
+        img {
+          width: 24px;
+          height: 24px;
+        }
+      }
+    }
+    .titleLogo {
+      height: 32px;
+    }
   }
   .MainPageContent {
     padding: 0px;

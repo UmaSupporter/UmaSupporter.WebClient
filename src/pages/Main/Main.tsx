@@ -137,6 +137,7 @@ const Main: React.FC = () => {
     <div className={"MainPage"}>
       <div className={"MainPageTitleBar"}>
         <img src={logoImage} className={"titleLogo"} alt={"우마서포터"} />
+        {/* <div>우마서포터</div> */}
         <span className={"TitleBarRightItems"}>
           <a className={"donationLink"} href={"https://ko-fi.com/umasupporter"}>
             <img src={donationLogo} className={"donationLogo"} alt={"제작자 후원하기"} />
