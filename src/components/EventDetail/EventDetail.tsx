@@ -17,11 +17,12 @@ const EventDetail: React.FC<Props> = (props: Props) => {
       props.choice.map((x, i) => {
         return <Card key={i}>
           <CardContent>
-          <Typography variant="h5" component="h5" className={"EventTitle"}>
-            {x.title}
-          </Typography>
-            <p style={{
-              whiteSpace:'pre-line'}}>
+            <Typography variant="h5" component="h6" className={"EventTitle"}>
+              {x.title}
+            </Typography>
+            <p className={"EventEffect"} style={{
+              whiteSpace: 'pre-line'
+            }}>
               {x.effect}
             </p>
           </CardContent>

@@ -6,7 +6,9 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin: 8px;
+  margin: 4px;
+  justify-content: center;
+  align-items: stretch;
 }
 .MuiAvatar-root {
   border-radius: 12px !important;
@@ -28,4 +30,9 @@
 
 .UmaNotExist {
   display: flex;
+}
+@media (max-width: 1200px) {
+  .UmaDetail {
+    margin: 0px;
+  }
 }

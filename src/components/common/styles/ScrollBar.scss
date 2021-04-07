@@ -1,27 +1,28 @@
-@import "./Palette.scss";
-@mixin ThemeScrollBar{
-  &::-webkit-scrollbar{
+@import './Palette.scss';
+@mixin ThemeScrollBar {
+  &::-webkit-scrollbar {
     visibility: hidden;
-    width:10px;
-    height:10px;
-    position:absolute;
-    right:0px;
-    margin-left:-10px;
+    width: 5px;
+    height: 5px;
+    position: absolute;
+    right: 0px;
+    margin-left: -10px;
   }
-  &::-webkit-scrollbar-thumb{
-    width:10px;
-    height:10px;
-    @include Accent;
-    border-radius:5px;
+  &::-webkit-scrollbar-thumb {
+    background: #88888888;
+    width: 5px;
+    height: 5px;
+    // @include Accent;
+    border-radius: 5px;
   }
-  &::-webkit-scrollbar-track{
-    width:0px;
-    border-radius:5px;
+  &::-webkit-scrollbar-track {
+    width: 0px;
+    border-radius: 5px;
   }
   &::-webkit-scrollbar-button,
-  &::-webkit-scrollbar-corner{
+  &::-webkit-scrollbar-corner {
     visibility: hidden;
-    width:0px;
-    height:0px;
+    width: 0px;
+    height: 0px;
   }
 }

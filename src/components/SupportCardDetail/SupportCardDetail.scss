@@ -5,7 +5,9 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin: 8px;
+  margin: 4px;
+  justify-content: center;
+  align-items: stretch;
 }
 .MuiAvatar-root {
   border-radius: 8px !important;
@@ -13,6 +15,8 @@
 .Label {
   @include theme-text3(true);
   p {
+    margin: 0px auto;
+    width: fit-content;
     padding-left: 8px;
   }
 }
@@ -21,4 +25,10 @@
   flex: 1;
   overflow-y: auto;
   padding: 8px;
+}
+
+@media (max-width: 1200px) {
+  .SupportCardDetail {
+    margin: 0px;
+  }
 }

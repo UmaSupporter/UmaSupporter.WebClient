@@ -5,10 +5,15 @@
 
 .SupportCardList {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(auto, 84px));
+  grid-template-columns: repeat(auto-fit, minmax(auto, 90px));
   justify-content: space-evenly;
   width: 100%;
   margin: 0px auto;
   flex: 1;
   grid-gap: 4px;
+}
+@media (max-width: 1200px) {
+  .SupportCardList {
+    grid-template-columns: repeat(auto-fit, minmax(auto, 70px));
+  }
 }

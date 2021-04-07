@@ -1,7 +1,11 @@
-@media (prefers-color-scheme:dark){
-  #root{
-    --text-color:#6d4d38;
-    --background:#242424;
-    --layer1:#343434;
+@media (prefers-color-scheme: dark) {
+  #root {
+    --text-color: #fdfdffdd;
+    --brown-color: #6d4d38;
+    --background: #242424;
+    --layer1: #343434;
+    --layer2: hsl(0, 0%, 20%);
+    --layer3: hsl(0, 0%, 24%);
+    --layer4: hsl(0, 0%, 27%);
   }
 }

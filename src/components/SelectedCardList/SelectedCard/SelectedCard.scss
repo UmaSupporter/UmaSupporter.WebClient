@@ -46,3 +46,17 @@
 .SelectedCard-removeButton:focus {
   outline: none;
 }
+@media (max-width: 1200px) {
+  .SelectedCard {
+    @include SelectedCard();
+    @include CardBackPanel(60);
+  }
+  .SelectedCard-image {
+    @include SelectedCard();
+    @include CardImage(60);
+  }
+  .SelectedCard-removeButton {
+    margin-top: -64px;
+    margin-left: 38px;
+  }
+}

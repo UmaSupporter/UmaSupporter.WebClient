@@ -1,6 +1,6 @@
 @import './theme/theme.scss';
 @mixin LayerCard() {
   border-radius: 4px;
-  background: var(--layer1);
+  background: var(--layer2);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.11);
 }
