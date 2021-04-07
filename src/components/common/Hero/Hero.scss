@@ -7,7 +7,7 @@
 .Hero {
   display: flex;
   justify-self: stretch;
-  // margin: 8px;
+  width: -webkit-fill-available;
   background: #d8c4a722;
   padding: 8px;
   border-radius: 4px;
