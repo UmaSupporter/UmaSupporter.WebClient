@@ -85,3 +85,21 @@
     @include CardImage(60);
   }
 }
+
+@media (max-width: 320px) {
+  @mixin SupportCard {
+    aspect-ratio: 1/1;
+  }
+  .SupportCard-BackPanel {
+    @include hoverable;
+    @include CardBackPanel(50);
+    @include SupportCard;
+    &:focus {
+      outline: unset;
+    }
+  }
+  .SupportCard {
+    @include SupportCard;
+    @include CardImage(50);
+  }
+}
