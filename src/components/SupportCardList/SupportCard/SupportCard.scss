@@ -45,12 +45,14 @@
   }
   *:hover {
     fill: #dda2b5;
-    transform: scale(0.85);
+    transform: scale(0.9);
     transform-origin: center center;
     transition-property: fill, transform;
     transition-duration: 0.1s;
     transition-timing-function: cubic-bezier(0.5, 0.13, 0.81, 0.44);
   }
+  stroke-width: 4px;
+  stroke: #ffffff88;
   user-select: none;
   cursor: pointer;
   transition-property: fill, transform;
@@ -65,4 +67,18 @@
   user-select: none;
   width: 16px;
   height: 16px;
+}
+@media (max-width: 1200px) {
+  .SupportCard-BackPanel {
+    @include hoverable;
+    @include CardBackPanel(60);
+    @include SupportCard;
+    &:focus {
+      outline: unset;
+    }
+  }
+  .SupportCard {
+    @include SupportCard;
+    @include CardImage(60);
+  }
 }

@@ -6,7 +6,7 @@ if(production) {
   uri = 'https://uma.hitagi.moe'
 }
 else {
-  uri = 'http://localhost:5000'
+  uri = 'https://uma.hitagi.moe'
 }
 export const baseUri = uri
 export const UriContext = createContext(uri)

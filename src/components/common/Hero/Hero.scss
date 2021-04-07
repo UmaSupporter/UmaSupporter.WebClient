@@ -17,9 +17,11 @@
     object-fit: cover;
     margin-right: 8px;
     border-radius: 10px;
+    cursor: pointer;
     .heroImageContent {
       @include HeroImage;
       @include CardImage();
+      @include hoverable;
       object-fit: cover;
       image-rendering: optimizeQuality;
     }
@@ -29,7 +31,7 @@
     flex-direction: column;
     justify-content: center;
     font-weight: bold;
-    @include theme-text3;
+    @include theme-text4;
   }
   .heroLabel {
     margin: 0px;

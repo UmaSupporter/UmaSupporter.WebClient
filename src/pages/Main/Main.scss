@@ -12,8 +12,25 @@
   justify-content: center;
   // align-items: center;
 }
+.TitleBarRightItems {
+  display: inline-flex;
+  .donationLink {
+    margin-right: 10px;
+  }
+  .donationLogo {
+    width: 30px;
+    height: 30px;
+    fill: white;
+    color: white;
+    stroke: white;
+  }
+}
+
 .MainPageTitleBar {
-  @include Accent;
+  @include TitleBar;
+  .titleLogo {
+    height: 64px;
+  }
   @include text2();
   justify-content: space-between;
   align-items: center;
@@ -49,7 +66,6 @@
   justify-content: space-between;
   align-items: center;
   .resetFavorite {
-    stroke-width: 4px;
     display: inline-flex;
     align-items: center;
     transition: transform 0.1s cubic-bezier(0.5, 0.13, 0.81, 0.44);
@@ -79,7 +95,51 @@
   .MainPage {
     padding: 0px;
   }
+  .MainPageTitleBar {
+    border-radius: 0px;
+    margin: 0px;
+  }
   .MainPageContent {
     padding: 0px;
+  }
+  .MainPagelabel {
+    margin: 0px;
+    border-radius: 0px;
+  }
+  @mixin shrinkable {
+    flex: 0.000001;
+    width: 0px;
+    transform: scaleX(0);
+    transform-origin: center left;
+    &.activated {
+      width: auto;
+      transform: scaleX(1);
+      flex: 1;
+    }
+  }
+  .CardListArea {
+    @include shrinkable;
+  }
+  .UmaListSection {
+    @include shrinkable;
+  }
+  .UmaEventArea {
+    max-width: 100vw;
+    &._2 {
+      flex: 2;
+      width: auto;
+    }
+    &._1 {
+      flex: 1;
+      width: auto;
+    }
+    &._0 {
+      flex: 0.000001;
+      width: 0px;
+    }
+  }
+  .EventChoice {
+    max-width: 50vw;
+    @include shrinkable;
   }
 }

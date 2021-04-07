@@ -30,3 +30,13 @@
   height: max-content;
   justify-content: space-evenly;
 }
+
+@media (max-width: 1200px) {
+  .UmaList {
+    margin: 0px;
+    height: 100%;
+  }
+  .UmaGrid {
+    grid-template-columns: repeat(auto-fit, minmax(auto, 60px));
+  }
+}

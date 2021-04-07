@@ -16,9 +16,18 @@
 .SelectedCards {
   display: grid;
   width: fit-content;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(auto, 80px));
   width: 100%;
   height: 180px;
-  grid-gap: 4px;
+  grid-gap: 0px;
   justify-content: space-evenly;
+}
+
+@media (max-width: 1200px) {
+  .SelectedCardList {
+    padding: 4px;
+  }
+  .SelectedCards {
+    grid-template-columns: repeat(auto-fit, minmax(auto, 70px));
+  }
 }
