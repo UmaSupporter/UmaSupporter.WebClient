@@ -40,3 +40,9 @@
     grid-template-columns: repeat(auto-fit, minmax(auto, 60px));
   }
 }
+
+@media (max-width: 1200px) {
+  .UmaGrid {
+    grid-template-columns: repeat(auto-fit, minmax(auto, 50px));
+  }
+}

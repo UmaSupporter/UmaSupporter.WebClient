@@ -15,3 +15,10 @@
   justify-content: center;
   margin: 8px 0px;
 }
+
+@media (max-width: 320px) {
+  .CardTypeFilterIcon {
+    width: 20px;
+    height: 20px;
+  }
+}

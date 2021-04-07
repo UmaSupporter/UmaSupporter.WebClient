@@ -29,3 +29,18 @@ $umaSize: 80px;
     @include hoverable;
   }
 }
+@media (max-width: 320px) {
+  $umaSize: 50px;
+  .UmaComponent {
+    cursor: pointer;
+    border-radius: 10px;
+    overflow: hidden;
+    width: $umaSize;
+    height: $umaSize;
+  }
+  .umaComponentImage {
+    width: $umaSize;
+    height: $umaSize;
+    @include hoverable;
+  }
+}

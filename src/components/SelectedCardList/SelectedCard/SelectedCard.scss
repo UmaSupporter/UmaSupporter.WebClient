@@ -60,3 +60,17 @@
     margin-left: 38px;
   }
 }
+@media (max-width: 1200px) {
+  .SelectedCard {
+    @include SelectedCard();
+    @include CardBackPanel(50);
+  }
+  .SelectedCard-image {
+    @include SelectedCard();
+    @include CardImage(50);
+  }
+  .SelectedCard-removeButton {
+    margin-top: -54px;
+    margin-left: 28px;
+  }
+}

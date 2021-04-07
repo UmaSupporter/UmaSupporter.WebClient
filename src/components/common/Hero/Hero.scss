@@ -22,7 +22,7 @@
     cursor: pointer;
     .heroImageContent {
       @include HeroImage;
-      @include CardImage();
+      @include CardImage(80);
       @include hoverable;
       object-fit: cover;
       image-rendering: optimizeQuality;
@@ -37,5 +37,21 @@
   }
   .heroLabel {
     margin: 0px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .Hero {
+    .heroImage {
+      width: 60px;
+      height: 60px;
+      .heroImageContent {
+        @include HeroImage;
+        @include CardImage(60);
+        @include hoverable;
+        object-fit: cover;
+        image-rendering: optimizeQuality;
+      }
+    }
   }
 }
