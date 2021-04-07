@@ -12,7 +12,9 @@
   padding: 8px !important;
   color: var(--text-color) !important;
 }
-
+.MuiSvgIcon-root {
+  fill: var(--text-color) !important;
+}
 .MuiTypography-root {
   color: var(--text-color) !important;
   &.MuiTypography-h5 {
