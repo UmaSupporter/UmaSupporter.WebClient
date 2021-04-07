@@ -7,7 +7,7 @@
 이 프로젝트는 [우마서포터](https://uma.sonagi.dev)의 프론트엔드 클라이언트입니다.
 [Netlify](https://netlify.com)에 의해 서빙되고 있습니다.
 
-백엔드 서버는 [umamusume-server](https://github.com/riemannulus/umamusume-server) 를 참고해 주세요.
+백엔드 서버는 [umamusume-server](https://github.com/UmaSuppoter/umamusume-server) 를 참고해 주세요.
 
 ## 개발환경
 이 저장소는 [yarn](https://yarnpkg.com)을 사용하고 있습니다.

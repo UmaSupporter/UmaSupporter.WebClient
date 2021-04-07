@@ -136,6 +136,7 @@ const Main: React.FC = () => {
   return (
     <div className={"MainPage"}>
       <div className={"MainPageTitleBar"}>
+
         <img src={logoImage} className={"titleLogo"} alt={"우마서포터"} />
         {/* <div>우마서포터</div> */}
         <span className={"TitleBarRightItems"}>
