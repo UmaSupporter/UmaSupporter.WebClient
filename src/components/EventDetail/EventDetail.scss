@@ -1,10 +1,55 @@
 @import '../common/styles/Typography.scss';
+@import '../common/styles/Palette.scss';
+@import '../common/styles/theme/theme.scss';
+.MuiPaper-root {
+  background: var(--layer3) !important;
+  .MuiPaper-root {
+    background: var(--layer4) !important;
+  }
+}
+.MuiAccordionDetails-root {
+  flex-direction: column;
+  padding: 8px !important;
+  color: var(--text-color) !important;
+}
+
 .MuiTypography-root {
+  color: var(--text-color) !important;
   &.MuiTypography-h5 {
     font-size: 14px !important;
-    // font-weight:bold;
   }
   &.EventTitle {
-    @include theme-text4();
+    @include theme-text4(true);
+    color: var(--accentgreendark) !important;
+  }
+}
+.MuiPaper-root {
+  & .MuiCard-root {
+    &.MuiPaper-elevation1 {
+      &.MuiPaper-rounded {
+        margin-bottom: 4px;
+      }
+    }
+  }
+}
+.MuiPaper-root {
+  p {
+    font-size: 14px !important;
+    font-weight: bold;
+  }
+}
+.EventEffect {
+  color: var(--text-color) !important;
+  white-space: pre-line;
+  font-weight: normal !important;
+  opacity: 0.8;
+}
+@media (max-width: 1200px) {
+  .MuiTypography-root {
+    &.MuiTypography-h5 {
+    }
+    &.EventTitle {
+      @include theme-text6();
+    }
   }
 }

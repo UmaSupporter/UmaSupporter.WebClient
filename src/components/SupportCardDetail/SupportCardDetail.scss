@@ -7,7 +7,7 @@
   width: 100%;
   margin: 4px;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
 }
 .MuiAvatar-root {
   border-radius: 8px !important;
@@ -15,6 +15,8 @@
 .Label {
   @include theme-text3(true);
   p {
+    margin: 0px auto;
+    width: fit-content;
     padding-left: 8px;
   }
 }
