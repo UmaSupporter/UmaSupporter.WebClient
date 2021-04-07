@@ -1,16 +1,16 @@
 @import './Palette.scss';
 @import './Animation.scss';
 
-$cardRadius: 10px;
+$cardRadius: 7px;
 
 @mixin CardBackPanel($width: 80) {
   @include animation(0.2s, appearance, cubic-bezier(0.25, 1, 0.8, 1.2));
   user-select: none;
   box-sizing: content-box;
-  border-radius: 15px;
+  border-radius: 10px;
   width: $width + 0px;
   padding: 2px;
-  border: solid 1px rgba(0, 0, 0, 0.1);
+  // border: solid 1px rgba(0, 0, 0, 0.1);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.11);
   transition: transform 0.2s cubic-bezier(0.5, 0.13, 0.81, 0.44);
   overflow: hidden;
