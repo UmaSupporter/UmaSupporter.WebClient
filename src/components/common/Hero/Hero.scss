@@ -38,12 +38,13 @@
   .heroLabel {
     margin: 0px;
   }
-  .heroBackground {
+  .heroBackgroundWrapper {
     position: absolute;
-    visibility: visible;
+    visibility: hidden;
+    width: 0px;
+  }
+  .heroBackground {
     align-self: stretch;
-    left: 0;
-    right: 0;
     height: 88px;
     object-fit: cover;
     filter: brightness(50%) blur(5px);
