@@ -47,7 +47,10 @@ export const filterReducer = (state: State, action: Action): State => {
         };
       }
       else {
-        return {
+        if(state.filters.size !== 0) return {
+          filters: new Set<CARD_TYPE>([action.payload])
+        }
+        else return {
           filters: state.filters.add(action.payload)
         };
       }
