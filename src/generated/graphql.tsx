@@ -22,6 +22,8 @@ export type Query = {
   supportCardId?: Maybe<SupportCardType>;
   umamusume?: Maybe<Array<Maybe<UmamusumeType>>>;
   umamusumeId?: Maybe<UmamusumeType>;
+  skillName?: Maybe<SkillType>;
+  skill?: Maybe<Array<Maybe<SkillType>>>;
 };
 
 
@@ -49,6 +51,11 @@ export type QueryUmamusumeArgs = {
 
 export type QueryUmamusumeIdArgs = {
   uuid: Scalars['Int'];
+};
+
+
+export type QuerySkillNameArgs = {
+  name?: Maybe<Scalars['String']>;
 };
 
 /** An object with an ID */
@@ -252,6 +259,29 @@ export type UmaEventChoiceType = Node & {
   id: Scalars['ID'];
 };
 
+export type SkillType = {
+  __typename?: 'SkillType';
+  uuid: Scalars['ID'];
+  name?: Maybe<Scalars['String']>;
+  nameKr?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+  condition?: Maybe<Scalars['String']>;
+  icon?: Maybe<Scalars['String']>;
+};
+
+export type GetSkillWithNameQueryVariables = Exact<{
+  name: Scalars['String'];
+}>;
+
+
+export type GetSkillWithNameQuery = (
+  { __typename?: 'Query' }
+  & { skillName?: Maybe<(
+    { __typename?: 'SkillType' }
+    & Pick<SkillType, 'name' | 'nameKr' | 'description' | 'icon'>
+  )> }
+);
+
 export type GetSupportCardOnIdQueryVariables = Exact<{
   uuid: Scalars['Int'];
 }>;
@@ -277,19 +307,6 @@ export type GetSupportCardOnIdWithEventQuery = (
     { __typename?: 'SupportCardType' }
     & CoreSupportCardFieldFragment
     & CardEventWithChoiceFragment
-  )> }
-);
-
-export type SupportCardByIdQueryVariables = Exact<{
-  uuid: Scalars['Int'];
-}>;
-
-
-export type SupportCardByIdQuery = (
-  { __typename?: 'Query' }
-  & { supportCardId?: Maybe<(
-    { __typename?: 'SupportCardType' }
-    & CoreSupportCardFieldFragment
   )> }
 );
 
@@ -508,6 +525,44 @@ export const UmaEventWithChoiceFragmentDoc = gql`
   }
 }
     ${UmaEventChoiceFragmentDoc}`;
+export const GetSkillWithNameDocument = gql`
+    query getSkillWithName($name: String!) {
+  skillName(name: $name) {
+    name
+    nameKr
+    description
+    icon
+  }
+}
+    `;
+
+/**
+ * __useGetSkillWithNameQuery__
+ *
+ * To run a query within a React component, call `useGetSkillWithNameQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetSkillWithNameQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetSkillWithNameQuery({
+ *   variables: {
+ *      name: // value for 'name'
+ *   },
+ * });
+ */
+export function useGetSkillWithNameQuery(baseOptions: Apollo.QueryHookOptions<GetSkillWithNameQuery, GetSkillWithNameQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetSkillWithNameQuery, GetSkillWithNameQueryVariables>(GetSkillWithNameDocument, options);
+      }
+export function useGetSkillWithNameLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetSkillWithNameQuery, GetSkillWithNameQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetSkillWithNameQuery, GetSkillWithNameQueryVariables>(GetSkillWithNameDocument, options);
+        }
+export type GetSkillWithNameQueryHookResult = ReturnType<typeof useGetSkillWithNameQuery>;
+export type GetSkillWithNameLazyQueryHookResult = ReturnType<typeof useGetSkillWithNameLazyQuery>;
+export type GetSkillWithNameQueryResult = Apollo.QueryResult<GetSkillWithNameQuery, GetSkillWithNameQueryVariables>;
 export const GetSupportCardOnIdDocument = gql`
     query getSupportCardOnId($uuid: Int!) {
   supportCardId(uuid: $uuid) {
@@ -581,41 +636,6 @@ export function useGetSupportCardOnIdWithEventLazyQuery(baseOptions?: Apollo.Laz
 export type GetSupportCardOnIdWithEventQueryHookResult = ReturnType<typeof useGetSupportCardOnIdWithEventQuery>;
 export type GetSupportCardOnIdWithEventLazyQueryHookResult = ReturnType<typeof useGetSupportCardOnIdWithEventLazyQuery>;
 export type GetSupportCardOnIdWithEventQueryResult = Apollo.QueryResult<GetSupportCardOnIdWithEventQuery, GetSupportCardOnIdWithEventQueryVariables>;
-export const SupportCardByIdDocument = gql`
-    query supportCardById($uuid: Int!) {
-  supportCardId(uuid: $uuid) {
-    ...CoreSupportCardField
-  }
-}
-    ${CoreSupportCardFieldFragmentDoc}`;
-
-/**
- * __useSupportCardByIdQuery__
- *
- * To run a query within a React component, call `useSupportCardByIdQuery` and pass it any options that fit your needs.
- * When your component renders, `useSupportCardByIdQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useSupportCardByIdQuery({
- *   variables: {
- *      uuid: // value for 'uuid'
- *   },
- * });
- */
-export function useSupportCardByIdQuery(baseOptions: Apollo.QueryHookOptions<SupportCardByIdQuery, SupportCardByIdQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<SupportCardByIdQuery, SupportCardByIdQueryVariables>(SupportCardByIdDocument, options);
-      }
-export function useSupportCardByIdLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<SupportCardByIdQuery, SupportCardByIdQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<SupportCardByIdQuery, SupportCardByIdQueryVariables>(SupportCardByIdDocument, options);
-        }
-export type SupportCardByIdQueryHookResult = ReturnType<typeof useSupportCardByIdQuery>;
-export type SupportCardByIdLazyQueryHookResult = ReturnType<typeof useSupportCardByIdLazyQuery>;
-export type SupportCardByIdQueryResult = Apollo.QueryResult<SupportCardByIdQuery, SupportCardByIdQueryVariables>;
 export const SupportCardDocument = gql`
     query supportCard {
   supportCard {
