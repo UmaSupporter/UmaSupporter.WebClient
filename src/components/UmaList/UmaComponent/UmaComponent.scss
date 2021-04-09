@@ -29,7 +29,7 @@ $umaSize: 80px;
     @include hoverable;
   }
 }
-@media (max-width: 320px) {
+@media (max-width: 420px) {
   $umaSize: 50px;
   .UmaComponent {
     cursor: pointer;

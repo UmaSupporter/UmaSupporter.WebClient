@@ -68,7 +68,7 @@
   padding: 8px;
 }
 .MainPagelabel {
-  @include text3();
+  @include text4();
   @include Accent;
   user-select: none;
   color: white;
@@ -109,38 +109,34 @@
   .MainPage {
     padding: 0px;
   }
-
   .MainPageTitleBar {
     border-radius: 0px;
     margin: 0px;
+    padding: 0px 4px;
     background: var(--layer1);
     .TitleBarRightItems {
-      background: var(--accentgreen);
+      @include Accent;
       padding: 8px 10px;
-      border-radius: 20px;
+      border-radius: 4px;
       a {
-        width: 24px;
-        height: 24px;
+        width: 20px;
+        height: 20px;
         border-radius: 50%;
         &:hover {
           background: #ffffff22;
         }
         img {
-          width: 24px;
-          height: 24px;
+          width: 20px;
+          height: 20px;
         }
       }
     }
     .titleLogo {
-      height: 32px;
+      height: 24px;
     }
   }
   .MainPageContent {
     padding: 0px;
-  }
-  .MainPagelabel {
-    margin: 0px;
-    border-radius: 0px;
   }
   @mixin shrinkable {
     flex: 0.000001;

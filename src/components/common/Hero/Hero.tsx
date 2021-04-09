@@ -5,18 +5,21 @@ import "./Hero.scss";
 type Props = {
   name: string,
   secondName: string,
-  rareDegree:string
+  rareDegree: string
   image: string,
-  action:()=>void
+  action: () => void
 }
 
 const Hero: React.FC<Props> = (props: Props) => {
-  const { name, image, secondName,rareDegree} = props;
+  const { name, image, secondName, rareDegree } = props;
   const uri = useContext(UriContext);
 
-  return <div className={`Hero`} onClick={()=>props.action()} >
+  return <div className={`Hero`} onClick={() => props.action()} >
+    <div className={"heroBackgroundWrapper"}>
+      <img src={`${uri}/images/${image}`} alt={`${name} - ${secondName}`} className={"heroBackground"} />
+    </div>
     <div className={`heroImage ${rareDegree}`}>
-      <img src={`${uri}/images/${image}`} alt={`${name} - ${secondName}`} className={"heroImageContent"}/>
+      <img src={`${uri}/images/${image}`} alt={`${name} - ${secondName}`} className={"heroImageContent"} />
     </div>
     <div className={"heroLabels"}>
       <div className={"name heroLabel"}>{name}</div>
