@@ -1,4 +1,5 @@
 import React, { useEffect, useReducer } from "react";
+import Div100vh from 'react-div-100vh';
 import SupportCardDetailContainer from "../../components/SupportCardDetail";
 import UmaListContainer from "../../components/UmaList";
 import "./Main.scss";
@@ -134,7 +135,7 @@ const Main: React.FC = () => {
   }, [])
 
   return (
-    <div className={"MainPage"}>
+    <Div100vh className={"MainPage"} style={{ "height": document.documentElement?.clientHeight || window.innerHeight }}>
       <div className={"MainPageTitleBar"}>
 
         <img src={logoImage} className={"titleLogo"} alt={"우마서포터"} />
@@ -187,7 +188,7 @@ const Main: React.FC = () => {
       <div >
         {/* reserved */}
       </div>
-    </div>
+    </Div100vh>
   )
 }
 

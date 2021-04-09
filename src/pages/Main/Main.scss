@@ -7,7 +7,7 @@
   overflow: hidden;
   flex-direction: column;
   background: var(--background);
-  height: 100vh;
+  min-height: -webkit-fill-available;
   padding: 0px 100px;
   justify-content: center;
   // align-items: center;
