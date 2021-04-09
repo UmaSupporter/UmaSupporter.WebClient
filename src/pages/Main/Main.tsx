@@ -42,8 +42,9 @@ type ResetFavoriteAction = {
 };
 
 const resetState = (): State => {
+  const favoritesString = localStorage.getItem('favoriteCardUuids')
   return {
-    favoriteCardUuids: [],
+    favoriteCardUuids: favoritesString ? JSON.parse(favoritesString) : [],
     cardUuid: 0,
     umaUuid: 0,
     showUmaPage: true,
@@ -76,28 +77,33 @@ const selectedCardReducer = (state: State, action: Action): State => {
         umaUuid: action.payload,
         showUmaPage: !state.showUmaPage,
       };
-    case 'APPEND_CARD':
-      if (state.favoriteCardUuids.includes(action.payload))
+    case 'APPEND_CARD': {
+      if (state.favoriteCardUuids.includes(action.payload)) {
+        const newFavorites = state.favoriteCardUuids.filter(uuid => uuid !== action.payload)
+        localStorage.setItem('favoriteCardUuids', JSON.stringify(newFavorites))
         return {
           ...state,
-          favoriteCardUuids: state.favoriteCardUuids.filter(
-            (uuid) => uuid !== action.payload
-          ),
-        };
-      if (state.favoriteCardUuids.length >= 6) return state;
-      else {
-        return {
-          ...state,
-          favoriteCardUuids: [...state.favoriteCardUuids, action.payload],
+          favoriteCardUuids: newFavorites,
         };
       }
-    case 'DELETE_CARD':
+      if (state.favoriteCardUuids.length >= 6) {
+        return state;
+      }
+      const newFavorites = [...state.favoriteCardUuids, action.payload]
+      localStorage.setItem('favoriteCardUuids', JSON.stringify(newFavorites))
       return {
         ...state,
-        favoriteCardUuids: state.favoriteCardUuids.filter(
-          (x) => x !== action.payload
-        ),
+        favoriteCardUuids: newFavorites,
       };
+    }
+    case 'DELETE_CARD': {
+      const newFavorites = state.favoriteCardUuids.filter(x => x !== action.payload)
+      localStorage.setItem('favoriteCardUuids', JSON.stringify(newFavorites))
+      return {
+        ...state,
+        favoriteCardUuids: newFavorites,
+      };
+    }
     case 'SET_CARD':
       return {
         ...state,
@@ -105,6 +111,7 @@ const selectedCardReducer = (state: State, action: Action): State => {
         showCardPage: false,
       };
     case 'RESET_FAVORITE':
+      localStorage.setItem('favoriteCardUuids', JSON.stringify([]))
       return {
         ...state,
         favoriteCardUuids: [],
@@ -198,9 +205,8 @@ const Main: React.FC = () => {
             .reduce((a, b) => a + b)}`}
         >
           <div
-            className={`UmaEventChoice EventChoice ${
-              !state.showUmaPage ? 'activated' : ''
-            }`}
+            className={`UmaEventChoice EventChoice ${!state.showUmaPage ? 'activated' : ''
+              }`}
           >
             <UmaDetailContainer
               uuid={state.umaUuid}
@@ -209,9 +215,8 @@ const Main: React.FC = () => {
           </div>
 
           <div
-            className={`CardEventChoice EventChoice ${
-              !state.showCardPage ? 'activated' : ''
-            }`}
+            className={`CardEventChoice EventChoice ${!state.showCardPage ? 'activated' : ''
+              }`}
           >
             <SupportCardDetailContainer
               uuid={state.cardUuid}
