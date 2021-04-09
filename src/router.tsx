@@ -1,11 +1,11 @@
-import MainPageRouter from "./pages/Main/router"
+import MainPageRouter from './pages/Main/router';
 
 const MainRouter: React.FC = () => {
   return (
     <>
-    <MainPageRouter />
+      <MainPageRouter />
     </>
-  )
-}
+  );
+};
 
-export default MainRouter
+export default MainRouter;

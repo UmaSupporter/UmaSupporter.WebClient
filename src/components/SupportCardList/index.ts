@@ -1,3 +1,3 @@
-import SupportCardListContainer from "./SupportCardListContainer";
+import SupportCardListContainer from './SupportCardListContainer';
 
-export default SupportCardListContainer
+export default SupportCardListContainer;

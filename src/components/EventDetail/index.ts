@@ -1,3 +1,3 @@
-import EventDetail from "./EventDetail";
+import EventDetail from './EventDetail';
 
-export default EventDetail
+export default EventDetail;

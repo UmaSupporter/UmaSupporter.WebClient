@@ -1,10 +1,10 @@
-import { useContext } from "react";
-import { UriContext } from "./common";
+import { useContext } from 'react';
+import { UriContext } from './common';
 
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 
 type Props = {
-  children: JSX.Element
+  children: JSX.Element;
 };
 
 const UmaApolloProvider: React.FC<Props> = (props: Props) => {
@@ -12,13 +12,10 @@ const UmaApolloProvider: React.FC<Props> = (props: Props) => {
 
   const client = new ApolloClient({
     uri: `${uri}/graphql`,
-    cache: new InMemoryCache()
+    cache: new InMemoryCache(),
   });
 
-  return  <ApolloProvider client={client}>
-    {props.children}
-  </ApolloProvider>
-}
+  return <ApolloProvider client={client}>{props.children}</ApolloProvider>;
+};
 
-export default UmaApolloProvider
-
+export default UmaApolloProvider;

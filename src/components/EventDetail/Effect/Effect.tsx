@@ -1,11 +1,9 @@
-import regexifyString from "regexify-string"
-import Skill from "./Skill"
-
+import regexifyString from 'regexify-string';
+import Skill from './Skill';
 
 type Props = {
-  effect: string
-}
-
+  effect: string;
+};
 
 const Effect: React.FC<Props> = (props: Props) => {
   const { effect } = props;
@@ -13,12 +11,12 @@ const Effect: React.FC<Props> = (props: Props) => {
   const skill = regexifyString({
     pattern: /(『.*?』)/gi,
     decorator: (match, index) => {
-        return <Skill key={index} skill={match} />;
+      return <Skill key={index} skill={match} />;
     },
     input: effect,
   });
 
-  return<>{skill}</> 
-}
+  return <>{skill}</>;
+};
 
-export default Effect
+export default Effect;
