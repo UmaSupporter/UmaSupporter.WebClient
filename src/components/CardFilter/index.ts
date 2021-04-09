@@ -1,5 +1,3 @@
-import CardTypeFilterComponent from "./CardTypeFilterComponent";
+import CardTypeFilterComponent from './CardTypeFilterComponent';
 
-export {
-  CardTypeFilterComponent
-}
+export { CardTypeFilterComponent };

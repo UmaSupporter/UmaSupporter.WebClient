@@ -1,4 +1,3 @@
+import UmaComponent from './UmaComponent';
 
-import UmaComponent from "./UmaComponent"
-
-export default UmaComponent
+export default UmaComponent;
