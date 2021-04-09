@@ -48,7 +48,7 @@
   margin-bottom: -100%;
   width: 20px;
   height: 20px;
-  margin-left: 60px;
+  margin-left: 65px;
   z-index: 1;
 }
 @media (max-width: 1200px) {
@@ -68,7 +68,7 @@
     @include CardImage(60);
   }
   .SupportCardTypeIcon {
-    margin-left: 40px;
+    margin-left: 45px;
   }
 }
 
@@ -89,7 +89,7 @@
     @include CardImage(50);
   }
   .SupportCardTypeIcon {
-    margin-left: 30px;
+    margin-left: 35px;
   }
   .SupportCardLikeIcon {
     width: 30px;
