@@ -14,6 +14,8 @@
   @include hoverable;
   @include CardBackPanel;
   @include SupportCard;
+  display: grid;
+  grid-template-rows: 0fr 0fr 1fr;
   &:focus {
     outline: unset;
   }
@@ -33,40 +35,23 @@
   opacity: 0.8;
   border-radius: 11px;
 }
-.SupportCardAuxInfo {
-  display: flex;
-  padding-top: 2px;
-  justify-content: space-evenly;
-  align-items: center;
-}
 .SupportCardLikeIcon {
-  &.liked {
-    fill: #e0245e;
-  }
-  *:hover {
-    fill: #dda2b5;
-    transform: scale(0.9);
-    transform-origin: center center;
-    transition-property: fill, transform;
-    transition-duration: 0.1s;
-    transition-timing-function: cubic-bezier(0.5, 0.13, 0.81, 0.44);
-  }
-  stroke-width: 4px;
-  stroke: #ffffff88;
   user-select: none;
   cursor: pointer;
-  transition-property: fill, transform;
-  transition-duration: 0.1s;
-  transition-timing-function: cubic-bezier(0.5, 0.13, 0.81, 0.44);
-  fill: #dbbcc6;
-  margin: 2px;
-  width: 14px;
-  height: 14px;
+  margin-bottom: -100%;
+  margin-top: -10px;
+  margin-left: -20px;
+  width: 35px;
+  height: 35px;
+  z-index: 1;
 }
 .SupportCardTypeIcon {
   user-select: none;
-  width: 16px;
-  height: 16px;
+  margin-bottom: -100%;
+  width: 20px;
+  height: 20px;
+  margin-left: 60px;
+  z-index: 1;
 }
 @media (max-width: 1200px) {
   @mixin SupportCard {
@@ -83,6 +68,9 @@
   .SupportCard {
     @include SupportCard;
     @include CardImage(60);
+  }
+  .SupportCardTypeIcon {
+    margin-left: 40px;
   }
 }
 
@@ -101,5 +89,12 @@
   .SupportCard {
     @include SupportCard;
     @include CardImage(50);
+  }
+  .SupportCardTypeIcon {
+    margin-left: 30px;
+  }
+  .SupportCardLikeIcon {
+    width: 30px;
+    height: 30px;
   }
 }

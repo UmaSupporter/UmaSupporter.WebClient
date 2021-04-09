@@ -14,7 +14,7 @@
 }
 .Label {
   @include theme-text3(true);
-  p {
+  span {
     margin: 0px auto;
     width: fit-content;
     padding-left: 8px;

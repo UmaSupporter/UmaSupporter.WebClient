@@ -4,9 +4,9 @@ const UmaDetailNotExistComponent: React.FC = () => {
 
   return <div className={"UmaDetail"}>
     <div className={"Label"}>
-      <p>
+      <span>
         우마무스메를 선택해 주세요
-      </p>
+      </span>
       <div className={""}>
       </div>
     </div>

@@ -48,8 +48,6 @@
 }
 @media (max-width: 1200px) {
   .MuiTypography-root {
-    &.MuiTypography-h5 {
-    }
     &.EventTitle {
       @include theme-text6();
     }
