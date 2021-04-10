@@ -1,14 +1,16 @@
 .SupportCardListWrapper {
   overflow: hidden;
   flex: 1;
+  padding: 0px 8px;
 }
 
 .SupportCardList {
+  // padding: 16px 0px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(auto, 90px));
   justify-content: space-evenly;
   width: 100%;
-  margin: 0px auto;
+  margin: 16px auto;
   flex: 1;
   grid-gap: 4px;
 }
@@ -18,7 +20,7 @@
   }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 420px) {
   .SupportCardList {
     grid-template-columns: repeat(auto-fit, minmax(auto, 60px));
   }

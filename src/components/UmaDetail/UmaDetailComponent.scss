@@ -15,9 +15,10 @@
 }
 .Label {
   @include theme-text3(true);
-  p {
+  text-align: center;
+  span {
     padding: 4px 8px;
-    margin: 4px;
+    margin: 0px auto;
     margin-bottom: 8px;
   }
 }

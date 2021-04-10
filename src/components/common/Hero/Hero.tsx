@@ -16,6 +16,13 @@ const Hero: React.FC<Props> = (props: Props) => {
 
   return (
     <div className={`Hero`} onClick={() => props.action()}>
+      <div className={'heroBackgroundWrapper'}>
+        <img
+          src={`${uri}/images/${image}`}
+          alt={`${name} - ${secondName} background`}
+          className={'heroBackground'}
+        />
+      </div>
       <div className={`heroImage ${rareDegree}`}>
         <img
           src={`${uri}/images/${image}`}
