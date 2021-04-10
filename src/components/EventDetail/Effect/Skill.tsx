@@ -1,6 +1,8 @@
 import gql from 'graphql-tag';
-import { useMemo } from 'react';
+import ReactTooltip from 'react-tooltip';
+import { useContext, useMemo } from 'react';
 import { useGetSkillWithNameQuery } from '../../../generated/graphql';
+import { UriContext } from '../../../common';
 
 gql`
   query getSkillWithName($name: String!) {
@@ -24,6 +26,7 @@ const getSkillOnly = (skill: string): string => {
 const Skill: React.FC<Props> = (props: Props) => {
   const { skill } = props;
   const onlySkill = useMemo<string>(() => getSkillOnly(skill), [skill]);
+  const uri = useContext(UriContext);
   const { loading, error, data } = useGetSkillWithNameQuery({
     variables: { name: onlySkill },
   });
@@ -34,7 +37,23 @@ const Skill: React.FC<Props> = (props: Props) => {
   if (data?.skillName?.name == null) return <>{skill}</>;
   return (
     <>
-      {skill}({data.skillName.nameKr!})
+      <slot data-tip data-for={`skill/${onlySkill}`}>
+        {skill}({data.skillName.nameKr!})
+      </slot>
+      <ReactTooltip
+        id={`skill/${onlySkill}`}
+        aria-haspopup="true"
+        role="example"
+      >
+        <ul>
+          <img
+            src={`${uri}/images/${data.skillName.icon!}`}
+            alt={data.skillName.nameKr!}
+          />
+          <li>{data.skillName.nameKr}</li>
+          <li>{data.skillName.description}</li>
+        </ul>
+      </ReactTooltip>
     </>
   );
 };
