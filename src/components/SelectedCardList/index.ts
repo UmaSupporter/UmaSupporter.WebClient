@@ -1,3 +1,3 @@
-import SelectedCardListContainer from "./SelectedCardListContainer";
+import SelectedCardListContainer from './SelectedCardListContainer';
 
-export default SelectedCardListContainer
+export default SelectedCardListContainer;

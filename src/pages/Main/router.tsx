@@ -1,8 +1,8 @@
-import { Route } from "react-router"
-import Main from "./Main"
+import { Route } from 'react-router';
+import Main from './Main';
 
 const MainPageRouter: React.FC = () => {
-  return <Route exact path="/" component={Main}/>
-}
+  return <Route exact path="/" component={Main} />;
+};
 
-export default MainPageRouter
+export default MainPageRouter;

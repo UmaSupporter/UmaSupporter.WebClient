@@ -1,8 +1,8 @@
-@mixin keyframes($animation-name){
-  @keyframes #{$animation-name}{
+@mixin keyframes($animation-name) {
+  @keyframes #{$animation-name} {
     @content;
   }
 }
-@mixin animation($time,$name,$curve){
-  animation:$time #{$name} $curve;
+@mixin animation($time, $name, $curve) {
+  animation: $time #{$name} $curve;
 }

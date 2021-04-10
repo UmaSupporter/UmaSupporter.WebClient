@@ -1,5 +1,5 @@
 import mixpanel from 'mixpanel-browser';
-mixpanel.init("3ac85b06b049368b41656dee5b05b206");
+mixpanel.init('3ac85b06b049368b41656dee5b05b206');
 
 const production = process.env.NODE_ENV === 'production';
 
