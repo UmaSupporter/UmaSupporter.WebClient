@@ -1,2 +1,2 @@
-import CardListView from "./CardListView";
-export default CardListView
+import CardListView from './CardListView';
+export default CardListView;

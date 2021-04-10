@@ -1,3 +1,3 @@
-import UmaListContainer from "./UmaListContainer"
+import UmaListContainer from './UmaListContainer';
 
-export default UmaListContainer
+export default UmaListContainer;
