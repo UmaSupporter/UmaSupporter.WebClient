@@ -3,6 +3,7 @@ import ReactTooltip from 'react-tooltip';
 import { useContext, useMemo } from 'react';
 import { useGetSkillWithNameQuery } from '../../../generated/graphql';
 import { UriContext } from '../../../common';
+import './Skill.scss';
 
 gql`
   query getSkillWithName($name: String!) {
@@ -37,7 +38,7 @@ const Skill: React.FC<Props> = (props: Props) => {
   if (data?.skillName?.name == null) return <>{skill}</>;
   return (
     <>
-      <slot data-tip data-for={`skill/${onlySkill}`}>
+      <slot className={'Skill'} data-tip data-for={`skill/${onlySkill}`}>
         {skill}({data.skillName.nameKr!})
       </slot>
       <ReactTooltip
