@@ -1,5 +1,5 @@
 import regexifyString from 'regexify-string';
-import Skill from './Skill';
+import EffectFacade from './EffectFacade';
 
 type Props = {
   effect: string;
@@ -8,15 +8,17 @@ type Props = {
 const Effect: React.FC<Props> = (props: Props) => {
   const { effect } = props;
 
-  const skill = regexifyString({
-    pattern: /(『.*?』)/gi,
-    decorator: (match, index) => {
-      return <Skill key={index} skill={match} />;
-    },
-    input: effect,
-  });
-
-  return <>{skill}</>;
+  return (
+    <>
+      {regexifyString({
+        pattern: /(『.*?』)/gi,
+        decorator: (match, index) => {
+          return <EffectFacade key={index} target={match} />;
+        },
+        input: effect,
+      })}
+    </>
+  );
 };
 
 export default Effect;
