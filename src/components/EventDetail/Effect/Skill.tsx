@@ -38,6 +38,11 @@ const Skill: React.FC<Props> = (props: Props) => {
   if (data?.skillName?.name == null) return <>{skill}</>;
   return (
     <>
+      <img
+        src={`${uri}/images/${data.skillName.icon!}`}
+        className={'SkillIcon'}
+        alt={data.skillName.nameKr!}
+      />
       <slot className={'Skill'} data-tip data-for={`skill/${onlySkill}`}>
         {skill}({data.skillName.nameKr!})
       </slot>
@@ -46,14 +51,7 @@ const Skill: React.FC<Props> = (props: Props) => {
         aria-haspopup="true"
         role="example"
       >
-        <ul>
-          <img
-            src={`${uri}/images/${data.skillName.icon!}`}
-            alt={data.skillName.nameKr!}
-          />
-          <li>{data.skillName.nameKr}</li>
-          <li>{data.skillName.description}</li>
-        </ul>
+        <li>{data.skillName.description}</li>
       </ReactTooltip>
     </>
   );
