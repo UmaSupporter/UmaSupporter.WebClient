@@ -16,30 +16,25 @@ export type Scalars = {
 
 export type Query = {
   __typename?: 'Query';
-  /** The ID of the object */
-  node?: Maybe<Node>;
-  supportCard?: Maybe<Array<Maybe<SupportCardType>>>;
-  supportCardId?: Maybe<SupportCardType>;
-  umamusume?: Maybe<Array<Maybe<UmamusumeType>>>;
-  umamusumeId?: Maybe<UmamusumeType>;
+  buffWithName?: Maybe<BuffType>;
   skillName?: Maybe<SkillType>;
   skill?: Maybe<Array<Maybe<SkillType>>>;
+  umamusume?: Maybe<Array<Maybe<UmamusumeType>>>;
+  umamusumeId?: Maybe<UmamusumeType>;
+  supportCard?: Maybe<Array<Maybe<SupportCardType>>>;
+  supportCardId?: Maybe<SupportCardType>;
+  /** The ID of the object */
+  node?: Maybe<Node>;
 };
 
 
-export type QueryNodeArgs = {
-  id: Scalars['ID'];
+export type QueryBuffWithNameArgs = {
+  name?: Maybe<Scalars['String']>;
 };
 
 
-export type QuerySupportCardArgs = {
-  cardName?: Maybe<Scalars['String']>;
-  rareDegree?: Maybe<Scalars['String']>;
-};
-
-
-export type QuerySupportCardIdArgs = {
-  uuid: Scalars['Int'];
+export type QuerySkillNameArgs = {
+  name?: Maybe<Scalars['String']>;
 };
 
 
@@ -54,119 +49,38 @@ export type QueryUmamusumeIdArgs = {
 };
 
 
-export type QuerySkillNameArgs = {
-  name?: Maybe<Scalars['String']>;
-};
-
-/** An object with an ID */
-export type Node = {
-  /** The ID of the object. */
-  id: Scalars['ID'];
-};
-
-export type SupportCardType = Node & {
-  __typename?: 'SupportCardType';
-  uuid: Scalars['ID'];
+export type QuerySupportCardArgs = {
   cardName?: Maybe<Scalars['String']>;
-  cardNameKr?: Maybe<Scalars['String']>;
-  cardType?: Maybe<Scalars['String']>;
-  cardTypeKr?: Maybe<Scalars['String']>;
-  cardImage?: Maybe<Scalars['String']>;
-  gamewithWikiId?: Maybe<Scalars['Int']>;
   rareDegree?: Maybe<Scalars['String']>;
-  secondName?: Maybe<Scalars['String']>;
-  secondNameKr?: Maybe<Scalars['String']>;
-  cardEvent?: Maybe<CardEventTypeConnection>;
-  /** The ID of the object. */
+};
+
+
+export type QuerySupportCardIdArgs = {
+  uuid: Scalars['Int'];
+};
+
+
+export type QueryNodeArgs = {
   id: Scalars['ID'];
 };
 
-
-export type SupportCardTypeCardEventArgs = {
-  before?: Maybe<Scalars['String']>;
-  after?: Maybe<Scalars['String']>;
-  first?: Maybe<Scalars['Int']>;
-  last?: Maybe<Scalars['Int']>;
-};
-
-export type CardEventTypeConnection = {
-  __typename?: 'CardEventTypeConnection';
-  /** Pagination data for this connection. */
-  pageInfo: PageInfo;
-  /** Contains the nodes in this connection. */
-  edges: Array<Maybe<CardEventTypeEdge>>;
-};
-
-/** The Relay compliant `PageInfo` type, containing data necessary to paginate this connection. */
-export type PageInfo = {
-  __typename?: 'PageInfo';
-  /** When paginating forwards, are there more items? */
-  hasNextPage: Scalars['Boolean'];
-  /** When paginating backwards, are there more items? */
-  hasPreviousPage: Scalars['Boolean'];
-  /** When paginating backwards, the cursor to continue. */
-  startCursor?: Maybe<Scalars['String']>;
-  /** When paginating forwards, the cursor to continue. */
-  endCursor?: Maybe<Scalars['String']>;
-};
-
-/** A Relay edge containing a `CardEventType` and its cursor. */
-export type CardEventTypeEdge = {
-  __typename?: 'CardEventTypeEdge';
-  /** The item at the end of the edge */
-  node?: Maybe<CardEventType>;
-  /** A cursor for use in pagination */
-  cursor: Scalars['String'];
-};
-
-export type CardEventType = Node & {
-  __typename?: 'CardEventType';
+export type BuffType = {
+  __typename?: 'BuffType';
   uuid: Scalars['ID'];
-  title?: Maybe<Scalars['String']>;
-  titleKr?: Maybe<Scalars['String']>;
-  supportCardId?: Maybe<Scalars['Int']>;
-  supportCard?: Maybe<SupportCardType>;
-  cardEventChoice?: Maybe<CardEventChoiceTypeConnection>;
-  /** The ID of the object. */
-  id: Scalars['ID'];
-};
-
-
-export type CardEventTypeCardEventChoiceArgs = {
-  before?: Maybe<Scalars['String']>;
-  after?: Maybe<Scalars['String']>;
-  first?: Maybe<Scalars['Int']>;
-  last?: Maybe<Scalars['Int']>;
-};
-
-export type CardEventChoiceTypeConnection = {
-  __typename?: 'CardEventChoiceTypeConnection';
-  /** Pagination data for this connection. */
-  pageInfo: PageInfo;
-  /** Contains the nodes in this connection. */
-  edges: Array<Maybe<CardEventChoiceTypeEdge>>;
-};
-
-/** A Relay edge containing a `CardEventChoiceType` and its cursor. */
-export type CardEventChoiceTypeEdge = {
-  __typename?: 'CardEventChoiceTypeEdge';
-  /** The item at the end of the edge */
-  node?: Maybe<CardEventChoiceType>;
-  /** A cursor for use in pagination */
-  cursor: Scalars['String'];
-};
-
-export type CardEventChoiceType = Node & {
-  __typename?: 'CardEventChoiceType';
-  uuid: Scalars['ID'];
-  title?: Maybe<Scalars['String']>;
-  titleKr?: Maybe<Scalars['String']>;
-  effect?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  nameKr?: Maybe<Scalars['String']>;
   effectKr?: Maybe<Scalars['String']>;
-  eventId?: Maybe<Scalars['Int']>;
-  event?: Maybe<CardEventType>;
-  /** The ID of the object. */
-  id: Scalars['ID'];
+  isDebuff?: Maybe<Scalars['Boolean']>;
+};
+
+export type SkillType = {
+  __typename?: 'SkillType';
+  uuid: Scalars['ID'];
+  name?: Maybe<Scalars['String']>;
+  nameKr?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+  condition?: Maybe<Scalars['String']>;
+  icon?: Maybe<Scalars['String']>;
 };
 
 export type UmamusumeType = Node & {
@@ -192,12 +106,31 @@ export type UmamusumeTypeUmaEventArgs = {
   last?: Maybe<Scalars['Int']>;
 };
 
+/** An object with an ID */
+export type Node = {
+  /** The ID of the object. */
+  id: Scalars['ID'];
+};
+
 export type UmaEventTypeConnection = {
   __typename?: 'UmaEventTypeConnection';
   /** Pagination data for this connection. */
   pageInfo: PageInfo;
   /** Contains the nodes in this connection. */
   edges: Array<Maybe<UmaEventTypeEdge>>;
+};
+
+/** The Relay compliant `PageInfo` type, containing data necessary to paginate this connection. */
+export type PageInfo = {
+  __typename?: 'PageInfo';
+  /** When paginating forwards, are there more items? */
+  hasNextPage: Scalars['Boolean'];
+  /** When paginating backwards, are there more items? */
+  hasPreviousPage: Scalars['Boolean'];
+  /** When paginating backwards, the cursor to continue. */
+  startCursor?: Maybe<Scalars['String']>;
+  /** When paginating forwards, the cursor to continue. */
+  endCursor?: Maybe<Scalars['String']>;
 };
 
 /** A Relay edge containing a `UmaEventType` and its cursor. */
@@ -259,15 +192,113 @@ export type UmaEventChoiceType = Node & {
   id: Scalars['ID'];
 };
 
-export type SkillType = {
-  __typename?: 'SkillType';
+export type SupportCardType = Node & {
+  __typename?: 'SupportCardType';
   uuid: Scalars['ID'];
-  name?: Maybe<Scalars['String']>;
-  nameKr?: Maybe<Scalars['String']>;
-  description?: Maybe<Scalars['String']>;
-  condition?: Maybe<Scalars['String']>;
-  icon?: Maybe<Scalars['String']>;
+  cardName?: Maybe<Scalars['String']>;
+  cardNameKr?: Maybe<Scalars['String']>;
+  cardType?: Maybe<Scalars['String']>;
+  cardTypeKr?: Maybe<Scalars['String']>;
+  cardImage?: Maybe<Scalars['String']>;
+  gamewithWikiId?: Maybe<Scalars['Int']>;
+  rareDegree?: Maybe<Scalars['String']>;
+  secondName?: Maybe<Scalars['String']>;
+  secondNameKr?: Maybe<Scalars['String']>;
+  cardEvent?: Maybe<CardEventTypeConnection>;
+  /** The ID of the object. */
+  id: Scalars['ID'];
 };
+
+
+export type SupportCardTypeCardEventArgs = {
+  before?: Maybe<Scalars['String']>;
+  after?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+};
+
+export type CardEventTypeConnection = {
+  __typename?: 'CardEventTypeConnection';
+  /** Pagination data for this connection. */
+  pageInfo: PageInfo;
+  /** Contains the nodes in this connection. */
+  edges: Array<Maybe<CardEventTypeEdge>>;
+};
+
+/** A Relay edge containing a `CardEventType` and its cursor. */
+export type CardEventTypeEdge = {
+  __typename?: 'CardEventTypeEdge';
+  /** The item at the end of the edge */
+  node?: Maybe<CardEventType>;
+  /** A cursor for use in pagination */
+  cursor: Scalars['String'];
+};
+
+export type CardEventType = Node & {
+  __typename?: 'CardEventType';
+  uuid: Scalars['ID'];
+  title?: Maybe<Scalars['String']>;
+  titleKr?: Maybe<Scalars['String']>;
+  supportCardId?: Maybe<Scalars['Int']>;
+  supportCard?: Maybe<SupportCardType>;
+  cardEventChoice?: Maybe<CardEventChoiceTypeConnection>;
+  /** The ID of the object. */
+  id: Scalars['ID'];
+};
+
+
+export type CardEventTypeCardEventChoiceArgs = {
+  before?: Maybe<Scalars['String']>;
+  after?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+};
+
+export type CardEventChoiceTypeConnection = {
+  __typename?: 'CardEventChoiceTypeConnection';
+  /** Pagination data for this connection. */
+  pageInfo: PageInfo;
+  /** Contains the nodes in this connection. */
+  edges: Array<Maybe<CardEventChoiceTypeEdge>>;
+};
+
+/** A Relay edge containing a `CardEventChoiceType` and its cursor. */
+export type CardEventChoiceTypeEdge = {
+  __typename?: 'CardEventChoiceTypeEdge';
+  /** The item at the end of the edge */
+  node?: Maybe<CardEventChoiceType>;
+  /** A cursor for use in pagination */
+  cursor: Scalars['String'];
+};
+
+export type CardEventChoiceType = Node & {
+  __typename?: 'CardEventChoiceType';
+  uuid: Scalars['ID'];
+  title?: Maybe<Scalars['String']>;
+  titleKr?: Maybe<Scalars['String']>;
+  effect?: Maybe<Scalars['String']>;
+  effectKr?: Maybe<Scalars['String']>;
+  eventId?: Maybe<Scalars['Int']>;
+  event?: Maybe<CardEventType>;
+  /** The ID of the object. */
+  id: Scalars['ID'];
+};
+
+export type EffectFacadeQueryVariables = Exact<{
+  name: Scalars['String'];
+}>;
+
+
+export type EffectFacadeQuery = (
+  { __typename?: 'Query' }
+  & { skillName?: Maybe<(
+    { __typename?: 'SkillType' }
+    & Pick<SkillType, 'name' | 'nameKr' | 'description' | 'icon'>
+  )>, buffWithName?: Maybe<(
+    { __typename?: 'BuffType' }
+    & Pick<BuffType, 'name' | 'nameKr' | 'effectKr' | 'isDebuff'>
+  )> }
+);
 
 export type GetSkillWithNameQueryVariables = Exact<{
   name: Scalars['String'];
@@ -525,6 +556,50 @@ export const UmaEventWithChoiceFragmentDoc = gql`
   }
 }
     ${UmaEventChoiceFragmentDoc}`;
+export const EffectFacadeDocument = gql`
+    query effectFacade($name: String!) {
+  skillName(name: $name) {
+    name
+    nameKr
+    description
+    icon
+  }
+  buffWithName(name: $name) {
+    name
+    nameKr
+    effectKr
+    isDebuff
+  }
+}
+    `;
+
+/**
+ * __useEffectFacadeQuery__
+ *
+ * To run a query within a React component, call `useEffectFacadeQuery` and pass it any options that fit your needs.
+ * When your component renders, `useEffectFacadeQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useEffectFacadeQuery({
+ *   variables: {
+ *      name: // value for 'name'
+ *   },
+ * });
+ */
+export function useEffectFacadeQuery(baseOptions: Apollo.QueryHookOptions<EffectFacadeQuery, EffectFacadeQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<EffectFacadeQuery, EffectFacadeQueryVariables>(EffectFacadeDocument, options);
+      }
+export function useEffectFacadeLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<EffectFacadeQuery, EffectFacadeQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<EffectFacadeQuery, EffectFacadeQueryVariables>(EffectFacadeDocument, options);
+        }
+export type EffectFacadeQueryHookResult = ReturnType<typeof useEffectFacadeQuery>;
+export type EffectFacadeLazyQueryHookResult = ReturnType<typeof useEffectFacadeLazyQuery>;
+export type EffectFacadeQueryResult = Apollo.QueryResult<EffectFacadeQuery, EffectFacadeQueryVariables>;
 export const GetSkillWithNameDocument = gql`
     query getSkillWithName($name: String!) {
   skillName(name: $name) {
