@@ -418,7 +418,7 @@ export type CardEventWithChoiceFragment = (
       { __typename?: 'CardEventTypeEdge' }
       & { node?: Maybe<(
         { __typename?: 'CardEventType' }
-        & Pick<CardEventType, 'title'>
+        & Pick<CardEventType, 'title' | 'titleKr'>
         & CardEventChoiceFragment
       )> }
     )>> }
@@ -511,6 +511,7 @@ export const CardEventWithChoiceFragmentDoc = gql`
     edges {
       node {
         title
+        titleKr
         ...CardEventChoice
       }
     }

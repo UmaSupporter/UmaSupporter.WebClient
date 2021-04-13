@@ -69,7 +69,11 @@ const UmaDetailComponent: React.FC<Props> = (props: Props) => {
                   aria-controls="panel1a-content"
                   id="panel1a-header"
                 >
-                  <Typography className={classes.heading}>{x.title}</Typography>
+                  <Typography className={classes.heading}>
+                    {x.title === x.titleKr
+                      ? x.title
+                      : `${x.title}(${x.titleKr})`}
+                  </Typography>
                 </AccordionSummary>
                 <EventDetail title={x.title} choice={x.choices} />
               </Accordion>
