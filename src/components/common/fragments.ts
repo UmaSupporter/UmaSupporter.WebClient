@@ -47,6 +47,7 @@ export const CARD_EVENT_FIELD_WITH_CHOICES = gql`
       edges {
         node {
           title
+          titleKr
           ...CardEventChoice
         }
       }

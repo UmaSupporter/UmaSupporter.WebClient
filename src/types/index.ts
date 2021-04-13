@@ -1,10 +1,12 @@
 export type CardEventChoice = {
   title: string;
+  titleKr: string;
   effect: string;
 };
 
 export type CardEvent = {
   title: string;
+  titleKr: string;
 };
 
 export type SupportCard = {
@@ -30,11 +32,13 @@ export type Uma = {
 
 export type UmaEventChoice = {
   title: string;
+  titleKr: string;
   effect: string;
 };
 
 export type UmaEvent = {
   title: string;
+  titleKr: string;
 };
 
 export type UmaEventWithChoice = UmaEvent & {

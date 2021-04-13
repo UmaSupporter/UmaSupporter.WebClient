@@ -37,6 +37,7 @@ const SupportCardDetailContainer: React.FC<Props> = (props: Props) => {
     .map((x) => {
       return {
         title: x?.node?.title!,
+        titleKr: x?.node?.titleKr!,
         choices: x?.node?.cardEventChoice?.edges!.map((x) => {
           return {
             title: x?.node?.title!,
