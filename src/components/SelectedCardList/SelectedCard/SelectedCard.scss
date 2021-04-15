@@ -53,10 +53,12 @@
   .SelectedCard {
     @include SelectedCard();
     @include CardBackPanel(80);
+    // height: 74px !important;
   }
   .SelectedCard-image {
     @include SelectedCard();
     @include CardImage(80);
+    height: 74px !important;
   }
   .SelectedCard-removeButton {
     margin-top: -84px;
