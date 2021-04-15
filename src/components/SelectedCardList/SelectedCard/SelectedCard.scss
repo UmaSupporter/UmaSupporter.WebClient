@@ -14,6 +14,7 @@
   @include CardImage();
 }
 .SelectedCard-removeButton {
+  position: relative;
   transition: transform 0.1s cubic-bezier(0.5, 0.13, 0.81, 0.44);
   background: #e0245e;
   color: white;
@@ -58,14 +59,13 @@
   .SelectedCard-image {
     @include SelectedCard();
     @include CardImage(80);
-    height: 74px !important;
   }
   .SelectedCard-removeButton {
-    margin-top: -84px;
-    margin-left: 58px;
+    // margin-top: -84px;
+    // margin-left: 58px;
   }
 }
-@media (max-width: 420px) {
+@media (max-width: 425px) {
   .SelectedCard {
     @include SelectedCard();
     @include CardBackPanel(50);
