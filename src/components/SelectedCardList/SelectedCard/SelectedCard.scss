@@ -52,11 +52,11 @@
 @media (max-width: 1200px) {
   .SelectedCard {
     @include SelectedCard();
-    @include CardBackPanel(60);
+    @include CardBackPanel(80);
   }
   .SelectedCard-image {
     @include SelectedCard();
-    @include CardImage(60);
+    @include CardImage(80);
   }
   .SelectedCard-removeButton {
     margin-top: -64px;
