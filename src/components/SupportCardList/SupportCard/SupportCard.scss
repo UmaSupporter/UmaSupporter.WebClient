@@ -1,6 +1,6 @@
 @import '../../common/styles/Card.scss';
 @mixin SupportCard {
-  aspect-ratio: 1/1.3;
+  // aspect-ratio: 1/1.3;
 }
 .SupportCardWrapper {
   display: grid;
@@ -21,7 +21,7 @@
 
 .SupportCard {
   @include SupportCard;
-  @include CardImage();
+  @include CardImage(80, 104);
 }
 
 .SupportCardLikeButton {
@@ -57,7 +57,7 @@
   }
   .SupportCard-BackPanel {
     @include hoverable;
-    @include CardBackPanel(60);
+    @include CardBackPanel(60, 78);
     @include SupportCard;
     &:focus {
       outline: unset;
@@ -65,7 +65,7 @@
   }
   .SupportCard {
     @include SupportCard;
-    @include CardImage(60);
+    @include CardImage(60, 78);
   }
   .SupportCardTypeIcon {
     margin-left: 45px;
@@ -78,7 +78,7 @@
   }
   .SupportCard-BackPanel {
     @include hoverable;
-    @include CardBackPanel(50);
+    @include CardBackPanel(50, 65);
     @include SupportCard;
     &:focus {
       outline: unset;
@@ -86,7 +86,7 @@
   }
   .SupportCard {
     @include SupportCard;
-    @include CardImage(50);
+    @include CardImage(50, 65);
   }
   .SupportCardTypeIcon {
     margin-left: 35px;
