@@ -25,7 +25,8 @@
   height: 16px;
   cursor: pointer;
   transform: translateZ(0px);
-  margin-top: -84px;
+  padding: 2px;
+  margin-top: -88px;
   margin-left: 58px;
   &:hover {
     transform: scale(0.85);
@@ -33,8 +34,8 @@
   &:before,
   &:after {
     position: absolute;
-    top: 3px;
-    left: 7px;
+    top: 5px;
+    left: 9px;
     content: ' ';
     height: 10px;
     width: 2px;
@@ -75,7 +76,7 @@
     @include CardImage(50, 50);
   }
   .SelectedCard-removeButton {
-    margin-top: -54px;
+    margin-top: -56px;
     margin-left: 28px;
   }
 }
