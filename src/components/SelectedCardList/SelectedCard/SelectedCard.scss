@@ -5,6 +5,9 @@
 .SelectedCard {
   @include SelectedCard();
   @include CardBackPanel();
+  position: relative;
+  // left: 50%;
+  // transform: translateX(-50%);
 }
 .SelectedCard-image {
   @include SelectedCard();
@@ -60,7 +63,7 @@
     margin-left: 38px;
   }
 }
-@media (max-width: 1200px) {
+@media (max-width: 420px) {
   .SelectedCard {
     @include SelectedCard();
     @include CardBackPanel(50);
