@@ -11,7 +11,7 @@
 }
 .SupportCard-BackPanel {
   @include hoverable;
-  @include CardBackPanel;
+  @include CardBackPanel(80, 104);
   @include SupportCard;
   grid-template-rows: 0fr 0fr 1fr;
   &:focus {
