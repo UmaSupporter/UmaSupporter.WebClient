@@ -9,6 +9,8 @@
 
 .SelectedCardWrapper {
   @include ThemeScrollBar();
+  display: flex;
+  flex-direction: column;
   width: 100%;
   overflow-y: auto;
   height: 180px;
@@ -17,7 +19,6 @@
   display: grid;
   width: fit-content;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 90px);
   width: 100%;
   grid-gap: 4px;
   justify-content: space-evenly;
@@ -28,6 +29,6 @@
     padding: 4px;
   }
   .SelectedCards {
-    grid-template-columns: repeat(auto-fit, minmax(auto, 70px));
+    grid-template-columns: repeat(auto-fit, 1fr);
   }
 }

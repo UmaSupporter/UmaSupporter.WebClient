@@ -3,12 +3,13 @@
 
 $cardRadius: 7px;
 
-@mixin CardBackPanel($width: 80) {
+@mixin CardBackPanel($width: 80, $height: 80) {
   @include animation(0.2s, appearance, cubic-bezier(0.25, 1, 0.8, 1.2));
   user-select: none;
   box-sizing: content-box;
   border-radius: 10px;
   width: $width + 0px;
+  height: $height + 0px;
   padding: 2px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.11);
   transition: transform 0.2s cubic-bezier(0.5, 0.13, 0.81, 0.44);
@@ -38,19 +39,21 @@ $cardRadius: 7px;
     background: var(--SSR-Gradient);
   }
 }
-@mixin CardImage($width: 80) {
+@mixin CardImage($width: 80, $height: 80) {
   user-select: none;
   position: relative;
   border-radius: $cardRadius;
   width: $width - 4px;
+  height: $height - 4px;
   object-fit: cover;
   border: solid 2px rgba(0, 0, 0, 0.2);
   opacity: 0.99;
   image-rendering: optimizeQuality;
 }
 
-@mixin CardPlaceholder($width: 80) {
-  width: $width;
+@mixin CardPlaceholder($width: 80, $height: 80) {
+  width: $width + 0px;
+  height: $height + 0px;
   display: flex;
   justify-content: center;
   align-items: center;

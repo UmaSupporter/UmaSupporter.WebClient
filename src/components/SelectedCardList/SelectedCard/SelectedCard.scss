@@ -5,12 +5,16 @@
 .SelectedCard {
   @include SelectedCard();
   @include CardBackPanel();
+  position: relative;
+  // left: 50%;
+  // transform: translateX(-50%);
 }
 .SelectedCard-image {
   @include SelectedCard();
   @include CardImage();
 }
 .SelectedCard-removeButton {
+  position: relative;
   transition: transform 0.1s cubic-bezier(0.5, 0.13, 0.81, 0.44);
   background: #e0245e;
   color: white;
@@ -21,7 +25,8 @@
   height: 16px;
   cursor: pointer;
   transform: translateZ(0px);
-  margin-top: -84px;
+  padding: 2px;
+  margin-top: -88px;
   margin-left: 58px;
   &:hover {
     transform: scale(0.85);
@@ -29,8 +34,8 @@
   &:before,
   &:after {
     position: absolute;
-    top: 3px;
-    left: 7px;
+    top: 5px;
+    left: 9px;
     content: ' ';
     height: 10px;
     width: 2px;
@@ -49,28 +54,29 @@
 @media (max-width: 1200px) {
   .SelectedCard {
     @include SelectedCard();
-    @include CardBackPanel(60);
+    @include CardBackPanel();
+    // height: 74px !important;
   }
   .SelectedCard-image {
     @include SelectedCard();
-    @include CardImage(60);
+    @include CardImage();
   }
   .SelectedCard-removeButton {
-    margin-top: -64px;
-    margin-left: 38px;
+    // margin-top: -84px;
+    // margin-left: 58px;
   }
 }
-@media (max-width: 1200px) {
+@media (max-width: 425px) {
   .SelectedCard {
     @include SelectedCard();
-    @include CardBackPanel(50);
+    @include CardBackPanel(50, 50);
   }
   .SelectedCard-image {
     @include SelectedCard();
-    @include CardImage(50);
+    @include CardImage(50, 50);
   }
   .SelectedCard-removeButton {
-    margin-top: -54px;
+    margin-top: -56px;
     margin-left: 28px;
   }
 }

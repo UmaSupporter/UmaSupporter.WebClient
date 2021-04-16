@@ -22,7 +22,7 @@
     cursor: pointer;
     .heroImageContent {
       @include HeroImage;
-      @include CardImage(80);
+      @include CardImage(80, 80);
       @include hoverable;
       object-fit: cover;
       image-rendering: optimizeQuality;
@@ -64,7 +64,7 @@
       z-index: 1;
       .heroImageContent {
         @include HeroImage;
-        @include CardImage(40);
+        @include CardImage(40, 40);
         @include hoverable;
         object-fit: cover;
         image-rendering: optimizeQuality;
