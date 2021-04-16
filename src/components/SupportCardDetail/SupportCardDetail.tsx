@@ -67,7 +67,7 @@ const SupportCardDetail: React.FC<Props> = (props: Props) => {
           {event.map((x, i) => {
             return (
               <Accordion
-                key={i}
+                key={x.title}
                 expanded={expanded === `panel${i}`}
                 onChange={handleChange(`panel${i}`)}
               >

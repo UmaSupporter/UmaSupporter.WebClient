@@ -12,9 +12,9 @@ const SelectedCardList: React.FC<Props> = (props: Props) => {
     <div className="SelectedCardList">
       <div className={'SelectedCardWrapper'}>
         <div className="SelectedCards">
-          {props.uuids.map((x, i) => (
+          {props.uuids.map((x) => (
             <SelectedCardContainer
-              key={i}
+              key={x}
               onDeleteItem={props.onDeleteItem}
               onClickItem={props.onClickItem}
               uuid={x}

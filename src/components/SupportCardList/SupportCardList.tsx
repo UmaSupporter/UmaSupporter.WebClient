@@ -18,7 +18,7 @@ const SupportCardList: React.FC<Props> = (props: Props) => {
           (x, i) => (
             // <span key={x.uuid} style={{ display: "inline" }} >
             <SupportCardComponent
-              key={i}
+              key={x.cardName}
               onClickItem={props.onClickItem}
               onDoubleClickItem={props.onDoubleClickItem}
               uuid={x.uuid}

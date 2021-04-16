@@ -17,7 +17,7 @@ const UmaList: React.FC<Props> = (props: Props) => {
       <div className={'UmaComponentList'}>
         <div className={'UmaGrid'}>
           {umas.map((x, i) => (
-            <UmaComponent uma={x} clickItem={props.clickItem} key={i} />
+            <UmaComponent uma={x} clickItem={props.clickItem} key={x.umaName} />
           ))}
         </div>
       </div>
