@@ -171,7 +171,13 @@ const Main: React.FC = () => {
         <img src={logoImage} className={'titleLogo'} alt={'우마서포터'} />
         {/* <div>우마서포터</div> */}
         <span className={'TitleBarRightItems'}>
-          <a className={'donationLink'} href={'https://twip.kr/riemannulus'}>
+          <a
+            className={'donationLink'}
+            href={'/'}
+            onClick={() => {
+              alert('도네이션 일시중지');
+            }}
+          >
             <img
               src={donationLogo}
               className={'donationLogo'}
