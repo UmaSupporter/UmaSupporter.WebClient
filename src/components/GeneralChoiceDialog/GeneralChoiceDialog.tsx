@@ -12,13 +12,17 @@ import { ExpandMore } from '@material-ui/icons';
 import React from 'react';
 import EventDetail from '../EventDetail';
 import generalEvent from '../../common/general.json';
+import "./GeneralChoiceDialog.scss"
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     dialog: {
-      width: '100%',
-      backgroundColor: 'white',
+
+      // backgroundColor: 'transparent',
     },
+    // paperProps: {
+    //   backgroundColor: 'white',
+    // },
     heading: {
       fontSize: theme.typography.pxToRem(15),
       fontWeight: theme.typography.fontWeightRegular,
@@ -52,7 +56,12 @@ const GeneralChoiceDialog: React.FC<Props> = (props: Props) => {
       onClose={handleClose}
       aria-labelledby="simple-dialog-title"
       open={open}
-      className={classes.dialog}
+    // className={classes.dialog}
+    // PaperProps={{
+    //   style: {
+    //     backgroundColor: 'white'
+    //   }
+    // }}
     >
       <DialogTitle id="simple-dialog-title">공용 이벤트 리스트</DialogTitle>
       {generalEvent.map((x, i) => {
