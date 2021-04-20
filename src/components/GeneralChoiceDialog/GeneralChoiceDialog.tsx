@@ -12,7 +12,6 @@ import { ExpandMore } from '@material-ui/icons';
 import React from 'react';
 import EventDetail from '../EventDetail';
 import generalEvent from '../../common/general.json';
-import "./GeneralChoiceDialog.scss"
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
