@@ -70,7 +70,7 @@
   @include theme-text($bold);
   font-size: var(--font-size7);
 }
-#root {
+html {
   * {
     font-family: 'Jua', 'Kosugi Maru', sans-serif;
   }
