@@ -8,6 +8,7 @@ import { Mixpanel, TRACK } from '../../common/mixpanel';
 import CardListView from '../../views/CardList';
 import logoImage from '../../img/logo.png';
 import donationLogo from '../../img/donation.svg';
+import GlobalChoiceDialog from "../../components/GeneralChoiceDialog";
 
 type SetUmaAction = {
   type: 'SET_UMA_ACTION';
@@ -41,6 +42,10 @@ type ResetFavoriteAction = {
   type: 'RESET_FAVORITE';
 };
 
+type ToggleGeneralChoice = {
+  type: 'TOGGLE_GENERAL_CHOICE';
+}
+
 const resetState = (): State => {
   const favoritesString = localStorage.getItem('favoriteCardUuids');
   return {
@@ -49,6 +54,7 @@ const resetState = (): State => {
     umaUuid: 0,
     showUmaPage: true,
     showCardPage: true,
+    showGeneralChoice: false,
   };
 };
 
@@ -59,7 +65,8 @@ type Action =
   | SetUmaAction
   | SetCardAction
   | ToggleUmaPageAction
-  | ToggleCardPageAction;
+  | ToggleCardPageAction
+  | ToggleGeneralChoice;
 
 type State = {
   favoriteCardUuids: number[];
@@ -67,6 +74,7 @@ type State = {
   cardUuid: number;
   showUmaPage: boolean;
   showCardPage: boolean;
+  showGeneralChoice: boolean;
 };
 
 const selectedCardReducer = (state: State, action: Action): State => {
@@ -130,6 +138,11 @@ const selectedCardReducer = (state: State, action: Action): State => {
         ...state,
         showCardPage: !state.showCardPage,
       };
+    case 'TOGGLE_GENERAL_CHOICE':
+      return {
+        ...state,
+        showGeneralChoice: !state.showGeneralChoice
+      }
     default:
       throw new Error('Unhandled action');
   }
@@ -155,6 +168,7 @@ const Main: React.FC = () => {
   };
   const toggleUmaPage = () => dispatch({ type: 'TOGGLE_UMA_PAGE' });
   const toggleCardPage = () => dispatch({ type: 'TOGGLE_CARD_PAGE' });
+  const toggleGeneralChoice = () => dispatch({ type: 'TOGGLE_GENERAL_CHOICE' })
 
   useEffect(() => {
     Mixpanel.track(TRACK.MAINPAGE, {});
@@ -215,9 +229,8 @@ const Main: React.FC = () => {
             .reduce((a, b) => a + b)}`}
         >
           <div
-            className={`UmaEventChoice EventChoice ${
-              !state.showUmaPage ? 'activated' : ''
-            }`}
+            className={`UmaEventChoice EventChoice ${!state.showUmaPage ? 'activated' : ''
+              }`}
           >
             <UmaDetailContainer
               uuid={state.umaUuid}
@@ -226,9 +239,8 @@ const Main: React.FC = () => {
           </div>
 
           <div
-            className={`CardEventChoice EventChoice ${
-              !state.showCardPage ? 'activated' : ''
-            }`}
+            className={`CardEventChoice EventChoice ${!state.showCardPage ? 'activated' : ''
+              }`}
           >
             <SupportCardDetailContainer
               uuid={state.cardUuid}
@@ -249,7 +261,13 @@ const Main: React.FC = () => {
           />
         </div>
       </div>
-    </Div100vh>
+      <div className={"GlobalChoice"}>
+        <div className={"GlobalChoiceButton"} onClick={toggleGeneralChoice}>우마무스메 / 서포터 외의 이벤트</div>
+
+      </div>
+      <GlobalChoiceDialog open={state.showGeneralChoice} onClose={toggleGeneralChoice}>
+      </GlobalChoiceDialog>
+    </Div100vh >
   );
 };
 

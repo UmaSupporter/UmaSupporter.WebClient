@@ -105,6 +105,15 @@
   display: flex;
   flex: 1;
 }
+.GlobalChoiceButton {
+  margin: 0px 16px;
+  margin-bottom: 8px;
+  padding: 8px;
+  background: var(--layer2);
+  color: var(--text-color);
+  border-radius: 4px;
+  cursor: pointer;
+}
 @media (max-width: 1200px) {
   .MainPage {
     padding: 0px;
@@ -173,5 +182,11 @@
   .EventChoice {
     max-width: 50vw;
     @include shrinkable;
+  }
+  .GlobalChoiceButton {
+    margin: 0px;
+    background: var(--layer3);
+    padding: 12px;
+    border-radius: 0px;
   }
 }
