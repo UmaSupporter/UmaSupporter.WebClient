@@ -1,7 +1,7 @@
 import React from 'react';
 
 const InfoPage = () => {
-  return <div></div>;
+  return <div>asd</div>
 };
 
 export default InfoPage;
