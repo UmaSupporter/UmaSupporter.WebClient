@@ -5,20 +5,13 @@
 
 .MainPage {
   display: flex;
-  overflow: hidden;
+  flex: 1;
   flex-direction: column;
-  background: var(--background);
-  min-height: -webkit-fill-available;
-  padding: 0px 100px;
-  justify-content: center;
-  // align-items: center;
 }
-
 .MainPageContent {
   flex: 1;
   display: flex;
   overflow: hidden;
-  padding: 8px;
 }
 .MainPagelabel {
   @include text4();
@@ -59,7 +52,7 @@
   flex: 1;
 }
 .GlobalChoiceButton {
-  margin: 0px 16px;
+  margin: 0px 8px;
   margin-bottom: 8px;
   padding: 8px;
   background: var(--layer2);
@@ -68,10 +61,6 @@
   cursor: pointer;
 }
 @media (max-width: 1200px) {
-  .MainPage {
-    padding: 0px;
-  }
-
   .MainPageContent {
     padding: 0px;
   }
