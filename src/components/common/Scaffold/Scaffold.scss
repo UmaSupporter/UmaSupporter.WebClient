@@ -1,0 +1,22 @@
+.Scaffold {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--background);
+  min-height: -webkit-fill-available;
+  padding: 0px 100px;
+  justify-content: center;
+}
+
+.ScaffoldContent {
+  flex: 1;
+  overflow: hidden;
+  padding: 8px;
+  display: flex;
+}
+
+@media (max-width: 1200px) {
+  .Scaffold {
+    padding: 0px;
+  }
+}
