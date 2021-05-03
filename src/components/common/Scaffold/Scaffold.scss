@@ -11,12 +11,16 @@
 .ScaffoldContent {
   flex: 1;
   overflow: hidden;
-  padding: 8px;
+  padding: 0px 8px;
   display: flex;
+  flex-direction: row;
 }
 
 @media (max-width: 1200px) {
   .Scaffold {
+    padding: 0px;
+  }
+  .ScaffoldContent {
     padding: 0px;
   }
 }
