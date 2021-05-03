@@ -87,13 +87,14 @@ const Main: React.FC = () => {
       </div>
       <div className={'GlobalChoice'}>
         <div className={'GlobalChoiceButton'} onClick={toggleGeneralChoice}>
-          우마무스메 / 서포터 외의 이벤트
+          📢 우마무스메 / 서포터 외의 이벤트
         </div>
+        <GlobalChoiceDialog
+          open={state.showGeneralChoice}
+          onClose={toggleGeneralChoice}
+        />
       </div>
-      <GlobalChoiceDialog
-        open={state.showGeneralChoice}
-        onClose={toggleGeneralChoice}
-      ></GlobalChoiceDialog>
+
     </div>
   );
 };
