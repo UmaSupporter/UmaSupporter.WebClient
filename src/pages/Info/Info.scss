@@ -1,0 +1,15 @@
+.InfoPage {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0px 8px;
+}
+.InfoContents {
+  flex: 1;
+}
+
+@media (max-width: 1200px) {
+  .InfoPage {
+    padding: 0px;
+  }
+}
