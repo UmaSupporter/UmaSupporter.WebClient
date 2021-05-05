@@ -6,25 +6,12 @@ import Main from './Main';
 
 const MainPageRouter: React.FC = () => {
   return (
+
     <BrowserRouter>
-      <Route
-        exact={true}
-        path={"/"}
-        render={() => {
-          return <Scaffold>
-            <Main />
-          </Scaffold>
-        }}
-      />
-      <Route
-        exact={true}
-        path={"/info"}
-        render={() => {
-          return <Scaffold>
-            <InfoPage />
-          </Scaffold>
-        }}
-      />
+      <Scaffold>
+        <Route exact path={"/"} component={Main} />
+        <Route exact path={"/info"} component={InfoPage} />
+      </Scaffold>
     </BrowserRouter>
   )
 };
