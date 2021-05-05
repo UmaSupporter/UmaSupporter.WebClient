@@ -1,0 +1,23 @@
+.InfoNavigation {
+  display: flex;
+  justify-content: space-evenly;
+  background: var(--accentgreen-half);
+  margin: 8px 0px;
+  border-radius: 4px;
+  display: flex;
+}
+.InfoNavigationHighlighter {
+  background: #ffffff44;
+  width: 33%;
+  height: 36px;
+  margin-top: 4px;
+  position: absolute;
+  mix-blend-mode: overlay;
+}
+
+@media (max-width: 1200px) {
+  .InfoNavigation {
+    margin: 0px;
+    border-radius: 0px;
+  }
+}
