@@ -8,3 +8,9 @@
   align-items: center;
   z-index: 1;
 }
+@media (max-width: 1200px) {
+  .InfoNavigationItem {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
