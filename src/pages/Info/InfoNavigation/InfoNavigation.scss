@@ -1,23 +1,39 @@
 .InfoNavigation {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   background: var(--accentgreen-half);
   margin: 8px 0px;
   border-radius: 4px;
   display: flex;
 }
 .InfoNavigationHighlighter {
-  background: #ffffff44;
-  width: 33%;
+  background: var(--accentgreendark-half);
+  width: calc(33% - 76px);
   height: 36px;
   margin-top: 4px;
+  margin-left: 6px;
   position: absolute;
-  mix-blend-mode: overlay;
+  // mix-blend-mode: overlay;
+  border-radius: 4px;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0, 1);
+  &.\/info\/uma {
+    transform: translateX(0px);
+  }
+  &.\/info\/card {
+    transform: translateX(100%);
+  }
+  &.\/info\/skill {
+    transform: translateX(200%);
+  }
 }
 
 @media (max-width: 1200px) {
   .InfoNavigation {
     margin: 0px;
     border-radius: 0px;
+  }
+  .InfoNavigationHighlighter {
+    width: calc(33% - 1px);
+    height: 26px;
   }
 }

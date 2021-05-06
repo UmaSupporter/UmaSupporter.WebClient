@@ -25,7 +25,6 @@
   position: absolute;
   transition: all 0.3s cubic-bezier(0.2, 0.8, 0, 1);
   transform-origin: center left;
-  backdrop-filter: overlay(100%);
   &.\/ {
     transform: translateX(0px);
   }
@@ -36,10 +35,12 @@
 @media (max-width: 1200px) {
   .Navigation {
     margin: 0px;
+    height: 24px;
     border-radius: 0px;
   }
   .highlighter {
     width: calc(50% - 16px);
+    height: 24px;
     &.\/ {
       transform: translateX(0px);
     }
