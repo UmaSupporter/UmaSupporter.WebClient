@@ -20,7 +20,22 @@
     padding-left: 8px;
   }
 }
-
+.SupportCardDetailFilter {
+  display: flex;
+  justify-content: space-evenly;
+  width: calc(100% - 28px);
+  background: var(--carrot-half);
+  margin: 0px 8px;
+  margin-top: 8px;
+  padding: 6px;
+  border-radius: 4px;
+  .SupportCardDetailFilterItem {
+    display: inline-flex;
+    justify-content: center;
+    flex: 1;
+    cursor: pointer;
+  }
+}
 .EventListWrapper {
   flex: 1;
   overflow-y: auto;
