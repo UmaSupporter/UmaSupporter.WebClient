@@ -6,6 +6,9 @@
 }
 .InfoContents {
   flex: 1;
+  background: var(--layer1);
+  margin-top: 8px;
+  border-radius: 4px;
 }
 
 @media (max-width: 1200px) {
