@@ -10,9 +10,10 @@ const InfoPage = () => {
   return <BrowserRouter>
     <div className="InfoPage">
       <div className="InfoContents">
-        <Route exact={true} path={"/info/skill/:id"} component={InfoSkill} />
-        <Route exact={true} path={"/info/uma/:id"} component={InfoUma} />
-        <Route exact={true} path={"/info/card/:id"} component={InfoCard} />
+        <Route exact={true} path={"/info/skill"} component={InfoSkill} />
+        <Route exact={true} path={"/info/uma"} component={InfoUma} />
+        <Route exact={true} path={"/info/uma/detail/:id"} component={InfoUma} />
+        <Route exact={true} path={"/info/card"} component={InfoCard} />
       </div>
       <InfoNavigation />
     </div>
