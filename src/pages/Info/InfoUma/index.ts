@@ -1,0 +1,1 @@
+export { default as InfoUma} from './InfoUma';
