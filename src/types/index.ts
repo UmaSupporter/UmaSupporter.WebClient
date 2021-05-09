@@ -136,7 +136,6 @@ export type UmaSkilType = {
 }
 
 export type UmaInfo = {
-  uuid: number;
   umaName:string,
   umaNameKr:string,
   secondName:string,

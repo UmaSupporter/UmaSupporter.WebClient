@@ -21,7 +21,7 @@
 .highlighter {
   border-radius: 4px;
   background: var(--accentgreendark);
-  width: calc(50% - 124px);
+  width: calc(50% - 128px);
   height: 45px;
   position: absolute;
   transition: all 0.3s cubic-bezier(0.2, 0.8, 0, 1);
@@ -36,17 +36,24 @@
 @media (max-width: 1200px) {
   .Navigation {
     margin: 0px;
-    height: 24px;
     border-radius: 0px;
   }
   .highlighter {
-    width: calc(50% - 16px);
-    height: 24px;
+    width: calc(50% - 12px);
     &.\/ {
       transform: translateX(0px);
     }
     &.\/info {
       transform: translateX(calc(100% + 16px));
     }
+  }
+}
+@media (max-width: 425px) {
+  .Navigation {
+    height: 24px;
+  }
+  .highlighter {
+    width: calc(50% - 16px);
+    height: 24px;
   }
 }
