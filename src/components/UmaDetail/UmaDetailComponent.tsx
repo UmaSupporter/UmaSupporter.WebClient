@@ -13,6 +13,7 @@ import Hero from '../common/Hero';
 import EventDetail from '../EventDetail';
 
 type Props = {
+  uuid: number;
   umaName: string;
   secondName: string;
   umaImage: string;
@@ -34,7 +35,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 const UmaDetailComponent: React.FC<Props> = (props: Props) => {
-  const { event, umaImage, umaName, secondName, rareDegree } = props;
+  const { uuid, event, umaImage, umaName, secondName, rareDegree } = props;
   const classes = useStyles();
 
   const [expanded, setExpanded] = React.useState<string | false>(false);
@@ -49,6 +50,8 @@ const UmaDetailComponent: React.FC<Props> = (props: Props) => {
   return (
     <div className={'UmaDetail'}>
       <Hero
+        heroType={'uma'}
+        uuid={uuid}
         name={umaName}
         secondName={secondName}
         image={umaImage}

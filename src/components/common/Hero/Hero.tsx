@@ -1,8 +1,12 @@
 import { UriContext } from '../../../common';
 import React, { useContext } from 'react';
 import './Hero.scss';
+import { Link } from 'react-router-dom';
+import infoIcon from '../../../img/info.svg'
 
 type Props = {
+  heroType: string;
+  uuid: number;
   name: string;
   secondName: string;
   rareDegree: string;
@@ -11,7 +15,7 @@ type Props = {
 };
 
 const Hero: React.FC<Props> = (props: Props) => {
-  const { name, image, secondName, rareDegree } = props;
+  const { heroType, uuid, name, image, secondName, rareDegree } = props;
   const uri = useContext(UriContext);
 
   return (
@@ -34,6 +38,9 @@ const Hero: React.FC<Props> = (props: Props) => {
         <div className={'name heroLabel'}>{name}</div>
         <div className={'secondName heroLabel'}>{secondName}</div>
       </div>
+      <Link to={`/info/${heroType}/selected/${uuid}`} className={"heroToInfo"}>
+        <img src={infoIcon} alt={"info"} className={"heroToInfoIcon"} />
+      </Link>
     </div>
   );
 };
