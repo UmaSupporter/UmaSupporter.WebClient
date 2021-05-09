@@ -1,18 +1,16 @@
 import { Route } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
 import { Scaffold } from '../../components/common/Scaffold';
-import { InfoPage } from '../Info';
 import Main from './Main';
 
-const MainPageRouter: React.FC = () => {
-  return (
+type Props = {
+  match: any
+}
 
-    <BrowserRouter>
-      <Scaffold>
-        <Route exact path={"/"} component={Main} />
-        <Route exact path={"/info"} component={InfoPage} />
-      </Scaffold>
-    </BrowserRouter>
+const MainPageRouter: React.FC<Props> = (props: Props) => {
+  const { match } = props;
+  return (
+    <Route exact path={match.path} component={Main} />
   )
 };
 

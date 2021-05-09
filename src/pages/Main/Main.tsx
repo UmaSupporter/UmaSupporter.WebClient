@@ -8,9 +8,14 @@ import CardListView from '../../views/CardList';
 
 import GlobalChoiceDialog from '../../components/GeneralChoiceDialog';
 import { selectedCardReducer, resetState } from './Props';
+import { useLocation } from 'react-router-dom';
 
 const Main: React.FC = () => {
   const [state, dispatch] = useReducer(selectedCardReducer, {}, resetState);
+  const location = useLocation()
+  const params = new URLSearchParams(location.search);
+  const uma = Number(params.get('uma'));
+  const card = Number(params.get('card'));
 
   const toggleFavoriteCard = (uuid: number) => {
     Mixpanel.track(TRACK.SET_FAVORITE, { uuid: uuid });
@@ -33,7 +38,18 @@ const Main: React.FC = () => {
 
   useEffect(() => {
     Mixpanel.track(TRACK.MAINPAGE, {});
-  }, []);
+  }, [])
+
+  useEffect(() => {
+    if (uma !== 0) {
+      Mixpanel.track(TRACK.SET_UMA, { uuid: uma });
+      dispatch({ type: 'SET_UMA_ACTION', payload: uma });
+    }
+    if (card !== 0) {
+      Mixpanel.track(TRACK.SET_CARD, { uuid: card });
+      dispatch({ type: 'SET_CARD', payload: card });
+    }
+  }, [card, uma]);
 
   return (
     <div className={"MainPage"}>
