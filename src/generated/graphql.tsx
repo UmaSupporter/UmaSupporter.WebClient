@@ -424,6 +424,74 @@ export type GetSkillWithNameQuery = (
   )> }
 );
 
+export type GetCardDetailInfoQueryVariables = Exact<{
+  uuid: Scalars['Int'];
+}>;
+
+
+export type GetCardDetailInfoQuery = (
+  { __typename?: 'Query' }
+  & { supportCardId?: Maybe<(
+    { __typename?: 'SupportCardType' }
+    & Pick<SupportCardType, 'uuid' | 'cardName' | 'cardNameKr' | 'secondName' | 'secondNameKr' | 'cardImage' | 'rareDegree'>
+    & { skills?: Maybe<Array<Maybe<(
+      { __typename?: 'CardSkillType' }
+      & Pick<CardSkillType, 'category'>
+      & { skill?: Maybe<(
+        { __typename?: 'SkillType' }
+        & Pick<SkillType, 'name'>
+        & { grade?: Maybe<(
+          { __typename?: 'SkillGradeType' }
+          & Pick<SkillGradeType, 'name'>
+        )>, buffType?: Maybe<(
+          { __typename?: 'SkillBuffTypeType' }
+          & Pick<SkillBuffTypeType, 'name'>
+        )>, distanceType?: Maybe<(
+          { __typename?: 'SkillDistanceTypeType' }
+          & Pick<SkillDistanceTypeType, 'name'>
+        )>, operationType?: Maybe<(
+          { __typename?: 'SkillOperationTypeType' }
+          & Pick<SkillOperationTypeType, 'name'>
+        )> }
+      )> }
+    )>>> }
+  )> }
+);
+
+export type GetUmaDetailInfoQueryVariables = Exact<{
+  uuid: Scalars['Int'];
+}>;
+
+
+export type GetUmaDetailInfoQuery = (
+  { __typename?: 'Query' }
+  & { umamusumeId?: Maybe<(
+    { __typename?: 'UmamusumeType' }
+    & Pick<UmamusumeType, 'uuid' | 'umaName' | 'umaNameKr' | 'secondName' | 'secondNameKr' | 'umaImage' | 'rareDegree'>
+    & { skills?: Maybe<Array<Maybe<(
+      { __typename?: 'UmaSkillType' }
+      & Pick<UmaSkillType, 'category'>
+      & { skill?: Maybe<(
+        { __typename?: 'SkillType' }
+        & Pick<SkillType, 'name'>
+        & { grade?: Maybe<(
+          { __typename?: 'SkillGradeType' }
+          & Pick<SkillGradeType, 'name'>
+        )>, buffType?: Maybe<(
+          { __typename?: 'SkillBuffTypeType' }
+          & Pick<SkillBuffTypeType, 'name'>
+        )>, distanceType?: Maybe<(
+          { __typename?: 'SkillDistanceTypeType' }
+          & Pick<SkillDistanceTypeType, 'name'>
+        )>, operationType?: Maybe<(
+          { __typename?: 'SkillOperationTypeType' }
+          & Pick<SkillOperationTypeType, 'name'>
+        )> }
+      )> }
+    )>>> }
+  )> }
+);
+
 export type GetSupportCardOnIdQueryVariables = Exact<{
   uuid: Scalars['Int'];
 }>;
@@ -577,38 +645,6 @@ export type UmaEventWithChoiceFragment = (
       )> }
     )>> }
   )> }
-);
-
-export type GetUmaInfoQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type GetUmaInfoQuery = (
-  { __typename?: 'Query' }
-  & { umamusume?: Maybe<Array<Maybe<(
-    { __typename?: 'UmamusumeType' }
-    & Pick<UmamusumeType, 'uuid' | 'umaName' | 'umaNameKr' | 'secondName' | 'secondNameKr' | 'umaImage' | 'gamewithWikiId' | 'rareDegree'>
-    & { skills?: Maybe<Array<Maybe<(
-      { __typename?: 'UmaSkillType' }
-      & Pick<UmaSkillType, 'category'>
-      & { skill?: Maybe<(
-        { __typename?: 'SkillType' }
-        & Pick<SkillType, 'name'>
-        & { grade?: Maybe<(
-          { __typename?: 'SkillGradeType' }
-          & Pick<SkillGradeType, 'name'>
-        )>, buffType?: Maybe<(
-          { __typename?: 'SkillBuffTypeType' }
-          & Pick<SkillBuffTypeType, 'name'>
-        )>, distanceType?: Maybe<(
-          { __typename?: 'SkillDistanceTypeType' }
-          & Pick<SkillDistanceTypeType, 'name'>
-        )>, operationType?: Maybe<(
-          { __typename?: 'SkillOperationTypeType' }
-          & Pick<SkillOperationTypeType, 'name'>
-        )> }
-      )> }
-    )>>> }
-  )>>> }
 );
 
 export const CoreSupportCardFieldFragmentDoc = gql`
@@ -782,6 +818,124 @@ export function useGetSkillWithNameLazyQuery(baseOptions?: Apollo.LazyQueryHookO
 export type GetSkillWithNameQueryHookResult = ReturnType<typeof useGetSkillWithNameQuery>;
 export type GetSkillWithNameLazyQueryHookResult = ReturnType<typeof useGetSkillWithNameLazyQuery>;
 export type GetSkillWithNameQueryResult = Apollo.QueryResult<GetSkillWithNameQuery, GetSkillWithNameQueryVariables>;
+export const GetCardDetailInfoDocument = gql`
+    query GetCardDetailInfo($uuid: Int!) {
+  supportCardId(uuid: $uuid) {
+    uuid
+    cardName
+    cardNameKr
+    secondName
+    secondNameKr
+    cardImage
+    rareDegree
+    skills {
+      category
+      skill {
+        name
+        grade {
+          name
+        }
+        buffType {
+          name
+        }
+        distanceType {
+          name
+        }
+        operationType {
+          name
+        }
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetCardDetailInfoQuery__
+ *
+ * To run a query within a React component, call `useGetCardDetailInfoQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetCardDetailInfoQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetCardDetailInfoQuery({
+ *   variables: {
+ *      uuid: // value for 'uuid'
+ *   },
+ * });
+ */
+export function useGetCardDetailInfoQuery(baseOptions: Apollo.QueryHookOptions<GetCardDetailInfoQuery, GetCardDetailInfoQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetCardDetailInfoQuery, GetCardDetailInfoQueryVariables>(GetCardDetailInfoDocument, options);
+      }
+export function useGetCardDetailInfoLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetCardDetailInfoQuery, GetCardDetailInfoQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetCardDetailInfoQuery, GetCardDetailInfoQueryVariables>(GetCardDetailInfoDocument, options);
+        }
+export type GetCardDetailInfoQueryHookResult = ReturnType<typeof useGetCardDetailInfoQuery>;
+export type GetCardDetailInfoLazyQueryHookResult = ReturnType<typeof useGetCardDetailInfoLazyQuery>;
+export type GetCardDetailInfoQueryResult = Apollo.QueryResult<GetCardDetailInfoQuery, GetCardDetailInfoQueryVariables>;
+export const GetUmaDetailInfoDocument = gql`
+    query GetUmaDetailInfo($uuid: Int!) {
+  umamusumeId(uuid: $uuid) {
+    uuid
+    umaName
+    umaNameKr
+    secondName
+    secondNameKr
+    umaImage
+    rareDegree
+    skills {
+      category
+      skill {
+        name
+        grade {
+          name
+        }
+        buffType {
+          name
+        }
+        distanceType {
+          name
+        }
+        operationType {
+          name
+        }
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetUmaDetailInfoQuery__
+ *
+ * To run a query within a React component, call `useGetUmaDetailInfoQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetUmaDetailInfoQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetUmaDetailInfoQuery({
+ *   variables: {
+ *      uuid: // value for 'uuid'
+ *   },
+ * });
+ */
+export function useGetUmaDetailInfoQuery(baseOptions: Apollo.QueryHookOptions<GetUmaDetailInfoQuery, GetUmaDetailInfoQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetUmaDetailInfoQuery, GetUmaDetailInfoQueryVariables>(GetUmaDetailInfoDocument, options);
+      }
+export function useGetUmaDetailInfoLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetUmaDetailInfoQuery, GetUmaDetailInfoQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetUmaDetailInfoQuery, GetUmaDetailInfoQueryVariables>(GetUmaDetailInfoDocument, options);
+        }
+export type GetUmaDetailInfoQueryHookResult = ReturnType<typeof useGetUmaDetailInfoQuery>;
+export type GetUmaDetailInfoLazyQueryHookResult = ReturnType<typeof useGetUmaDetailInfoLazyQuery>;
+export type GetUmaDetailInfoQueryResult = Apollo.QueryResult<GetUmaDetailInfoQuery, GetUmaDetailInfoQueryVariables>;
 export const GetSupportCardOnIdDocument = gql`
     query getSupportCardOnId($uuid: Int!) {
   supportCardId(uuid: $uuid) {
@@ -967,62 +1121,3 @@ export function useUmaListLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Um
 export type UmaListQueryHookResult = ReturnType<typeof useUmaListQuery>;
 export type UmaListLazyQueryHookResult = ReturnType<typeof useUmaListLazyQuery>;
 export type UmaListQueryResult = Apollo.QueryResult<UmaListQuery, UmaListQueryVariables>;
-export const GetUmaInfoDocument = gql`
-    query getUmaInfo {
-  umamusume {
-    uuid
-    umaName
-    umaNameKr
-    secondName
-    secondNameKr
-    umaImage
-    gamewithWikiId
-    rareDegree
-    skills {
-      category
-      skill {
-        name
-        grade {
-          name
-        }
-        buffType {
-          name
-        }
-        distanceType {
-          name
-        }
-        operationType {
-          name
-        }
-      }
-    }
-  }
-}
-    `;
-
-/**
- * __useGetUmaInfoQuery__
- *
- * To run a query within a React component, call `useGetUmaInfoQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetUmaInfoQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useGetUmaInfoQuery({
- *   variables: {
- *   },
- * });
- */
-export function useGetUmaInfoQuery(baseOptions?: Apollo.QueryHookOptions<GetUmaInfoQuery, GetUmaInfoQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<GetUmaInfoQuery, GetUmaInfoQueryVariables>(GetUmaInfoDocument, options);
-      }
-export function useGetUmaInfoLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetUmaInfoQuery, GetUmaInfoQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<GetUmaInfoQuery, GetUmaInfoQueryVariables>(GetUmaInfoDocument, options);
-        }
-export type GetUmaInfoQueryHookResult = ReturnType<typeof useGetUmaInfoQuery>;
-export type GetUmaInfoLazyQueryHookResult = ReturnType<typeof useGetUmaInfoLazyQuery>;
-export type GetUmaInfoQueryResult = Apollo.QueryResult<GetUmaInfoQuery, GetUmaInfoQueryVariables>;

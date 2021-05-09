@@ -4,8 +4,15 @@ import './Navigation.scss'
 
 const Navigation = () => {
   const location = useLocation().pathname;
+
+  const currentLocation = (location: string) => {
+    if (location.includes("info"))
+      return "/info"
+    return "/"
+  }
+
   return <div className="Navigation">
-    <div className={`highlighter ${location}`} />
+    <div className={`highlighter ${currentLocation(location)}`} />
     <Link to="/" className={"navItem"}>
       <div>이벤트</div>
     </Link>
