@@ -1,1 +1,1 @@
-export {default as InfoNavigation} from "./InfoNavigation"
+export { default as InfoNavigation } from './InfoNavigation';

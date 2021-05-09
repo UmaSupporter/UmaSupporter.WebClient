@@ -1,3 +1,1 @@
-import SupportCardComponent from './SupportCard';
-
-export default SupportCardComponent;
+export { default as SupportCardComponent } from './SupportCard';

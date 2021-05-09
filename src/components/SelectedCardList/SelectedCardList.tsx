@@ -8,15 +8,16 @@ type Props = {
 };
 
 const SelectedCardList: React.FC<Props> = (props: Props) => {
+  const { uuids, onDeleteItem, onClickItem } = props;
   return (
-    <div className="SelectedCardList">
+    <div className={'SelectedCardList'}>
       <div className={'SelectedCardWrapper'}>
-        <div className="SelectedCards">
-          {props.uuids.map((x, i) => (
+        <div className={'SelectedCards'}>
+          {uuids.map((x, i) => (
             <SelectedCardContainer
               key={i}
-              onDeleteItem={props.onDeleteItem}
-              onClickItem={props.onClickItem}
+              onDeleteItem={onDeleteItem}
+              onClickItem={onClickItem}
               uuid={x}
             />
           ))}

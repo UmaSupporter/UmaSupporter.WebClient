@@ -1,5 +1,5 @@
 import { Uma } from '../../types';
-import UmaComponent from './UmaComponent';
+import { UmaComponent } from './UmaComponent';
 import './UmaList.scss';
 
 type Props = {
@@ -8,7 +8,7 @@ type Props = {
 };
 
 const UmaList: React.FC<Props> = (props: Props) => {
-  const { umas } = props;
+  const { umas, clickItem } = props;
   return (
     <div className={'UmaList'}>
       <p className={'MainPagelabel'}>우마무스메 리스트</p>
@@ -17,7 +17,7 @@ const UmaList: React.FC<Props> = (props: Props) => {
       <div className={'UmaComponentList'}>
         <div className={'UmaGrid'}>
           {umas.map((x, i) => (
-            <UmaComponent uma={x} clickItem={props.clickItem} key={i} />
+            <UmaComponent uma={x} clickItem={clickItem} key={i} />
           ))}
         </div>
       </div>

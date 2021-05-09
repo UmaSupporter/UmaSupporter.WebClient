@@ -10,18 +10,12 @@ import {
 } from '@material-ui/core';
 import { ExpandMore } from '@material-ui/icons';
 import React from 'react';
-import EventDetail from '../EventDetail';
+import { EventDetail } from '../EventDetail';
 import generalEvent from '../../common/general.json';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    dialog: {
-
-      // backgroundColor: 'transparent',
-    },
-    // paperProps: {
-    //   backgroundColor: 'white',
-    // },
+    dialog: {},
     heading: {
       fontSize: theme.typography.pxToRem(15),
       fontWeight: theme.typography.fontWeightRegular,
@@ -55,15 +49,16 @@ const GeneralChoiceDialog: React.FC<Props> = (props: Props) => {
       onClose={handleClose}
       aria-labelledby="simple-dialog-title"
       open={open}
-    // className={classes.dialog}
-    // PaperProps={{
-    //   style: {
-    //     backgroundColor: 'white'
-    //   }
-    // }}
+      // className={classes.dialog}
+      // PaperProps={{
+      //   style: {
+      //     backgroundColor: 'white'
+      //   }
+      // }}
     >
       <DialogTitle id="simple-dialog-title">공용 이벤트 리스트</DialogTitle>
       {generalEvent.map((x, i) => {
+        const { title, choices } = x;
         return (
           <Accordion
             key={i}
@@ -75,9 +70,9 @@ const GeneralChoiceDialog: React.FC<Props> = (props: Props) => {
               aria-controls="panel1a-content"
               id="panel1a-header"
             >
-              <Typography className={classes.heading}>{x.title}</Typography>
+              <Typography className={classes.heading}>{title}</Typography>
             </AccordionSummary>
-            <EventDetail title={x.title} choice={x.choices} />
+            <EventDetail title={title} choice={choices} />
           </Accordion>
         );
       })}

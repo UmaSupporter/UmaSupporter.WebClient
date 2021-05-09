@@ -1,3 +1,1 @@
-import CardTypeFilterComponent from './CardTypeFilterComponent';
-
-export { CardTypeFilterComponent };
+export { default as CardTypeFilterComponent } from './CardTypeFilterComponent';

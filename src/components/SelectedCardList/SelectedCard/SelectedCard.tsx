@@ -14,24 +14,34 @@ export type Props = {
 };
 
 const SelectedCard: React.FC<Props> = (props: Props) => {
-  const { uuid, cardName, secondName, cardImage, cardType, rareDegree } = props;
+  const {
+    uuid,
+    cardName,
+    secondName,
+    cardImage,
+    cardType,
+    rareDegree,
+    onClickItem,
+    onDeleteItem,
+  } = props;
   const uri = useContext(UriContext);
 
-  return (
-    <div className={`SelectedCard ${cardType} ${rareDegree}`}>
-      <img
-        src={`${uri}/images/${cardImage}`}
-        alt={`${cardName}-${secondName}`}
-        className="SelectedCard-image"
-        onClick={() => props.onClickItem(uuid)}
-      />
+  const rootClassName = `SelectedCard ${cardType} ${rareDegree}`;
+  const imagePath = `${uri}/images/${cardImage}`;
+  const imageAlt = `${cardName}-${secondName}`;
 
+  return (
+    <div className={rootClassName}>
+      <img
+        src={imagePath}
+        alt={imageAlt}
+        className={'SelectedCard-image'}
+        onClick={() => onClickItem(uuid)}
+      />
       <div
-        onClick={() => props.onDeleteItem(uuid)}
-        className="SelectedCard-removeButton"
-      >
-        {/* X */}
-      </div>
+        onClick={() => onDeleteItem(uuid)}
+        className={'SelectedCard-removeButton'}
+      />
     </div>
   );
 };
