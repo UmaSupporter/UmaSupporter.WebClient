@@ -1,1 +1,1 @@
-export { default as InfoNavigationItem} from "./InfoNavigationItem";
+export { default as InfoNavigationItem } from './InfoNavigationItem';
