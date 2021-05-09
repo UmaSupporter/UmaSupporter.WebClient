@@ -13,27 +13,42 @@ type Props = SupportCard & {
 };
 
 const SupportCardComponent: React.FC<Props> = (props: Props) => {
-  const { uuid, cardName, secondName, cardType, cardImage, rareDegree } = props;
+  const {
+    uuid,
+    cardName,
+    secondName,
+    cardType,
+    cardImage,
+    rareDegree,
+    selected,
+    onDoubleClickItem,
+  } = props;
+
   const uri = useContext(UriContext);
+  const likeIcon = selected ? like : dislike;
+  const likeIconAlt = selected ? 'like' : 'dislike';
+
+  const supportCardTypeIcon = `${uri}/images/${getCardTypeImageName(
+    convertToCardType(cardType)
+  )}`;
+
+  const supportCardImage = `${uri}/images/${cardImage}`;
+  const supportCardImageAlt = `${cardName}-${secondName}`;
 
   return (
-    <div className="SupportCardWrapper">
-      {
-        <img
-          src={props.selected ? like : dislike}
-          className={`SupportCardLikeIcon`}
-          alt={props.selected ? 'like' : 'dislike'}
-          onClick={(e) => {
-            e.stopPropagation();
-            props.onDoubleClickItem(uuid);
-          }}
-        />
-      }
+    <div className={'SupportCardWrapper'}>
+      <img
+        src={likeIcon}
+        className={`SupportCardLikeIcon`}
+        alt={likeIconAlt}
+        onClick={(e) => {
+          e.stopPropagation();
+          onDoubleClickItem(uuid);
+        }}
+      />
       <img
         className={`SupportCardTypeIcon`}
-        src={`${uri}/images/${getCardTypeImageName(
-          convertToCardType(cardType)
-        )}`}
+        src={supportCardTypeIcon}
         alt={cardType}
       />
       <div
@@ -44,8 +59,8 @@ const SupportCardComponent: React.FC<Props> = (props: Props) => {
         }}
       >
         <img
-          alt={`${cardName}-${secondName}`}
-          src={`${uri}/images/${cardImage}`}
+          src={supportCardImage}
+          alt={supportCardImageAlt}
           className={`SupportCard`}
         />
       </div>

@@ -17,17 +17,24 @@ type Props = {
 const CardTypeFilterComponent: React.FC<Props> = (props: Props) => {
   const uri = useContext(UriContext);
   const { cardTypes, onClickType } = props;
+
   return (
     <div className={`CardTypeFilterList`}>
-      {cardTypes.map((x, i) => (
-        <img
-          key={i}
-          className={`CardTypeFilterIcon ${x.isSelected ? 'selected' : ''}`}
-          onClick={() => onClickType(x.cardType)}
-          alt={x.cardType}
-          src={`${uri}/images/${getCardTypeImageName(x.cardType)}`}
-        />
-      ))}
+      {cardTypes.map((x, i) => {
+        const { isSelected, cardType } = x;
+        const className = `CardTypeFilterIcon ${isSelected ? 'selected' : ''}`;
+        const imagePath = `${uri}/images/${getCardTypeImageName(cardType)}`;
+
+        return (
+          <img
+            key={i}
+            className={className}
+            onClick={() => onClickType(cardType)}
+            alt={cardType}
+            src={imagePath}
+          />
+        );
+      })}
     </div>
   );
 };
