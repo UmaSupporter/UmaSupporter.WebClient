@@ -1,5 +1,5 @@
-import { ReactChild, ReactNode } from 'react';
+import { ReactNode } from 'react';
 
-export type ScaffoldProps={
-  children: React.ReactNode
-}
+export type ScaffoldProps = {
+  children: React.ReactNode;
+};

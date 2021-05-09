@@ -4,53 +4,49 @@ import { InfoUmaDetail } from '.';
 import { useGetUmaDetailInfoQuery } from '../../generated/graphql';
 
 gql`
-query GetUmaDetailInfo($uuid: Int!){
-  umamusumeId(uuid: $uuid) {
-    uuid
-    umaName
-    umaNameKr
-    secondName
-    secondNameKr
-    umaImage
-    rareDegree
-    skills {
-      category
-      skill {
-        name
-        grade {
+  query GetUmaDetailInfo($uuid: Int!) {
+    umamusumeId(uuid: $uuid) {
+      uuid
+      umaName
+      umaNameKr
+      secondName
+      secondNameKr
+      umaImage
+      rareDegree
+      skills {
+        category
+        skill {
           name
-        }
-        buffType {
-          name
-        }
-        distanceType {
-          name
-        }
-        operationType {
-          name
+          grade {
+            name
+          }
+          buffType {
+            name
+          }
+          distanceType {
+            name
+          }
+          operationType {
+            name
+          }
         }
       }
     }
   }
-}
 `;
 
 type Props = {
-  uuid: number
-}
-
+  uuid: number;
+};
 
 const InfoUmaDetailContainer = (props: Props) => {
-  const { uuid } = props
-  const { loading, error, data } = useGetUmaDetailInfoQuery({ variables: { uuid: uuid } });
-  if (loading)
-    return <div></div>
-  if (error)
-    return <div></div>
-  return (
-    <InfoUmaDetail umaInfoData={data!}></InfoUmaDetail>
+  const { uuid } = props;
+  const { loading, error, data } = useGetUmaDetailInfoQuery({
+    variables: { uuid: uuid },
+  });
+  if (loading) return <div></div>;
+  if (error) return <div></div>;
+  return <InfoUmaDetail umaInfoData={data!}></InfoUmaDetail>;
+};
 
-  )
-}
-
-export default InfoUmaDetailContainer
+export default InfoUmaDetailContainer;

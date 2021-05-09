@@ -1,3 +1,1 @@
-import UmaDetailContainer from './UmaDetailContainer';
-
-export default UmaDetailContainer;
+export { default as UmaDetailContainer } from './UmaDetailContainer';

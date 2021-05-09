@@ -17,7 +17,7 @@ gql`
 
 type Props = {
   onClickItem: (uuid: number) => void;
-  onDoubleClickItem: (uuid: number) => void;
+  onFavoriteItem: (uuid: number) => void;
   filters: Set<CARD_TYPE>;
   selectedList: Array<Number>;
 };
@@ -27,6 +27,8 @@ const SupportCardListContainer: React.FC<Props> = (props: Props) => {
   if (loading) return <p>loading...</p>;
   if (error) return <p>error</p>;
   if (data == null || data.supportCard == null) return <p>data not exist</p>;
+
+  const { onClickItem, onFavoriteItem, filters, selectedList } = props;
 
   let cardList: SupportCard[] = data.supportCard
     .map((x) => {
@@ -42,19 +44,19 @@ const SupportCardListContainer: React.FC<Props> = (props: Props) => {
     .sort(rareDegreeCompare)
     .reverse();
 
-  if (props.filters.size !== 0) {
+  if (filters.size !== 0) {
     cardList = cardList.filter((x) =>
-      props.filters.has(convertToCardType(x.cardType))
+      filters.has(convertToCardType(x.cardType))
     );
   }
+
   return (
-    // <div className={"SupportCardListContainer"} >
     <>
       <SupportCardList
         cards={cardList}
-        selectedList={props.selectedList}
-        onClickItem={props.onClickItem}
-        onDoubleClickItem={props.onDoubleClickItem}
+        selectedList={selectedList}
+        onClickItem={onClickItem}
+        onFavoriteItem={onFavoriteItem}
       />
     </>
   );

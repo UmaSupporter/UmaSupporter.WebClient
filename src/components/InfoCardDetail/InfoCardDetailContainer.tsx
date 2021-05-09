@@ -1,50 +1,49 @@
-import gql from 'graphql-tag'
+import gql from 'graphql-tag';
 import { useGetCardDetailInfoQuery } from '../../generated/graphql';
 
-
 gql`
-query GetCardDetailInfo($uuid: Int!) {
-  supportCardId(uuid: $uuid) {
-    uuid
-    cardName
-    cardNameKr
-    secondName
-    secondNameKr
-    cardImage
-    rareDegree
-    skills {
-      category
-      skill {
-        name
-        grade {
+  query GetCardDetailInfo($uuid: Int!) {
+    supportCardId(uuid: $uuid) {
+      uuid
+      cardName
+      cardNameKr
+      secondName
+      secondNameKr
+      cardImage
+      rareDegree
+      skills {
+        category
+        skill {
           name
-        }
-        buffType {
-          name
-        }
-        distanceType {
-          name
-        }
-        operationType {
-          name
+          grade {
+            name
+          }
+          buffType {
+            name
+          }
+          distanceType {
+            name
+          }
+          operationType {
+            name
+          }
         }
       }
     }
   }
-}
 `;
 
-
 type Props = {
-  uuid: number
-}
+  uuid: number;
+};
 
 const InfoCardDetailContainer: React.FC<Props> = (props: Props) => {
   const { uuid } = props;
-  const { loading, error, data } = useGetCardDetailInfoQuery({ variables: { uuid: uuid } });
+  const { loading, error, data } = useGetCardDetailInfoQuery({
+    variables: { uuid: uuid },
+  });
 
-  return (<>
-  </>)
-}
+  return <></>;
+};
 
 export default InfoCardDetailContainer;
