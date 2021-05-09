@@ -2,7 +2,7 @@ import { UriContext } from '../../../common';
 import React, { useContext } from 'react';
 import './Hero.scss';
 import { Link } from 'react-router-dom';
-import infoIcon from '../../../img/info.svg'
+import infoIcon from '../../../img/info.svg';
 
 type Props = {
   heroType: string;
@@ -18,18 +18,21 @@ const Hero: React.FC<Props> = (props: Props) => {
   const { heroType, uuid, name, image, secondName, rareDegree } = props;
   const uri = useContext(UriContext);
 
+  const linkPath = `/info/${heroType}/selected/${uuid}`;
+  const imagePath = `${uri}/images/${image}`;
+
   return (
     <div className={`Hero`} onClick={() => props.action()}>
       <div className={'heroBackgroundWrapper'}>
         <img
-          src={`${uri}/images/${image}`}
+          src={imagePath}
           alt={`${name} - ${secondName} background`}
           className={'heroBackground'}
         />
       </div>
       <div className={`heroImage ${rareDegree}`}>
         <img
-          src={`${uri}/images/${image}`}
+          src={imagePath}
           alt={`${name} - ${secondName}`}
           className={'heroImageContent'}
         />
@@ -38,10 +41,11 @@ const Hero: React.FC<Props> = (props: Props) => {
         <div className={'name heroLabel'}>{name}</div>
         <div className={'secondName heroLabel'}>{secondName}</div>
       </div>
-      <Link to={`/info/${heroType}/selected/${uuid}`} className={"heroToInfo"}>
-        <img src={infoIcon} alt={"info"} className={"heroToInfoIcon"} />
+      <Link to={linkPath} className={'heroToInfo'}>
+        <img src={infoIcon} alt={'info'} className={'heroToInfoIcon'} />
       </Link>
     </div>
   );
 };
+
 export default Hero;

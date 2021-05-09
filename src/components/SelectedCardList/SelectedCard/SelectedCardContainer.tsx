@@ -26,20 +26,24 @@ const SelectedCardContainer: React.FC<Props> = (props: Props) => {
       uuid: props.uuid,
     },
   });
+
   if (loading) return <SelectedCardPlaceholder />;
   if (error) return <p>error</p>;
   if (data == null || data.supportCardId == null) return <p>data not exist</p>;
 
+  const { supportCardId } = data;
+  const { onDeleteItem, onClickItem } = props;
+
   return (
     <SelectedCard
-      uuid={Number(data.supportCardId.uuid!)}
-      cardName={data.supportCardId.cardName!}
-      cardType={data.supportCardId.cardType!}
-      secondName={data.supportCardId.secondName!}
-      cardImage={data.supportCardId.cardImage!}
-      rareDegree={data.supportCardId.rareDegree!}
-      onDeleteItem={props.onDeleteItem}
-      onClickItem={props.onClickItem}
+      uuid={Number(supportCardId.uuid!)}
+      cardName={supportCardId.cardName!}
+      cardType={supportCardId.cardType!}
+      secondName={supportCardId.secondName!}
+      cardImage={supportCardId.cardImage!}
+      rareDegree={supportCardId.rareDegree!}
+      onDeleteItem={onDeleteItem}
+      onClickItem={onClickItem}
     />
   );
 };

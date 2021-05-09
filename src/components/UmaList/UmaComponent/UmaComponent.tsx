@@ -10,14 +10,15 @@ type Props = {
 
 const UmaComponent: React.FC<Props> = (props: Props) => {
   const { uuid, umaImage, umaName, secondName } = props.uma;
+
   const uri = useContext(UriContext);
+
+  const imagePath = `${uri}/images/${umaImage}`;
+  const imageAlt = `${umaName} ${secondName}`;
+
   return (
     <div className={'UmaComponent'} onClick={() => props.clickItem(uuid)}>
-      <img
-        className={'umaComponentImage'}
-        src={`${uri}/images/${umaImage}`}
-        alt={`${umaName} ${secondName}`}
-      />
+      <img className={'umaComponentImage'} src={imagePath} alt={imageAlt} />
     </div>
   );
 };

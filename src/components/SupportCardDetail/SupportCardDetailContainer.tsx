@@ -29,7 +29,8 @@ const SupportCardDetailContainer: React.FC<Props> = (props: Props) => {
   if (data == null || data?.supportCardId == null)
     return <SupportCardDetailNotExistComponent />;
 
-  const rawEvents = data?.supportCardId?.cardEvent?.edges;
+  const supportCard = data.supportCardId;
+  const rawEvents = supportCard.cardEvent?.edges;
 
   if (rawEvents == null) return <SupportCardDetailNotExistComponent />;
 
@@ -50,11 +51,11 @@ const SupportCardDetailContainer: React.FC<Props> = (props: Props) => {
 
   return (
     <SupportCardDetail
-      uuid={Number(data.supportCardId.uuid!)}
-      supportCardName={data.supportCardId.cardName!}
-      supportCardSecondName={data.supportCardId.secondName!}
-      cardImage={data.supportCardId.cardImage!}
-      rareDegree={data.supportCardId.rareDegree!}
+      uuid={Number(supportCard.uuid!)}
+      supportCardName={supportCard.cardName!}
+      supportCardSecondName={supportCard.secondName!}
+      cardImage={supportCard.cardImage!}
+      rareDegree={supportCard.rareDegree!}
       event={events}
       toggleCardPage={props.toggleCardPage}
     />
