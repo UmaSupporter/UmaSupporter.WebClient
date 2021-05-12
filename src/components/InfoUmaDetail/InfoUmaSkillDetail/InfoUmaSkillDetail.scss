@@ -1,0 +1,21 @@
+.InfoUmaSkillDetail {
+  margin-bottom: 8px;
+  display: flex;
+  color: var(--text-color);
+  align-items: center;
+}
+
+.InfoUmaSkillDetailIcon {
+  width: 45px;
+  height: 45px;
+  margin-right: 8px;
+}
+.InfoUmaSkillName {
+  font-weight: bold;
+}
+
+.InfoUmaSkillLabels {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
