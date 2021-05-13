@@ -2,3 +2,15 @@
   display: flex;
   height: 100%;
 }
+
+.InfoUmaDetail {
+  flex: 1;
+}
+@media (max-width: 425px) {
+  .InfoUmaDetail {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: calc(100%);
+  }
+}
