@@ -5,7 +5,7 @@ let uri;
 if (production) {
   uri = 'https://uma.hitagi.moe';
 } else {
-  uri = 'http://localhost:5000';
+  uri = 'https://uma.hanaoto.me';
 }
 export const baseUri = uri;
 export const UriContext = createContext(uri);

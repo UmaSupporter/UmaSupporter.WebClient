@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { UriContext } from '../../../common';
 import './SelectedCard.scss';
 
-type Props = {
+export type Props = {
   uuid: number;
   cardName: string;
   secondName: string;
