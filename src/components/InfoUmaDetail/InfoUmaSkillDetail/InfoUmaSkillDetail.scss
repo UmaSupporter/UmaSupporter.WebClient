@@ -1,17 +1,57 @@
-.InfoUmaSkillDetail {
-  margin-bottom: 8px;
+@import '../../common/styles/Typography.scss';
+.InfoUmaSkillDetailBase {
+  a {
+    text-decoration: none;
+  }
+}
+.InfoUmaSkillDetailContents {
+  @include text4;
   display: flex;
   color: var(--text-color);
   align-items: center;
+  background: #00000011;
+  padding: 8px;
+  border-radius: 4px;
+  &:not(:last-of-type) {
+    border-bottom: solid 1px var(--carrot-dark-half);
+    border-radius: 0px;
+  }
 }
 
 .InfoUmaSkillDetailIcon {
   width: 45px;
   height: 45px;
-  margin-right: 8px;
+  margin-right: 12px;
 }
-.InfoUmaSkillName {
-  font-weight: bold;
+
+.InfoUmaSkillTitle {
+  display: flex;
+  margin-bottom: 4px;
+  color: white;
+  align-items: center;
+  .InfoUmaSkillGrade {
+    margin-right: 8px;
+    border-radius: 16px;
+    padding: 2px 8px;
+    &.ORIGINAL {
+      background: #4e95e6;
+    }
+    &.NORMAL {
+      background: #72422c;
+    }
+    &.RARE {
+      background: #ffc107aa;
+    }
+  }
+
+  .InfoUmaSkillName {
+    @include theme-text3(false);
+    font-weight: bold;
+  }
+}
+
+.InfoUmaSkillDescription {
+  opacity: 0.85;
 }
 
 .InfoUmaSkillLabels {
