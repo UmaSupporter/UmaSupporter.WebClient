@@ -103,8 +103,15 @@
   }
   .GlobalChoiceButton {
     margin: 0px;
-    background: var(--carrot-dark);
+    background: var(--carrot);
     padding: 12px;
     border-radius: 0px;
+    color: white;
+  }
+}
+
+@media (max-width: 425px) {
+  .GlobalChoiceButton {
+    padding: 5px 12px;
   }
 }
