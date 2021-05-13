@@ -1,9 +1,13 @@
 import React, { useContext } from 'react';
-import { GetUmaDetailInfoQuery } from '../../generated/graphql';
+import {
+  GetUmaDetailInfoQuery,
+  UmaSkillCategoryEnum,
+} from '../../generated/graphql';
 import { UriContext } from '../../common';
 import './InfoUmaDetail.scss';
 import { StarRate } from '../common/StarRate';
 import { InfoUmaSkillDetail } from './InfoUmaSkillDetail';
+import { InfoUmaSkillChunk } from './InfoUmaSkillChunk';
 
 type Props = {
   umaInfoData: GetUmaDetailInfoQuery;
@@ -36,8 +40,20 @@ const InfoUmaDetail = (props: Props) => {
       </div>
       <div className={'InfoUmaSkillList'}>
         {umamusumeId!.skills &&
-          umamusumeId!.skills.map((skill) => {
-            return <InfoUmaSkillDetail skill={skill} />;
+          Object.entries(
+            umamusumeId!.skills.reduce(
+              (s: Record<UmaSkillCategoryEnum, Array<any>[]>, c: any) => {
+                const category: UmaSkillCategoryEnum = c!.category;
+                s[category] = [c, ...s[category]];
+                return s;
+              },
+              { ORIGIN: [], BASIC: [], AWAKENING: [] }
+            )
+          ).map(
+            ([category, skills]) => (
+              <InfoUmaSkillChunk category={category} skills={skills} />
+            )
+            // return <InfoUmaSkillDetail skill={skill} />;
             // <div style={{ marginBottom: '8px' }}>
             //   <div>{skill?.category}</div>
             //   <div>
@@ -49,7 +65,7 @@ const InfoUmaDetail = (props: Props) => {
             //     <img src={iconPath} />
             //   </div>
             // </div>
-          })}
+          )}
       </div>
     </div>
   );

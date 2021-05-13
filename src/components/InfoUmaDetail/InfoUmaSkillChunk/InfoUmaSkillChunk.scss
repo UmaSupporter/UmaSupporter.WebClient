@@ -1,0 +1,13 @@
+@import '../../common/styles/Palette.scss';
+
+.InfoUmaSkillChunkBase {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+}
+
+.InfoUmaSkillCategoryName {
+  @include CarrotHighlight;
+  padding: 2px 4px;
+  color: var(--text-color);
+}
