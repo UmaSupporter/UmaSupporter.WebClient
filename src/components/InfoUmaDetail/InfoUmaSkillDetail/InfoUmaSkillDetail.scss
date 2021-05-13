@@ -3,19 +3,22 @@
   a {
     text-decoration: none;
   }
+  border-bottom: solid 1px var(--carrot-dark-half);
+  border-radius: 0px;
+  overflow: hidden;
+  &:last-of-type {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-bottom: none;
+  }
 }
 .InfoUmaSkillDetailContents {
   @include text4;
   display: flex;
   color: var(--text-color);
-  align-items: center;
+  align-items: flex-start;
   background: #00000011;
   padding: 8px;
-  border-radius: 4px;
-  &:not(:last-of-type) {
-    border-bottom: solid 1px var(--carrot-dark-half);
-    border-radius: 0px;
-  }
 }
 
 .InfoUmaSkillDetailIcon {
@@ -26,11 +29,13 @@
 
 .InfoUmaSkillTitle {
   display: flex;
+  flex-direction: column;
   margin-bottom: 4px;
   color: white;
-  align-items: center;
   .InfoUmaSkillGrade {
-    margin-right: 8px;
+    width: max-content;
+    @include text7;
+    margin-bottom: 4px;
     border-radius: 16px;
     padding: 2px 8px;
     &.ORIGINAL {
@@ -58,4 +63,12 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+}
+
+@media (max-width: 1200px) {
+  .InfoUmaSkillTitle {
+    .InfoUmaSkillGrade {
+      @include text5;
+    }
+  }
 }
