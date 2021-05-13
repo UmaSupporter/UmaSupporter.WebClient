@@ -14,6 +14,8 @@ gql`
       skills {
         category
         skill {
+        description
+
           name
           grade {
             name
