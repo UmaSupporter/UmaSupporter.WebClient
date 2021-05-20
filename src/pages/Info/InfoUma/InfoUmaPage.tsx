@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { useLocation, useHistory } from 'react-router-dom';
 import { UmaListContainer } from '../../../components/UmaList';
 import InfoUmaDetailPage from './InfoUmaDetail/InfoUmaDetail';
