@@ -6,7 +6,6 @@ import {
 import { UriContext } from '../../common';
 import './InfoUmaDetail.scss';
 import { StarRate } from '../common/StarRate';
-import { InfoUmaSkillDetail } from './InfoUmaSkillDetail';
 import { InfoUmaSkillChunk } from './InfoUmaSkillChunk';
 import { Link } from 'react-router-dom';
 
@@ -23,8 +22,6 @@ const InfoUmaDetail = (props: Props) => {
 
   return (
     <div className={'InfoUmaDetailBase'}>
-
-
       <Link to={'/info'} className={'InfoUmaDetailTitle'}>
         <img
           src={imagePath}
@@ -52,11 +49,9 @@ const InfoUmaDetail = (props: Props) => {
               },
               { ORIGIN: [], BASIC: [], AWAKENING: [] }
             )
-          ).map(
-            ([category, skills]) => (
-              <InfoUmaSkillChunk category={category} skills={skills} />
-            )
-          )}
+          ).map(([category, skills]) => (
+            <InfoUmaSkillChunk category={category} skills={skills} />
+          ))}
       </div>
     </div>
   );
