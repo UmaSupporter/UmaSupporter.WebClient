@@ -7,7 +7,7 @@ import {
   Typography,
 } from '@material-ui/core';
 import { ExpandMore } from '@material-ui/icons';
-import React, { useReducer } from 'react';
+import React from 'react';
 import { CardEventWithChoice } from '../../types';
 import Hero from '../common/Hero';
 import EventDetail from '../EventDetail';
@@ -34,36 +34,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-type SupportCardDetailViewAction = {
-  payload: SupportCardDetailView
-}
-
-enum SupportCardDetailView {
-  EVENT,
-  SKILL
-}
-
-type SupportCardDetailState = {
-  currentView: SupportCardDetailView
-}
-
-const supportCardDetailReducer = (
-  state: SupportCardDetailState,
-  action: SupportCardDetailViewAction
-): SupportCardDetailState => {
-  return {
-    currentView: action.payload
-  }
-}
-
-const resetSupportCardDetailState = (): SupportCardDetailState => {
-  return {
-    currentView: SupportCardDetailView.EVENT
-  }
-}
-
 const SupportCardDetail: React.FC<Props> = (props: Props) => {
-  const [state, dispatch] = useReducer(supportCardDetailReducer, {}, resetSupportCardDetailState);
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState<string | false>(false);
   const {
@@ -90,10 +61,7 @@ const SupportCardDetail: React.FC<Props> = (props: Props) => {
         rareDegree={rareDegree}
         action={props.toggleCardPage}
       />
-      <div className="SupportCardDetailFilter">
-        <div className="SupportCardDetailFilterItem">이벤트</div>
-        <div className="SupportCardDetailFilterItem">스킬</div>
-      </div>
+      {/* <Avatar alt={supportCardName} src={`${uri}/images/${cardImage}`} /> */}
       <div className={'EventListWrapper'}>
         <div className={'EventList'}>
           {event.map((x, i) => {
