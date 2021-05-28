@@ -1,15 +1,11 @@
 @import '../common/styles/Typography.scss';
 @import '../common/styles/ScrollBar.scss';
-.InfoUmaDetailBase {
+.InfoUmaDetail {
   display: flex;
   flex-direction: column;
   flex: 1;
   height: 100%;
   overflow: hidden;
-  background: var(--layer1);
-  a {
-    text-decoration: none;
-  }
 }
 
 .InfoUmaDetailTitle {
@@ -19,11 +15,11 @@
   color: var(--brown-color);
   text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white,
     1px 1px 0 white;
-  @include theme-text3(true);
+  font-size: var(--font-size3);
   background: #d8c4a722;
   padding: 8px;
   .InfoUmaDetailSecond {
-    @include theme-text4(true);
+    font-size: var(--font-size4);
     opacity: 0.85;
   }
 }
@@ -39,7 +35,6 @@
   flex-direction: column;
   justify-content: center;
   flex: 1;
-  margin-bottom: 4px;
 }
 .InfoUmaDetailIcon {
   width: 100px;
@@ -54,19 +49,11 @@
 }
 
 @media (max-width: 1200px) {
-  .InfoUmaDetailBase {
-    width: 100%;
-  }
   .InfoUmaDetailTitle {
-    @include theme-text4(true);
+    font-size: var(--font-size5);
   }
   .InfoUmaDetailIcon {
     width: 50px;
     height: 50px;
-  }
-}
-@media (max-width: 425px) {
-  .InfoUmaDetailBase {
-    height: calc(100% - 120px);
   }
 }

@@ -22,8 +22,8 @@ const InfoUmaSkillDetail = (props: Props) => {
           <img className={'InfoUmaSkillDetailIcon'} src={iconPath} alt={iconAlt} />
           <div className={'InfoUmaSkillLabels'}>
             <div className={'InfoUmaSkillTitle'}>
-              <div className={'InfoUmaSkillName'}>{skill?.name}</div>
-              <div className={`InfoUmaSkillGrade ${skill?.grade?.name}`}>{skill?.grade?.name}</div>
+              <span className={`InfoUmaSkillGrade ${skill?.grade?.name}`}>{skill?.grade?.name}</span>
+              <span className={'InfoUmaSkillName'}>{skill?.nameKr}</span>
             </div>
             <div className={'InfoUmaSkillDescription'}>{skill?.description}</div>
           </div>

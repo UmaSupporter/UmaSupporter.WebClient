@@ -8,7 +8,6 @@ import './InfoUmaDetail.scss';
 import { StarRate } from '../common/StarRate';
 import { InfoUmaSkillDetail } from './InfoUmaSkillDetail';
 import { InfoUmaSkillChunk } from './InfoUmaSkillChunk';
-import { Link } from 'react-router-dom';
 
 type Props = {
   umaInfoData: GetUmaDetailInfoQuery;
@@ -22,10 +21,8 @@ const InfoUmaDetail = (props: Props) => {
   const imagePath = `${uri}/images/${umamusumeId!.umaImage!}`;
 
   return (
-    <div className={'InfoUmaDetailBase'}>
-
-
-      <Link to={'/info'} className={'InfoUmaDetailTitle'}>
+    <div className={'InfoUmaDetail'}>
+      <div className={'InfoUmaDetailTitle'}>
         <img
           src={imagePath}
           alt={'umamusume'}
@@ -40,7 +37,7 @@ const InfoUmaDetail = (props: Props) => {
           </div>
           <StarRate star={Number(umamusumeId!.rareDegree!)} />
         </div>
-      </Link>
+      </div>
       <div className={'InfoUmaSkillList'}>
         {umamusumeId!.skills &&
           Object.entries(
