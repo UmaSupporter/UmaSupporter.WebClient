@@ -8,12 +8,6 @@
 @media (max-width: 1200px) {
   .SelectedCardPlaceholder {
     @include SelectedCard;
-    @include CardPlaceholder();
-  }
-}
-@media (max-width: 425px) {
-  .SelectedCardPlaceholder {
-    @include SelectedCard;
-    @include CardPlaceholder(50);
+    @include CardPlaceholder(60);
   }
 }
