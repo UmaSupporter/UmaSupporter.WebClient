@@ -1,1 +1,1 @@
-export { default as UmaInfoDetail } from './InfoUmaDetail';
+export { default as UmaInfoDetail} from './InfoUmaDetail';

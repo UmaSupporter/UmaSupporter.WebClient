@@ -1,1 +1,1 @@
-export { default as InfoUmaPage } from './InfoUmaPage';
+export { default as InfoUmaPage} from './InfoUmaPage';
