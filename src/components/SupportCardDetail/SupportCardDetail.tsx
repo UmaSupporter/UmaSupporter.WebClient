@@ -14,7 +14,6 @@ import EventDetail from '../EventDetail';
 import './SupportCardDetail.scss';
 
 type Props = {
-  uuid: number;
   supportCardName: string;
   supportCardSecondName: string;
   rareDegree: string;
@@ -68,7 +67,6 @@ const SupportCardDetail: React.FC<Props> = (props: Props) => {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState<string | false>(false);
   const {
-    uuid,
     supportCardName,
     supportCardSecondName,
     event,
@@ -86,14 +84,16 @@ const SupportCardDetail: React.FC<Props> = (props: Props) => {
   return (
     <div className={'SupportCardDetail'}>
       <Hero
-        heroType={"card"}
-        uuid={uuid}
         name={supportCardName}
         secondName={supportCardSecondName}
         image={cardImage}
         rareDegree={rareDegree}
         action={props.toggleCardPage}
       />
+      <div className="SupportCardDetailFilter">
+        <div className="SupportCardDetailFilterItem">이벤트</div>
+        <div className="SupportCardDetailFilterItem">스킬</div>
+      </div>
       <div className={'EventListWrapper'}>
         <div className={'EventList'}>
           {event.map((x, i) => {

@@ -7,7 +7,6 @@
   display: flex;
   flex: 1;
   flex-direction: column;
-  height: 100%;
 }
 .MainPageContent {
   flex: 1;
@@ -56,7 +55,7 @@
   margin: 0px 8px;
   margin-bottom: 8px;
   padding: 8px;
-  background: var(--carrot-dark);
+  background: var(--layer2);
   color: var(--text-color);
   border-radius: 4px;
   cursor: pointer;
@@ -103,7 +102,7 @@
   }
   .GlobalChoiceButton {
     margin: 0px;
-    background: var(--carrot-dark);
+    background: var(--layer3);
     padding: 12px;
     border-radius: 0px;
   }

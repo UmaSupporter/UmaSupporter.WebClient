@@ -54,7 +54,6 @@ const UmaDetailContainer: React.FC<Props> = (props: Props) => {
 
   return (
     <UmaDetailComponent
-      uuid={Number(data.umamusumeId.uuid!)}
       umaName={data.umamusumeId.umaName!}
       umaImage={data.umamusumeId.umaImage!}
       secondName={data.umamusumeId.secondName!}

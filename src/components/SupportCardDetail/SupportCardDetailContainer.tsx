@@ -50,7 +50,6 @@ const SupportCardDetailContainer: React.FC<Props> = (props: Props) => {
 
   return (
     <SupportCardDetail
-      uuid={Number(data.supportCardId.uuid!)}
       supportCardName={data.supportCardId.cardName!}
       supportCardSecondName={data.supportCardId.secondName!}
       cardImage={data.supportCardId.cardImage!}

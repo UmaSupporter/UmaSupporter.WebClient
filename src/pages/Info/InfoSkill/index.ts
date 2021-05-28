@@ -1,1 +1,1 @@
-export { default as InfoSkillPage} from './InfoSkillPage';
+export { default as InfoSkill} from './InfoSkill';

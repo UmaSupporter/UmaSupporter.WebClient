@@ -3,7 +3,7 @@
   display: flex;
   justify-content: flex-start;
   background: var(--carrot);
-  height: 38px;
+
   margin: 8px 0px;
   border-radius: 4px;
   display: flex;
@@ -12,7 +12,7 @@
   @include CarrotHighlight;
   // background: var(--carrot-dark);
   width: calc(33% - 76px);
-  height: 30px;
+  height: 36px;
   margin-top: 4px;
   margin-left: 6px;
   position: absolute;
@@ -34,20 +34,14 @@
   .InfoNavigation {
     margin: 0px;
     border-radius: 0px;
-    height: 46px;
   }
   .InfoNavigationHighlighter {
     width: calc(33% - 1px);
-    height: 36px;
   }
 }
 
 @media (max-width: 425px) {
-  .InfoNavigation {
-    height: 32px;
-  }
   .InfoNavigationHighlighter {
-    height: 24px;
-    width: calc(33% - 2px);
+    height: 26px;
   }
 }
