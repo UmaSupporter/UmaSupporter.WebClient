@@ -7,7 +7,7 @@ type Props = {
 };
 
 const InfoUmaSkillDetail = (props: Props) => {
-  const { skill } = props.skill!;
+  const { category, skill } = props.skill!;
   const uri = useContext(UriContext);
 
   const iconPath = `${uri}/images/${skill.icon}`;
@@ -16,10 +16,8 @@ const InfoUmaSkillDetail = (props: Props) => {
     <div className={'InfoUmaSkillDetail'}>
       <img className={'InfoUmaSkillDetailIcon'} src={iconPath} alt={iconAlt} />
       <div className={'InfoUmaSkillLabels'}>
+        <div>{skill?.category}</div>
         <div className={'InfoUmaSkillName'}>{skill?.name}</div>
-        <div>{skill?.grade?.name}</div>
-        <div>{skill?.distanceType?.name}</div>
-        <div>{skill?.buffType?.name}</div>
       </div>
     </div>
   );
