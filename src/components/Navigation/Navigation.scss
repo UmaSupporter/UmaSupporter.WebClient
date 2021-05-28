@@ -5,46 +5,25 @@
   background: var(--accentgreen);
   border-radius: 4px;
   padding: 8px;
-  .navItem {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  a {
-    text-decoration: none;
-    z-index: 1;
-    color: white;
-  }
 }
 .highlighter {
   border-radius: 4px;
-  background: var(--accentgreendark);
-  width: calc(50% - 132px);
+  background: #ffffff66;
+  width: 45px;
   height: 45px;
   position: absolute;
-  transition: all 0.3s cubic-bezier(0.2, 0.8, 0, 1);
+  transition: all 0.1s cubic-bezier(0.5, 0.13, 0.81, 0.44);
   transform-origin: center left;
-  backdrop-filter: overlay(100%);
   &.\/ {
     transform: translateX(0px);
   }
   &.\/info {
-    transform: translateX(calc(100% + 16px));
+    transform: translateX(45px);
   }
 }
 @media (max-width: 1200px) {
   .Navigation {
     margin: 0px;
     border-radius: 0px;
-  }
-  .highlighter {
-    width: calc(50% - 16px);
-    &.\/ {
-      transform: translateX(0px);
-    }
-    &.\/info {
-      transform: translateX(calc(100% + 16px));
-    }
   }
 }

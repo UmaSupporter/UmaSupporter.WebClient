@@ -6,11 +6,11 @@ const Navigation = () => {
   const location = useLocation().pathname;
   return <div className="Navigation">
     <div className={`highlighter ${location}`} />
-    <Link to="/" className={"navItem"}>
-      <div>이벤트</div>
+    <Link to="/">
+      <div>Event</div>
     </Link>
-    <Link to="/info" className={"navItem"}>
-      <div>정보</div>
+    <Link to="/info">
+      <div>Info</div>
     </Link>
   </div>;
 };

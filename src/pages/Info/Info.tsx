@@ -1,17 +1,8 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { InfoNavigation } from './InfoNavigation';
-import './Info.scss';
+import { Navigation } from '../../components/Navigation';
 
 const InfoPage = () => {
-  return <BrowserRouter>
-    <div className="InfoPage">
-      <div className="InfoContents">
-        <Route exact={true} path={""} />
-      </div>
-      <InfoNavigation />
-    </div>
-  </BrowserRouter>
+  return <div>asd</div>
 };
 
 export default InfoPage;
