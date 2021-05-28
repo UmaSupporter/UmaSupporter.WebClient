@@ -16,17 +16,15 @@ type Props = {
 const EventDetail: React.FC<Props> = (props: Props) => {
   if (props.title == null) return <></>;
   if (props.choice == null) return <></>;
-  const { choice } = props;
 
   return (
     <AccordionDetails>
-      {choice.map((x, i) => {
-        const { title, effect } = x;
+      {props.choice.map((x, i) => {
         return (
           <Card key={i}>
             <CardContent>
               <Typography variant="h5" component="h6" className={'EventTitle'}>
-                {title}
+                {x.title}
               </Typography>
               <div
                 className={'EventEffect'}
@@ -34,7 +32,7 @@ const EventDetail: React.FC<Props> = (props: Props) => {
                   whiteSpace: 'pre-line',
                 }}
               >
-                <Effect effect={effect} />
+                <Effect effect={x.effect} />
               </div>
             </CardContent>
           </Card>

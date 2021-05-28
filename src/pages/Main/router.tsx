@@ -4,12 +4,14 @@ import { Scaffold } from '../../components/common/Scaffold';
 import Main from './Main';
 
 type Props = {
-  match: any;
-};
+  match: any
+}
 
 const MainPageRouter: React.FC<Props> = (props: Props) => {
   const { match } = props;
-  return <Route exact path={match.path} component={Main} />;
+  return (
+    <Route exact path={match.path} component={Main} />
+  )
 };
 
 export default MainPageRouter;

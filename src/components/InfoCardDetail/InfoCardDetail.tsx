@@ -1,7 +1,10 @@
-type Props = {};
+type Props = {
+}
 
 const InfoCardDetail: React.FC<Props> = (props: Props) => {
-  return <></>;
-};
+
+  return (<>
+  </>)
+}
 
 export default InfoCardDetail;

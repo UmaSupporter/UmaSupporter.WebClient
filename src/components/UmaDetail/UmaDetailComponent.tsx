@@ -9,8 +9,8 @@ import {
 import { ExpandMore } from '@material-ui/icons';
 import React from 'react';
 import { UmaEventWithChoice } from '../../types';
-import { Hero } from '../common/Hero';
-import { EventDetail } from '../EventDetail';
+import Hero from '../common/Hero';
+import EventDetail from '../EventDetail';
 
 type Props = {
   uuid: number;
@@ -35,15 +35,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 const UmaDetailComponent: React.FC<Props> = (props: Props) => {
-  const {
-    uuid,
-    event,
-    umaImage,
-    umaName,
-    secondName,
-    rareDegree,
-    toggleUmaPage,
-  } = props;
+  const { uuid, event, umaImage, umaName, secondName, rareDegree } = props;
   const classes = useStyles();
 
   const [expanded, setExpanded] = React.useState<string | false>(false);
@@ -64,12 +56,11 @@ const UmaDetailComponent: React.FC<Props> = (props: Props) => {
         secondName={secondName}
         image={umaImage}
         rareDegree={rareDegree}
-        action={toggleUmaPage}
+        action={props.toggleUmaPage}
       />
       <div className={'EventListWrapper'}>
         <div className={'EventList'}>
           {event.map((x, i) => {
-            const { title, titleKr, choices } = x;
             return (
               <Accordion
                 key={i}
@@ -82,10 +73,12 @@ const UmaDetailComponent: React.FC<Props> = (props: Props) => {
                   id="panel1a-header"
                 >
                   <Typography className={classes.heading}>
-                    {title === titleKr ? title : `${title}(${titleKr})`}
+                    {x.title === x.titleKr
+                      ? x.title
+                      : `${x.title}(${x.titleKr})`}
                   </Typography>
                 </AccordionSummary>
-                <EventDetail title={title} choice={choices} />
+                <EventDetail title={x.title} choice={x.choices} />
               </Accordion>
             );
           })}

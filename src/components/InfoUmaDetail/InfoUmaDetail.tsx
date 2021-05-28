@@ -9,35 +9,32 @@ type Props = {
 };
 
 const InfoUmaDetail = (props: Props) => {
-  const { umaInfoData } = props;
-  const { umamusumeId } = umaInfoData;
   const uri = useContext(UriContext);
-
-  const imagePath = `${uri}/images/${umamusumeId!.umaImage!}`;
 
   return (
     <div className={'InfoUmaDetail'}>
       <div className={'InfoUmaDetailTitle'}>
         <img
-          src={imagePath}
+          src={`${uri}/images/${props.umaInfoData.umamusumeId!.umaImage!}`}
           alt={'umamusume'}
           className={'InfoUmaDetailIcon'}
         />
         <div className={'InfoUmaDetailRightArea'}>
           <div className={'InfoUmaDetailNameArea'}>
-            <div className={'InfoUmaDetailName'}>{umamusumeId!.umaName}</div>
+            <div className={'InfoUmaDetailName'}>
+              {props.umaInfoData.umamusumeId!.umaName}
+            </div>
             <div className={'InfoUmaDetailSecond'}>
-              {umamusumeId!.secondName}
+              {props.umaInfoData.umamusumeId!.secondName}
             </div>
           </div>
-          <StarRate star={Number(umamusumeId!.rareDegree!)} />
+          <StarRate star={Number(props.umaInfoData.umamusumeId!.rareDegree!)} />
         </div>
       </div>
       <div className={'InfoUmaSkillList'}>
-        {umamusumeId!.skills &&
-          umamusumeId!.skills.map((skill) => (
-            //TODO replace with skill component
-            <div style={{ marginBottom: '8px' }}>
+        {props.umaInfoData.umamusumeId!.skills &&
+          props.umaInfoData.umamusumeId!.skills.map(
+            (skill) => <div style={{ marginBottom: '8px' }}>
               <div>{skill?.category}</div>
               <div>
                 <div>{skill?.skill?.buffType?.name}</div>
@@ -47,7 +44,8 @@ const InfoUmaDetail = (props: Props) => {
                 <div>{skill?.skill?.operationType?.name}</div>
               </div>
             </div>
-          ))}
+          )
+        }
       </div>
     </div>
   );

@@ -11,7 +11,7 @@ type Props = {
   selectedList: number[];
   onClickItem: (uuid: number) => void;
   onDeleteItem: (uuid: number) => void;
-  onFavoriteItem: (uuid: number) => void;
+  onDoubleClickItem: (uuid: number) => void;
   onResetItem: () => void;
   showCardPage: boolean;
 };
@@ -21,7 +21,7 @@ const CardListView: React.FC<Props> = (props: Props) => {
     selectedList,
     onClickItem,
     onDeleteItem,
-    onFavoriteItem,
+    onDoubleClickItem,
     onResetItem,
   } = props;
   const [state, dispatch] = useReducer(filterReducer, {
@@ -74,7 +74,7 @@ const CardListView: React.FC<Props> = (props: Props) => {
       <div className={'CardListGrid'}>
         <SupportCardListContainer
           onClickItem={onClickItem}
-          onFavoriteItem={onFavoriteItem}
+          onDoubleClickItem={onDoubleClickItem}
           selectedList={selectedList}
           filters={state.filters}
         />

@@ -1,4 +1,4 @@
-export type InfoNavigationItemProps = {
-  name: string;
-  pathname: string;
-};
+export type InfoNavigationItemProps={
+  name:string,
+  pathname:string
+}

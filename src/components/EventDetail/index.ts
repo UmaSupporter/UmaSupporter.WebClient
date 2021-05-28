@@ -1,1 +1,3 @@
-export { default as EventDetail } from './EventDetail';
+import EventDetail from './EventDetail';
+
+export default EventDetail;

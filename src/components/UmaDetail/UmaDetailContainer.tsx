@@ -52,15 +52,13 @@ const UmaDetailContainer: React.FC<Props> = (props: Props) => {
     })
     .filter((x) => x.choices.length > 1);
 
-  const { umamusumeId } = data;
-
   return (
     <UmaDetailComponent
-      uuid={Number(umamusumeId.uuid!)}
-      umaName={umamusumeId.umaName!}
-      umaImage={umamusumeId.umaImage!}
-      secondName={umamusumeId.secondName!}
-      rareDegree={String(umamusumeId.rareDegree!)}
+      uuid={Number(data.umamusumeId.uuid!)}
+      umaName={data.umamusumeId.umaName!}
+      umaImage={data.umamusumeId.umaImage!}
+      secondName={data.umamusumeId.secondName!}
+      rareDegree={String(data.umamusumeId.rareDegree!)}
       event={events}
       toggleUmaPage={props.toggleUmaPage}
     />

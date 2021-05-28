@@ -1,18 +1,18 @@
 import React, { useEffect, useReducer } from 'react';
 import SupportCardDetailContainer from '../../components/SupportCardDetail';
-import { UmaListContainer } from '../../components/UmaList';
+import UmaListContainer from '../../components/UmaList';
 import './Main.scss';
-import { UmaDetailContainer } from '../../components/UmaDetail';
+import UmaDetailContainer from '../../components/UmaDetail';
 import { Mixpanel, TRACK } from '../../common/mixpanel';
 import CardListView from '../../views/CardList';
 
+import GlobalChoiceDialog from '../../components/GeneralChoiceDialog';
 import { selectedCardReducer, resetState } from './Props';
 import { useLocation } from 'react-router-dom';
-import { GeneralChoiceDialog } from '../../components/GeneralChoiceDialog';
 
 const Main: React.FC = () => {
   const [state, dispatch] = useReducer(selectedCardReducer, {}, resetState);
-  const location = useLocation();
+  const location = useLocation()
   const params = new URLSearchParams(location.search);
   const uma = Number(params.get('uma'));
   const card = Number(params.get('card'));
@@ -38,7 +38,7 @@ const Main: React.FC = () => {
 
   useEffect(() => {
     Mixpanel.track(TRACK.MAINPAGE, {});
-  }, []);
+  }, [])
 
   useEffect(() => {
     if (uma !== 0) {
@@ -52,7 +52,7 @@ const Main: React.FC = () => {
   }, [card, uma]);
 
   return (
-    <div className={'MainPage'}>
+    <div className={"MainPage"}>
       <div className={'MainPageContent'}>
         <div
           className={`UmaListSection ${state.showUmaPage ? 'activated' : ''}`}
@@ -69,9 +69,8 @@ const Main: React.FC = () => {
             .reduce((a, b) => a + b)}`}
         >
           <div
-            className={`UmaEventChoice EventChoice ${
-              !state.showUmaPage ? 'activated' : ''
-            }`}
+            className={`UmaEventChoice EventChoice ${!state.showUmaPage ? 'activated' : ''
+              }`}
           >
             <UmaDetailContainer
               uuid={state.umaUuid}
@@ -80,9 +79,8 @@ const Main: React.FC = () => {
           </div>
 
           <div
-            className={`CardEventChoice EventChoice ${
-              !state.showCardPage ? 'activated' : ''
-            }`}
+            className={`CardEventChoice EventChoice ${!state.showCardPage ? 'activated' : ''
+              }`}
           >
             <SupportCardDetailContainer
               uuid={state.cardUuid}
@@ -97,7 +95,7 @@ const Main: React.FC = () => {
             selectedList={state.favoriteCardUuids}
             onClickItem={setCard}
             onDeleteItem={deleteCard}
-            onFavoriteItem={toggleFavoriteCard}
+            onDoubleClickItem={toggleFavoriteCard}
             onResetItem={resetCard}
             showCardPage={state.showCardPage}
           />
@@ -107,11 +105,12 @@ const Main: React.FC = () => {
         <div className={'GlobalChoiceButton'} onClick={toggleGeneralChoice}>
           📢 우마무스메 / 서포터 외의 이벤트
         </div>
-        <GeneralChoiceDialog
+        <GlobalChoiceDialog
           open={state.showGeneralChoice}
           onClose={toggleGeneralChoice}
         />
       </div>
+
     </div>
   );
 };

@@ -9,8 +9,8 @@ import {
 import { ExpandMore } from '@material-ui/icons';
 import React, { useReducer } from 'react';
 import { CardEventWithChoice } from '../../types';
-import { Hero } from '../common/Hero';
-import { EventDetail } from '../EventDetail';
+import Hero from '../common/Hero';
+import EventDetail from '../EventDetail';
 import './SupportCardDetail.scss';
 
 type Props = {
@@ -36,39 +36,35 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 type SupportCardDetailViewAction = {
-  payload: SupportCardDetailView;
-};
+  payload: SupportCardDetailView
+}
 
 enum SupportCardDetailView {
   EVENT,
-  SKILL,
+  SKILL
 }
 
 type SupportCardDetailState = {
-  currentView: SupportCardDetailView;
-};
+  currentView: SupportCardDetailView
+}
 
 const supportCardDetailReducer = (
   state: SupportCardDetailState,
   action: SupportCardDetailViewAction
 ): SupportCardDetailState => {
   return {
-    currentView: action.payload,
-  };
-};
+    currentView: action.payload
+  }
+}
 
 const resetSupportCardDetailState = (): SupportCardDetailState => {
   return {
-    currentView: SupportCardDetailView.EVENT,
-  };
-};
+    currentView: SupportCardDetailView.EVENT
+  }
+}
 
 const SupportCardDetail: React.FC<Props> = (props: Props) => {
-  const [state, dispatch] = useReducer(
-    supportCardDetailReducer,
-    {},
-    resetSupportCardDetailState
-  );
+  const [state, dispatch] = useReducer(supportCardDetailReducer, {}, resetSupportCardDetailState);
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState<string | false>(false);
   const {
@@ -90,7 +86,7 @@ const SupportCardDetail: React.FC<Props> = (props: Props) => {
   return (
     <div className={'SupportCardDetail'}>
       <Hero
-        heroType={'card'}
+        heroType={"card"}
         uuid={uuid}
         name={supportCardName}
         secondName={supportCardSecondName}
