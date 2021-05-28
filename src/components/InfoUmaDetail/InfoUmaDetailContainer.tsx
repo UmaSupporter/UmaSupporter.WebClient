@@ -29,7 +29,6 @@ gql`
           operationType {
             name
           }
-          icon
         }
       }
     }

@@ -473,7 +473,7 @@ export type GetUmaDetailInfoQuery = (
       & Pick<UmaSkillType, 'category'>
       & { skill?: Maybe<(
         { __typename?: 'SkillType' }
-        & Pick<SkillType, 'name' | 'icon'>
+        & Pick<SkillType, 'name'>
         & { grade?: Maybe<(
           { __typename?: 'SkillGradeType' }
           & Pick<SkillGradeType, 'name'>
@@ -903,7 +903,6 @@ export const GetUmaDetailInfoDocument = gql`
         operationType {
           name
         }
-        icon
       }
     }
   }
