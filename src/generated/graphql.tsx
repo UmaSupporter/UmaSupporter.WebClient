@@ -439,7 +439,7 @@ export type GetCardDetailInfoQuery = (
       & Pick<CardSkillType, 'category'>
       & { skill?: Maybe<(
         { __typename?: 'SkillType' }
-        & Pick<SkillType, 'description' | 'name'>
+        & Pick<SkillType, 'name'>
         & { grade?: Maybe<(
           { __typename?: 'SkillGradeType' }
           & Pick<SkillGradeType, 'name'>
@@ -473,7 +473,7 @@ export type GetUmaDetailInfoQuery = (
       & Pick<UmaSkillType, 'category'>
       & { skill?: Maybe<(
         { __typename?: 'SkillType' }
-        & Pick<SkillType, 'description' | 'name' | 'nameKr' | 'icon'>
+        & Pick<SkillType, 'name' | 'icon'>
         & { grade?: Maybe<(
           { __typename?: 'SkillGradeType' }
           & Pick<SkillGradeType, 'name'>
@@ -831,7 +831,6 @@ export const GetCardDetailInfoDocument = gql`
     skills {
       category
       skill {
-        description
         name
         grade {
           name
@@ -891,9 +890,7 @@ export const GetUmaDetailInfoDocument = gql`
     skills {
       category
       skill {
-        description
         name
-        nameKr
         grade {
           name
         }

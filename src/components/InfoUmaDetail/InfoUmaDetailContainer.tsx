@@ -16,11 +16,17 @@ gql`
       skills {
         category
         skill {
-          uuid
-          description
           name
-          nameKr
           grade {
+            name
+          }
+          buffType {
+            name
+          }
+          distanceType {
+            name
+          }
+          operationType {
             name
           }
           icon

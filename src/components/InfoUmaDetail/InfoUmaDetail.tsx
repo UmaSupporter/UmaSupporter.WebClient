@@ -53,6 +53,18 @@ const InfoUmaDetail = (props: Props) => {
             ([category, skills]) => (
               <InfoUmaSkillChunk category={category} skills={skills} />
             )
+            // return <InfoUmaSkillDetail skill={skill} />;
+            // <div style={{ marginBottom: '8px' }}>
+            //   <div>{skill?.category}</div>
+            //   <div>
+            //     <div>{skill?.skill?.buffType?.name}</div>
+            //     <div>{skill?.skill?.distanceType?.name}</div>
+            //     <div>{skill?.skill?.grade?.name}</div>
+            //     <div>{skill?.skill?.name}</div>
+            //     <div>{skill?.skill?.operationType?.name}</div>
+            //     <img src={iconPath} />
+            //   </div>
+            // </div>
           )}
       </div>
     </div>

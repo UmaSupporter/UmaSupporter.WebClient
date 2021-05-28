@@ -1,5 +1,3 @@
-@import '../common/styles/Typography.scss';
-@import '../common/styles/ScrollBar.scss';
 .InfoUmaDetail {
   display: flex;
   flex-direction: column;
@@ -18,10 +16,6 @@
   font-size: var(--font-size3);
   background: #d8c4a722;
   padding: 8px;
-  .InfoUmaDetailSecond {
-    font-size: var(--font-size4);
-    opacity: 0.85;
-  }
 }
 
 .InfoUmaDetailRightArea {
@@ -45,7 +39,6 @@
 .InfoUmaSkillList {
   flex: 1;
   overflow-y: scroll;
-  @include ThemeScrollBar;
 }
 
 @media (max-width: 1200px) {

@@ -3,13 +3,11 @@
 .InfoUmaSkillChunkBase {
   display: flex;
   flex-direction: column;
-  margin: 8px;
+  margin-bottom: 8px;
 }
 
 .InfoUmaSkillCategoryName {
   @include CarrotHighlight;
-  padding: 4px 8px;
-  color: white;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
+  padding: 2px 4px;
+  color: var(--text-color);
 }
