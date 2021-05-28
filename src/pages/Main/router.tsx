@@ -1,4 +1,6 @@
 import { Route } from 'react-router';
+import { BrowserRouter } from 'react-router-dom';
+import { Scaffold } from '../../components/common/Scaffold';
 import Main from './Main';
 
 type Props = {

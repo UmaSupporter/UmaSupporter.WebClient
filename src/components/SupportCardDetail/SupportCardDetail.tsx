@@ -7,7 +7,7 @@ import {
   Typography,
 } from '@material-ui/core';
 import { ExpandMore } from '@material-ui/icons';
-import React from 'react';
+import React, { useReducer } from 'react';
 import { CardEventWithChoice } from '../../types';
 import { Hero } from '../common/Hero';
 import { EventDetail } from '../EventDetail';
@@ -35,40 +35,40 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-// type SupportCardDetailViewAction = {
-//   payload: SupportCardDetailView;
-// };
+type SupportCardDetailViewAction = {
+  payload: SupportCardDetailView;
+};
 
-// enum SupportCardDetailView {
-//   EVENT,
-//   SKILL,
-// }
+enum SupportCardDetailView {
+  EVENT,
+  SKILL,
+}
 
-// type SupportCardDetailState = {
-//   currentView: SupportCardDetailView;
-// };
+type SupportCardDetailState = {
+  currentView: SupportCardDetailView;
+};
 
-// const supportCardDetailReducer = (
-//   state: SupportCardDetailState,
-//   action: SupportCardDetailViewAction
-// ): SupportCardDetailState => {
-//   return {
-//     currentView: action.payload,
-//   };
-// };
+const supportCardDetailReducer = (
+  state: SupportCardDetailState,
+  action: SupportCardDetailViewAction
+): SupportCardDetailState => {
+  return {
+    currentView: action.payload,
+  };
+};
 
-// const resetSupportCardDetailState = (): SupportCardDetailState => {
-//   return {
-//     currentView: SupportCardDetailView.EVENT,
-//   };
-// };
+const resetSupportCardDetailState = (): SupportCardDetailState => {
+  return {
+    currentView: SupportCardDetailView.EVENT,
+  };
+};
 
 const SupportCardDetail: React.FC<Props> = (props: Props) => {
-  // const [state, dispatch] = useReducer(
-  //   supportCardDetailReducer,
-  //   {},
-  //   resetSupportCardDetailState
-  // );
+  const [state, dispatch] = useReducer(
+    supportCardDetailReducer,
+    {},
+    resetSupportCardDetailState
+  );
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState<string | false>(false);
   const {
