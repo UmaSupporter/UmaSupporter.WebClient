@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Navigation = () => {
+const Scaffold = () => {
   return <div></div>;
 };
 
-export default Navigation;
+export default Scaffold;

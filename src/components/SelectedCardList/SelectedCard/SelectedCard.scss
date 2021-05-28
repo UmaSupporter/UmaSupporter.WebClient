@@ -61,6 +61,10 @@
     @include SelectedCard();
     @include CardImage();
   }
+  .SelectedCard-removeButton {
+    // margin-top: -84px;
+    // margin-left: 58px;
+  }
 }
 @media (max-width: 425px) {
   .SelectedCard {

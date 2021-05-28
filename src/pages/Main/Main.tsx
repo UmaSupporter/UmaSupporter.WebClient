@@ -1,4 +1,5 @@
 import React, { useEffect, useReducer } from 'react';
+import Div100vh from 'react-div-100vh';
 import SupportCardDetailContainer from '../../components/SupportCardDetail';
 import UmaListContainer from '../../components/UmaList';
 import './Main.scss';
@@ -8,6 +9,7 @@ import CardListView from '../../views/CardList';
 
 import GlobalChoiceDialog from '../../components/GeneralChoiceDialog';
 import { selectedCardReducer, resetState } from './Props';
+import { Titlebar } from '../../components/Titlebar';
 
 const Main: React.FC = () => {
   const [state, dispatch] = useReducer(selectedCardReducer, {}, resetState);
@@ -36,7 +38,13 @@ const Main: React.FC = () => {
   }, []);
 
   return (
-    <div className={"MainPage"}>
+    <Div100vh
+      className={'MainPage'}
+      style={{
+        height: document.documentElement?.clientHeight || window.innerHeight,
+      }}
+    >
+      <Titlebar />
       <div className={'MainPageContent'}>
         <div
           className={`UmaListSection ${state.showUmaPage ? 'activated' : ''}`}
@@ -53,8 +61,9 @@ const Main: React.FC = () => {
             .reduce((a, b) => a + b)}`}
         >
           <div
-            className={`UmaEventChoice EventChoice ${!state.showUmaPage ? 'activated' : ''
-              }`}
+            className={`UmaEventChoice EventChoice ${
+              !state.showUmaPage ? 'activated' : ''
+            }`}
           >
             <UmaDetailContainer
               uuid={state.umaUuid}
@@ -63,8 +72,9 @@ const Main: React.FC = () => {
           </div>
 
           <div
-            className={`CardEventChoice EventChoice ${!state.showCardPage ? 'activated' : ''
-              }`}
+            className={`CardEventChoice EventChoice ${
+              !state.showCardPage ? 'activated' : ''
+            }`}
           >
             <SupportCardDetailContainer
               uuid={state.cardUuid}
@@ -94,7 +104,7 @@ const Main: React.FC = () => {
         open={state.showGeneralChoice}
         onClose={toggleGeneralChoice}
       ></GlobalChoiceDialog>
-    </div>
+    </Div100vh>
   );
 };
 
