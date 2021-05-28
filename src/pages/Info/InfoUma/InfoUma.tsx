@@ -1,9 +1,8 @@
 import React from 'react';
 import gql from 'graphql-tag';
-import { useGetUmaInfoQuery } from '../../../generated/graphql';
 
 gql`
-query getUmaInfo{
+query {
   umamusume {
     uuid
     umaName
@@ -36,9 +35,7 @@ query getUmaInfo{
 `;
 
 const InfoUma = () => {
-  const umaInfoList = useGetUmaInfoQuery()
-  console.log(umaInfoList)
-  return <div>asd</div>
+  return <div>infouma</div>
 }
 
 export default InfoUma;

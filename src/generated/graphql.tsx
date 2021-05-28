@@ -14,116 +14,6 @@ export type Scalars = {
   Float: number;
 };
 
-export type BuffType = {
-  __typename?: 'BuffType';
-  uuid: Scalars['ID'];
-  name?: Maybe<Scalars['String']>;
-  nameKr?: Maybe<Scalars['String']>;
-  effectKr?: Maybe<Scalars['String']>;
-  isDebuff?: Maybe<Scalars['Boolean']>;
-};
-
-export type CardEventChoiceType = Node & {
-  __typename?: 'CardEventChoiceType';
-  uuid: Scalars['ID'];
-  title?: Maybe<Scalars['String']>;
-  titleKr?: Maybe<Scalars['String']>;
-  effect?: Maybe<Scalars['String']>;
-  effectKr?: Maybe<Scalars['String']>;
-  eventId?: Maybe<Scalars['Int']>;
-  event?: Maybe<CardEventType>;
-  /** The ID of the object. */
-  id: Scalars['ID'];
-};
-
-export type CardEventChoiceTypeConnection = {
-  __typename?: 'CardEventChoiceTypeConnection';
-  /** Pagination data for this connection. */
-  pageInfo: PageInfo;
-  /** Contains the nodes in this connection. */
-  edges: Array<Maybe<CardEventChoiceTypeEdge>>;
-};
-
-/** A Relay edge containing a `CardEventChoiceType` and its cursor. */
-export type CardEventChoiceTypeEdge = {
-  __typename?: 'CardEventChoiceTypeEdge';
-  /** The item at the end of the edge */
-  node?: Maybe<CardEventChoiceType>;
-  /** A cursor for use in pagination */
-  cursor: Scalars['String'];
-};
-
-export type CardEventType = Node & {
-  __typename?: 'CardEventType';
-  uuid: Scalars['ID'];
-  title?: Maybe<Scalars['String']>;
-  titleKr?: Maybe<Scalars['String']>;
-  supportCardId?: Maybe<Scalars['Int']>;
-  supportCard?: Maybe<SupportCardType>;
-  cardEventChoice?: Maybe<CardEventChoiceTypeConnection>;
-  /** The ID of the object. */
-  id: Scalars['ID'];
-};
-
-
-export type CardEventTypeCardEventChoiceArgs = {
-  before?: Maybe<Scalars['String']>;
-  after?: Maybe<Scalars['String']>;
-  first?: Maybe<Scalars['Int']>;
-  last?: Maybe<Scalars['Int']>;
-};
-
-export type CardEventTypeConnection = {
-  __typename?: 'CardEventTypeConnection';
-  /** Pagination data for this connection. */
-  pageInfo: PageInfo;
-  /** Contains the nodes in this connection. */
-  edges: Array<Maybe<CardEventTypeEdge>>;
-};
-
-/** A Relay edge containing a `CardEventType` and its cursor. */
-export type CardEventTypeEdge = {
-  __typename?: 'CardEventTypeEdge';
-  /** The item at the end of the edge */
-  node?: Maybe<CardEventType>;
-  /** A cursor for use in pagination */
-  cursor: Scalars['String'];
-};
-
-/** An enumeration. */
-export enum CardSkillCategoryEnum {
-  Growth = 'GROWTH',
-  Belong = 'BELONG'
-}
-
-export type CardSkillType = {
-  __typename?: 'CardSkillType';
-  cardUuid: Scalars['ID'];
-  skillUuid: Scalars['ID'];
-  category: CardSkillCategoryEnum;
-  card?: Maybe<SupportCardType>;
-  skill?: Maybe<SkillType>;
-};
-
-/** An object with an ID */
-export type Node = {
-  /** The ID of the object. */
-  id: Scalars['ID'];
-};
-
-/** The Relay compliant `PageInfo` type, containing data necessary to paginate this connection. */
-export type PageInfo = {
-  __typename?: 'PageInfo';
-  /** When paginating forwards, are there more items? */
-  hasNextPage: Scalars['Boolean'];
-  /** When paginating backwards, are there more items? */
-  hasPreviousPage: Scalars['Boolean'];
-  /** When paginating backwards, the cursor to continue. */
-  startCursor?: Maybe<Scalars['String']>;
-  /** When paginating forwards, the cursor to continue. */
-  endCursor?: Maybe<Scalars['String']>;
-};
-
 export type Query = {
   __typename?: 'Query';
   buffWithName?: Maybe<BuffType>;
@@ -174,76 +64,13 @@ export type QueryNodeArgs = {
   id: Scalars['ID'];
 };
 
-/** An enumeration. */
-export enum SkillBuffTypeEnum {
-  Endurance = 'ENDURANCE',
-  Acceleration = 'ACCELERATION',
-  Velocity = 'VELOCITY',
-  Stamina = 'STAMINA',
-  Intelligence = 'INTELLIGENCE',
-  Guts = 'GUTS',
-  Speed = 'SPEED',
-  Power = 'POWER',
-  DebufSpeed = 'DEBUF_SPEED',
-  Start = 'START',
-  Provocation = 'PROVOCATION',
-  Position = 'POSITION',
-  Eyesight = 'EYESIGHT',
-  DebufEyesight = 'DEBUF_EYESIGHT',
-  DebufStamina = 'DEBUF_STAMINA',
-  Physical = 'PHYSICAL'
-}
-
-export type SkillBuffTypeType = {
-  __typename?: 'SkillBuffTypeType';
+export type BuffType = {
+  __typename?: 'BuffType';
   uuid: Scalars['ID'];
-  name: SkillBuffTypeEnum;
-  skill?: Maybe<Array<Maybe<SkillType>>>;
-};
-
-/** An enumeration. */
-export enum SkillDistanceTypeEnum {
-  Short = 'SHORT',
-  Mile = 'MILE',
-  Medium = 'MEDIUM',
-  Long = 'LONG',
-  Dirt = 'DIRT'
-}
-
-export type SkillDistanceTypeType = {
-  __typename?: 'SkillDistanceTypeType';
-  uuid: Scalars['ID'];
-  name: SkillDistanceTypeEnum;
-  skill?: Maybe<Array<Maybe<SkillType>>>;
-};
-
-/** An enumeration. */
-export enum SkillGradeEnum {
-  Normal = 'NORMAL',
-  Rare = 'RARE',
-  Original = 'ORIGINAL'
-}
-
-export type SkillGradeType = {
-  __typename?: 'SkillGradeType';
-  uuid: Scalars['ID'];
-  name: SkillGradeEnum;
-  skill?: Maybe<Array<Maybe<SkillType>>>;
-};
-
-/** An enumeration. */
-export enum SkillOperationTypeEnum {
-  Getaway = 'GETAWAY',
-  Preceding = 'PRECEDING',
-  PreEntry = 'PRE_ENTRY',
-  PostEntry = 'POST_ENTRY'
-}
-
-export type SkillOperationTypeType = {
-  __typename?: 'SkillOperationTypeType';
-  uuid: Scalars['ID'];
-  name: SkillOperationTypeEnum;
-  skill?: Maybe<Array<Maybe<SkillType>>>;
+  name?: Maybe<Scalars['String']>;
+  nameKr?: Maybe<Scalars['String']>;
+  effectKr?: Maybe<Scalars['String']>;
+  isDebuff?: Maybe<Scalars['Boolean']>;
 };
 
 export type SkillType = {
@@ -254,66 +81,63 @@ export type SkillType = {
   description?: Maybe<Scalars['String']>;
   condition?: Maybe<Scalars['String']>;
   icon?: Maybe<Scalars['String']>;
-  grade?: Maybe<SkillGradeType>;
-  buffType?: Maybe<SkillBuffTypeType>;
-  distanceType?: Maybe<SkillDistanceTypeType>;
-  operationType?: Maybe<SkillOperationTypeType>;
-  cards?: Maybe<Array<Maybe<CardSkillType>>>;
-  umaTachi?: Maybe<Array<Maybe<UmaSkillType>>>;
 };
 
-export type SupportCardType = Node & {
-  __typename?: 'SupportCardType';
+export type UmamusumeType = Node & {
+  __typename?: 'UmamusumeType';
   uuid: Scalars['ID'];
-  cardName?: Maybe<Scalars['String']>;
-  cardNameKr?: Maybe<Scalars['String']>;
-  cardType?: Maybe<Scalars['String']>;
-  cardTypeKr?: Maybe<Scalars['String']>;
-  cardImage?: Maybe<Scalars['String']>;
-  gamewithWikiId?: Maybe<Scalars['Int']>;
-  rareDegree?: Maybe<Scalars['String']>;
+  umaName?: Maybe<Scalars['String']>;
+  umaNameKr?: Maybe<Scalars['String']>;
   secondName?: Maybe<Scalars['String']>;
   secondNameKr?: Maybe<Scalars['String']>;
-  skills?: Maybe<Array<Maybe<CardSkillType>>>;
-  cardEvent?: Maybe<CardEventTypeConnection>;
+  umaImage?: Maybe<Scalars['String']>;
+  gamewithWikiId?: Maybe<Scalars['Int']>;
+  rareDegree?: Maybe<Scalars['Int']>;
+  umaEvent?: Maybe<UmaEventTypeConnection>;
   /** The ID of the object. */
   id: Scalars['ID'];
 };
 
 
-export type SupportCardTypeCardEventArgs = {
+export type UmamusumeTypeUmaEventArgs = {
   before?: Maybe<Scalars['String']>;
   after?: Maybe<Scalars['String']>;
   first?: Maybe<Scalars['Int']>;
   last?: Maybe<Scalars['Int']>;
 };
 
-export type UmaEventChoiceType = Node & {
-  __typename?: 'UmaEventChoiceType';
-  uuid: Scalars['ID'];
-  title?: Maybe<Scalars['String']>;
-  titleKr?: Maybe<Scalars['String']>;
-  effect?: Maybe<Scalars['String']>;
-  effectKr?: Maybe<Scalars['String']>;
-  eventId?: Maybe<Scalars['Int']>;
-  event?: Maybe<UmaEventType>;
+/** An object with an ID */
+export type Node = {
   /** The ID of the object. */
   id: Scalars['ID'];
 };
 
-export type UmaEventChoiceTypeConnection = {
-  __typename?: 'UmaEventChoiceTypeConnection';
+export type UmaEventTypeConnection = {
+  __typename?: 'UmaEventTypeConnection';
   /** Pagination data for this connection. */
   pageInfo: PageInfo;
   /** Contains the nodes in this connection. */
-  edges: Array<Maybe<UmaEventChoiceTypeEdge>>;
+  edges: Array<Maybe<UmaEventTypeEdge>>;
 };
 
-/** A Relay edge containing a `UmaEventChoiceType` and its cursor. */
-export type UmaEventChoiceTypeEdge = {
-  __typename?: 'UmaEventChoiceTypeEdge';
+/** The Relay compliant `PageInfo` type, containing data necessary to paginate this connection. */
+export type PageInfo = {
+  __typename?: 'PageInfo';
+  /** When paginating forwards, are there more items? */
+  hasNextPage: Scalars['Boolean'];
+  /** When paginating backwards, are there more items? */
+  hasPreviousPage: Scalars['Boolean'];
+  /** When paginating backwards, the cursor to continue. */
+  startCursor?: Maybe<Scalars['String']>;
+  /** When paginating forwards, the cursor to continue. */
+  endCursor?: Maybe<Scalars['String']>;
+};
+
+/** A Relay edge containing a `UmaEventType` and its cursor. */
+export type UmaEventTypeEdge = {
+  __typename?: 'UmaEventTypeEdge';
   /** The item at the end of the edge */
-  node?: Maybe<UmaEventChoiceType>;
+  node?: Maybe<UmaEventType>;
   /** A cursor for use in pagination */
   cursor: Scalars['String'];
 };
@@ -338,61 +162,126 @@ export type UmaEventTypeUmaEventChoiceArgs = {
   last?: Maybe<Scalars['Int']>;
 };
 
-export type UmaEventTypeConnection = {
-  __typename?: 'UmaEventTypeConnection';
+export type UmaEventChoiceTypeConnection = {
+  __typename?: 'UmaEventChoiceTypeConnection';
   /** Pagination data for this connection. */
   pageInfo: PageInfo;
   /** Contains the nodes in this connection. */
-  edges: Array<Maybe<UmaEventTypeEdge>>;
+  edges: Array<Maybe<UmaEventChoiceTypeEdge>>;
 };
 
-/** A Relay edge containing a `UmaEventType` and its cursor. */
-export type UmaEventTypeEdge = {
-  __typename?: 'UmaEventTypeEdge';
+/** A Relay edge containing a `UmaEventChoiceType` and its cursor. */
+export type UmaEventChoiceTypeEdge = {
+  __typename?: 'UmaEventChoiceTypeEdge';
   /** The item at the end of the edge */
-  node?: Maybe<UmaEventType>;
+  node?: Maybe<UmaEventChoiceType>;
   /** A cursor for use in pagination */
   cursor: Scalars['String'];
 };
 
-/** An enumeration. */
-export enum UmaSkillCategoryEnum {
-  Origin = 'ORIGIN',
-  Basic = 'BASIC',
-  Awakening = 'AWAKENING'
-}
-
-export type UmaSkillType = {
-  __typename?: 'UmaSkillType';
-  umaUuid: Scalars['ID'];
-  skillUuid: Scalars['ID'];
-  category: UmaSkillCategoryEnum;
-  uma?: Maybe<UmamusumeType>;
-  skill?: Maybe<SkillType>;
+export type UmaEventChoiceType = Node & {
+  __typename?: 'UmaEventChoiceType';
+  uuid: Scalars['ID'];
+  title?: Maybe<Scalars['String']>;
+  titleKr?: Maybe<Scalars['String']>;
+  effect?: Maybe<Scalars['String']>;
+  effectKr?: Maybe<Scalars['String']>;
+  eventId?: Maybe<Scalars['Int']>;
+  event?: Maybe<UmaEventType>;
+  /** The ID of the object. */
+  id: Scalars['ID'];
 };
 
-export type UmamusumeType = Node & {
-  __typename?: 'UmamusumeType';
+export type SupportCardType = Node & {
+  __typename?: 'SupportCardType';
   uuid: Scalars['ID'];
-  umaName?: Maybe<Scalars['String']>;
-  umaNameKr?: Maybe<Scalars['String']>;
+  cardName?: Maybe<Scalars['String']>;
+  cardNameKr?: Maybe<Scalars['String']>;
+  cardType?: Maybe<Scalars['String']>;
+  cardTypeKr?: Maybe<Scalars['String']>;
+  cardImage?: Maybe<Scalars['String']>;
+  gamewithWikiId?: Maybe<Scalars['Int']>;
+  rareDegree?: Maybe<Scalars['String']>;
   secondName?: Maybe<Scalars['String']>;
   secondNameKr?: Maybe<Scalars['String']>;
-  umaImage?: Maybe<Scalars['String']>;
-  gamewithWikiId?: Maybe<Scalars['Int']>;
-  rareDegree?: Maybe<Scalars['Int']>;
-  skills?: Maybe<Array<Maybe<UmaSkillType>>>;
-  umaEvent?: Maybe<UmaEventTypeConnection>;
+  cardEvent?: Maybe<CardEventTypeConnection>;
   /** The ID of the object. */
   id: Scalars['ID'];
 };
 
 
-export type UmamusumeTypeUmaEventArgs = {
+export type SupportCardTypeCardEventArgs = {
   before?: Maybe<Scalars['String']>;
   after?: Maybe<Scalars['String']>;
   first?: Maybe<Scalars['Int']>;
   last?: Maybe<Scalars['Int']>;
+};
+
+export type CardEventTypeConnection = {
+  __typename?: 'CardEventTypeConnection';
+  /** Pagination data for this connection. */
+  pageInfo: PageInfo;
+  /** Contains the nodes in this connection. */
+  edges: Array<Maybe<CardEventTypeEdge>>;
+};
+
+/** A Relay edge containing a `CardEventType` and its cursor. */
+export type CardEventTypeEdge = {
+  __typename?: 'CardEventTypeEdge';
+  /** The item at the end of the edge */
+  node?: Maybe<CardEventType>;
+  /** A cursor for use in pagination */
+  cursor: Scalars['String'];
+};
+
+export type CardEventType = Node & {
+  __typename?: 'CardEventType';
+  uuid: Scalars['ID'];
+  title?: Maybe<Scalars['String']>;
+  titleKr?: Maybe<Scalars['String']>;
+  supportCardId?: Maybe<Scalars['Int']>;
+  supportCard?: Maybe<SupportCardType>;
+  cardEventChoice?: Maybe<CardEventChoiceTypeConnection>;
+  /** The ID of the object. */
+  id: Scalars['ID'];
+};
+
+
+export type CardEventTypeCardEventChoiceArgs = {
+  before?: Maybe<Scalars['String']>;
+  after?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+};
+
+export type CardEventChoiceTypeConnection = {
+  __typename?: 'CardEventChoiceTypeConnection';
+  /** Pagination data for this connection. */
+  pageInfo: PageInfo;
+  /** Contains the nodes in this connection. */
+  edges: Array<Maybe<CardEventChoiceTypeEdge>>;
+};
+
+/** A Relay edge containing a `CardEventChoiceType` and its cursor. */
+export type CardEventChoiceTypeEdge = {
+  __typename?: 'CardEventChoiceTypeEdge';
+  /** The item at the end of the edge */
+  node?: Maybe<CardEventChoiceType>;
+  /** A cursor for use in pagination */
+  cursor: Scalars['String'];
+};
+
+export type CardEventChoiceType = Node & {
+  __typename?: 'CardEventChoiceType';
+  uuid: Scalars['ID'];
+  title?: Maybe<Scalars['String']>;
+  titleKr?: Maybe<Scalars['String']>;
+  effect?: Maybe<Scalars['String']>;
+  effectKr?: Maybe<Scalars['String']>;
+  eventId?: Maybe<Scalars['Int']>;
+  event?: Maybe<CardEventType>;
+  /** The ID of the object. */
+  id: Scalars['ID'];
 };
 
 export type EffectFacadeQueryVariables = Exact<{
@@ -577,38 +466,6 @@ export type UmaEventWithChoiceFragment = (
       )> }
     )>> }
   )> }
-);
-
-export type GetUmaInfoQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type GetUmaInfoQuery = (
-  { __typename?: 'Query' }
-  & { umamusume?: Maybe<Array<Maybe<(
-    { __typename?: 'UmamusumeType' }
-    & Pick<UmamusumeType, 'uuid' | 'umaName' | 'umaNameKr' | 'secondName' | 'secondNameKr' | 'umaImage' | 'gamewithWikiId' | 'rareDegree'>
-    & { skills?: Maybe<Array<Maybe<(
-      { __typename?: 'UmaSkillType' }
-      & Pick<UmaSkillType, 'category'>
-      & { skill?: Maybe<(
-        { __typename?: 'SkillType' }
-        & Pick<SkillType, 'name'>
-        & { grade?: Maybe<(
-          { __typename?: 'SkillGradeType' }
-          & Pick<SkillGradeType, 'name'>
-        )>, buffType?: Maybe<(
-          { __typename?: 'SkillBuffTypeType' }
-          & Pick<SkillBuffTypeType, 'name'>
-        )>, distanceType?: Maybe<(
-          { __typename?: 'SkillDistanceTypeType' }
-          & Pick<SkillDistanceTypeType, 'name'>
-        )>, operationType?: Maybe<(
-          { __typename?: 'SkillOperationTypeType' }
-          & Pick<SkillOperationTypeType, 'name'>
-        )> }
-      )> }
-    )>>> }
-  )>>> }
 );
 
 export const CoreSupportCardFieldFragmentDoc = gql`
@@ -967,62 +824,3 @@ export function useUmaListLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Um
 export type UmaListQueryHookResult = ReturnType<typeof useUmaListQuery>;
 export type UmaListLazyQueryHookResult = ReturnType<typeof useUmaListLazyQuery>;
 export type UmaListQueryResult = Apollo.QueryResult<UmaListQuery, UmaListQueryVariables>;
-export const GetUmaInfoDocument = gql`
-    query getUmaInfo {
-  umamusume {
-    uuid
-    umaName
-    umaNameKr
-    secondName
-    secondNameKr
-    umaImage
-    gamewithWikiId
-    rareDegree
-    skills {
-      category
-      skill {
-        name
-        grade {
-          name
-        }
-        buffType {
-          name
-        }
-        distanceType {
-          name
-        }
-        operationType {
-          name
-        }
-      }
-    }
-  }
-}
-    `;
-
-/**
- * __useGetUmaInfoQuery__
- *
- * To run a query within a React component, call `useGetUmaInfoQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetUmaInfoQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useGetUmaInfoQuery({
- *   variables: {
- *   },
- * });
- */
-export function useGetUmaInfoQuery(baseOptions?: Apollo.QueryHookOptions<GetUmaInfoQuery, GetUmaInfoQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<GetUmaInfoQuery, GetUmaInfoQueryVariables>(GetUmaInfoDocument, options);
-      }
-export function useGetUmaInfoLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetUmaInfoQuery, GetUmaInfoQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<GetUmaInfoQuery, GetUmaInfoQueryVariables>(GetUmaInfoDocument, options);
-        }
-export type GetUmaInfoQueryHookResult = ReturnType<typeof useGetUmaInfoQuery>;
-export type GetUmaInfoLazyQueryHookResult = ReturnType<typeof useGetUmaInfoLazyQuery>;
-export type GetUmaInfoQueryResult = Apollo.QueryResult<GetUmaInfoQuery, GetUmaInfoQueryVariables>;
