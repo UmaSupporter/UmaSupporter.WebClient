@@ -1,11 +1,10 @@
-@import '../common/styles/Palette.scss';
 .Navigation {
   display: flex;
   height: 45px;
   margin: 0px 16px 8px 16px;
   background: var(--accentgreen);
   border-radius: 4px;
-  padding: 4px;
+  padding: 8px;
   .navItem {
     flex: 1;
     display: flex;
@@ -21,7 +20,7 @@
 .highlighter {
   border-radius: 4px;
   background: var(--accentgreendark);
-  width: calc(50% - 124px);
+  width: calc(50% - 132px);
   height: 45px;
   position: absolute;
   transition: all 0.3s cubic-bezier(0.2, 0.8, 0, 1);

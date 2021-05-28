@@ -16,9 +16,6 @@ html {
   --accentgreen-half: rgba(167, 224, 7, 0.5);
   --accentgreendark: rgba(107, 187, 2, 1);
   --accentgreendark-half: rgba(107, 187, 2, 0.5);
-
-  --carrot: #faa033;
-  --carrot-dark: #eb5b17;
 }
 
 @mixin Accent {
@@ -32,18 +29,6 @@ html {
     rgba(160, 221, 4, 1) 100%
   );
 }
-
-@mixin CarrotHighlight {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2);
-  background: linear-gradient(
-    135deg,
-    hsl(28, 95%, 51%) 0%,
-    hsl(28, 95%, 51%) 68%,
-    hsl(19, 84%, 51%) 68%,
-    hsl(28, 95%, 51%) 100%
-  );
-}
-
 @mixin TitleBar {
   // border: solid 2px rgba(107, 187, 2, 1);
   background: linear-gradient(

@@ -1,16 +1,13 @@
-@import '../../../components/common/styles/Palette.scss';
 .InfoNavigation {
   display: flex;
   justify-content: flex-start;
-  background: var(--carrot);
-
+  background: var(--accentgreen-half);
   margin: 8px 0px;
   border-radius: 4px;
   display: flex;
 }
 .InfoNavigationHighlighter {
-  @include CarrotHighlight;
-  // background: var(--carrot-dark);
+  background: var(--accentgreendark-half);
   width: calc(33% - 76px);
   height: 36px;
   margin-top: 4px;
@@ -37,11 +34,6 @@
   }
   .InfoNavigationHighlighter {
     width: calc(33% - 1px);
-  }
-}
-
-@media (max-width: 425px) {
-  .InfoNavigationHighlighter {
     height: 26px;
   }
 }
