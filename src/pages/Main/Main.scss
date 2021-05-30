@@ -74,6 +74,7 @@
       width: auto;
       transform: scaleX(1);
       flex: 1;
+      max-width: 50vw;
     }
   }
   .CardListArea {
@@ -91,6 +92,7 @@
     &._1 {
       flex: 1;
       width: auto;
+      max-width: 50vw;
     }
     &._0 {
       flex: 0.000001;
