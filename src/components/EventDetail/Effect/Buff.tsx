@@ -1,5 +1,6 @@
-import ReactTooltip from 'react-tooltip';
+import React from 'react';
 import './Buff.scss';
+import UmaToolTip from './Tooltip';
 
 type Props = {
   buff: string;
@@ -14,16 +15,18 @@ const Buff: React.FC<Props> = (props: Props) => {
 
   return (
     <>
-      <slot
+      <UmaToolTip
+        title={
+          effectKr
+        }
+        key={`skill/${name}`}
+      >
+      <div
         className={isDebuff ? 'Debuff' : 'Buff'}
-        data-tip
-        data-for={`skill/${name}`}
       >
         {buff}({nameKr})
-      </slot>
-      <ReactTooltip id={`skill/${name}`} aria-haspopup="true" role="example">
-        <li>{effectKr}</li>
-      </ReactTooltip>
+      </div>
+      </UmaToolTip>
     </>
   );
 };
