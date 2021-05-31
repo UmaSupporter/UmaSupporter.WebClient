@@ -1,8 +1,8 @@
 import gql from 'graphql-tag';
-import ReactTooltip from 'react-tooltip';
 import { useContext } from 'react';
 import { UriContext } from '../../../common';
 import './Skill.scss';
+import UmaToolTip from './Tooltip';
 
 gql`
   query getSkillWithName($name: String!) {
@@ -31,13 +31,14 @@ const Skill: React.FC<Props> = (props: Props) => {
 
   return (
     <>
-      <img src={iconPath} className={'SkillIcon'} alt={nameKr} />
-      <slot className={'Skill'} data-tip data-for={skillInfoLink}>
-        {skill}({nameKr})
-      </slot>
-      <ReactTooltip id={skillInfoLink} aria-haspopup="true" role="example">
-        <li>{description}</li>
-      </ReactTooltip>
+      <UmaToolTip title={description} key={skillInfoLink}>
+        <div className={'Skill'} >
+          <img src={iconPath} className={'SkillIcon'} alt={nameKr} />
+          <div className={'SkillName'} >
+            {skill}({nameKr})
+          </div>
+        </div>
+      </UmaToolTip>
     </>
   );
 };

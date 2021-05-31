@@ -1,5 +1,6 @@
 .Skill {
   color: #e97341;
+  display: inline-block;
 }
 
 .SkillIcon {
@@ -8,4 +9,8 @@
   height: 15px;
   margin: 0px;
   cursor: pointer;
+}
+
+.SkillName {
+  display: inline-block;
 }
