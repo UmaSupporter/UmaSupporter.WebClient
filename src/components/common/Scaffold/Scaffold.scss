@@ -3,7 +3,7 @@
   flex-direction: column;
   overflow: hidden;
   background: var(--background);
-  min-height: -webkit-fit-content;
+  min-height: fit-content;
   padding: 0px 100px;
   justify-content: center;
 }
