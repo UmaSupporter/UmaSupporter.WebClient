@@ -25,11 +25,20 @@
         "a11y",
         "code"
       ]
+    },
+    {
+      "login": "cereme",
+      "name": "Sang yun Pae",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19284878?v=4",
+      "profile": "https://cereme.dev",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
-  "projectName": "umamusume-client",
-  "projectOwner": "riemannulus",
+  "projectName": "UmaSupporter.WebClient",
+  "projectOwner": "UmaSupporter",
   "repoType": "github",
   "repoHost": "https://github.com",
   "skipCi": true
