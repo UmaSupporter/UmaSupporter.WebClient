@@ -34,6 +34,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "ayaysir",
+      "name": "ayaysir",
+      "avatar_url": "https://avatars.githubusercontent.com/u/40187546?v=4",
+      "profile": "http://yoonbumtae.com",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
