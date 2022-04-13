@@ -3,7 +3,7 @@ import { createContext } from 'react';
 let production = process.env.NODE_ENV === 'production';
 let uri;
 if (production) {
-  uri = 'https://uma.hitagi.moe';
+  uri = 'https://suppoter.sonagi.dev';
 } else {
   uri = 'https://uma.hanaoto.me';
 }
