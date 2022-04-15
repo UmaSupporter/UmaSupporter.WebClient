@@ -1,6 +1,6 @@
 import gql from 'graphql-tag';
 import React from 'react';
-import { InfoUmaDetail } from '.';
+import InfoUmaDetail from './InfoUmaDetail';
 import { useGetUmaDetailInfoQuery } from '../../generated/graphql';
 
 gql`
