@@ -1,4 +1,4 @@
-import { Route } from 'react-router';
+import { Route } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
 import { InfoCardPage } from './InfoCard';
 import { InfoNavigation } from './InfoNavigation';
