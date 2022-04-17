@@ -3,7 +3,7 @@ import {
   GetUmaDetailInfoQuery,
   UmaSkillCategoryEnum,
 } from '../../generated/graphql';
-import { UriContext } from '../../common';
+import { StaticUriContext } from '../../common';
 import './InfoUmaDetail.scss';
 import { StarRate } from '../common/StarRate';
 import { InfoUmaSkillChunk } from './InfoUmaSkillChunk';
@@ -16,7 +16,7 @@ type Props = {
 const InfoUmaDetail = (props: Props) => {
   const { umaInfoData } = props;
   const { umamusumeId } = umaInfoData;
-  const uri = useContext(UriContext);
+  const uri = useContext(StaticUriContext);
 
   const imagePath = `${uri}/images/${umamusumeId!.umaImage!}`;
 

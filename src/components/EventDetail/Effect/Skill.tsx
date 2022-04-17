@@ -1,6 +1,6 @@
 import gql from 'graphql-tag';
 import { useContext } from 'react';
-import { UriContext } from '../../../common';
+import { StaticUriContext } from '../../../common';
 import './Skill.scss';
 import UmaToolTip from './Tooltip';
 
@@ -25,7 +25,7 @@ type Props = {
 
 const Skill: React.FC<Props> = (props: Props) => {
   const { skill, name, nameKr, description, icon } = props;
-  const uri = useContext(UriContext);
+  const uri = useContext(StaticUriContext);
   const iconPath = `${uri}/images/${icon}`;
   const skillInfoLink = `skill/${name}`;
 

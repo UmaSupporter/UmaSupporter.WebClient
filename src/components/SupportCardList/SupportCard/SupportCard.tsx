@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { UriContext } from '../../../common';
+import { StaticUriContext } from '../../../common';
 import { SupportCard } from '../../../types';
 import { getCardTypeImageName, convertToCardType } from '../../../common/utils';
 import './SupportCard.scss';
@@ -24,7 +24,7 @@ const SupportCardComponent: React.FC<Props> = (props: Props) => {
     onDoubleClickItem,
   } = props;
 
-  const uri = useContext(UriContext);
+  const uri = useContext(StaticUriContext);
   const likeIcon = selected ? like : dislike;
   const likeIconAlt = selected ? 'like' : 'dislike';
 

@@ -1,4 +1,4 @@
-import { UriContext } from '../../../common';
+import { StaticUriContext } from '../../../common';
 import React, { useContext } from 'react';
 import './Hero.scss';
 import { Link } from 'react-router-dom';
@@ -16,7 +16,7 @@ type Props = {
 
 const Hero: React.FC<Props> = (props: Props) => {
   const { heroType, uuid, name, image, secondName, rareDegree } = props;
-  const uri = useContext(UriContext);
+  const uri = useContext(StaticUriContext);
 
   const linkPath = `/info/${heroType}/selected/${uuid}`;
   const imagePath = `${uri}/images/${image}`;
