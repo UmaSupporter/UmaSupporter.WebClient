@@ -1,5 +1,5 @@
 import { Uma } from '../../../types';
-import { UriContext } from '../../../common';
+import { StaticUriContext } from '../../../common';
 import React, { useContext } from 'react';
 import './UmaComponent.scss';
 
@@ -11,7 +11,7 @@ type Props = {
 const UmaComponent: React.FC<Props> = (props: Props) => {
   const { uuid, umaImage, umaName, secondName } = props.uma;
 
-  const uri = useContext(UriContext);
+  const uri = useContext(StaticUriContext);
 
   const imagePath = `${uri}/images/${umaImage}`;
   const imageAlt = `${umaName} ${secondName}`;

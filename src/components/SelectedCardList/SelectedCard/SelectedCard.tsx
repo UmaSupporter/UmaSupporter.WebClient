@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { UriContext } from '../../../common';
+import { StaticUriContext } from '../../../common';
 import './SelectedCard.scss';
 
 export type Props = {
@@ -24,7 +24,7 @@ const SelectedCard: React.FC<Props> = (props: Props) => {
     onClickItem,
     onDeleteItem,
   } = props;
-  const uri = useContext(UriContext);
+  const uri = useContext(StaticUriContext);
 
   const rootClassName = `SelectedCard ${cardType} ${rareDegree}`;
   const imagePath = `${uri}/images/${cardImage}`;

@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { UriContext } from '../../common';
+import { StaticUriContext } from '../../common';
 import { getCardTypeImageName } from '../../common/utils';
 import { CARD_TYPE } from '../../types';
 import './CardTypeFilterComponent.scss';
@@ -15,7 +15,7 @@ type Props = {
 };
 
 const CardTypeFilterComponent: React.FC<Props> = (props: Props) => {
-  const uri = useContext(UriContext);
+  const uri = useContext(StaticUriContext);
   const { cardTypes, onClickType } = props;
 
   return (

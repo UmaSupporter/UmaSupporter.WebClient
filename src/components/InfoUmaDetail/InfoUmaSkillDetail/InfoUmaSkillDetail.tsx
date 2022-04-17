@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { UriContext } from '../../../common';
+import { StaticUriContext } from '../../../common';
 import './InfoUmaSkillDetail.scss';
 
 type Props = {
@@ -11,7 +11,7 @@ type Props = {
 
 const InfoUmaSkillDetail = (props: Props) => {
   const { skill } = props.skill!;
-  const uri = useContext(UriContext);
+  const uri = useContext(StaticUriContext);
 
   const iconPath = `${uri}/images/${skill.icon}`;
   const iconAlt = `${skill.name}`;
