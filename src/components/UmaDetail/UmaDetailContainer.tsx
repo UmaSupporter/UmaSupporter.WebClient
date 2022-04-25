@@ -4,6 +4,7 @@ import { UmaEventChoice, UmaEventWithChoice } from '../../types';
 import { UMA_EVENT_FIELD_WITH_CHOICES } from '../common/fragments';
 import UmaDetailComponent from './UmaDetailComponent';
 import UmaDetailNotExistComponent from './UmaDetailNotExistComponent';
+import { generalEventName } from '../../common/utils'
 
 gql`
   ${UMA_EVENT_FIELD_WITH_CHOICES}
@@ -52,6 +53,17 @@ const UmaDetailContainer: React.FC<Props> = (props: Props) => {
     })
     .filter((x) => x.choices.length > 1);
 
+
+  const orderedList: UmaEventWithChoice[] = [];
+  events.forEach(x => {
+    if(generalEventName.includes(x.title) || x.title.includes("の後に")) {
+      orderedList.push(x);
+    }
+    else {
+      orderedList.unshift(x);
+    }
+  });
+
   const { umamusumeId } = data;
 
   return (
@@ -61,7 +73,7 @@ const UmaDetailContainer: React.FC<Props> = (props: Props) => {
       umaImage={umamusumeId.umaImage!}
       secondName={umamusumeId.secondName!}
       rareDegree={String(umamusumeId.rareDegree!)}
-      event={events}
+      event={orderedList}
       toggleUmaPage={props.toggleUmaPage}
     />
   );
