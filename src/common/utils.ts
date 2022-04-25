@@ -22,6 +22,8 @@ export const convertToCardType = (target: string) => {
       return CARD_TYPE.INTELLIGENT;
     case '友人':
       return CARD_TYPE.FRIEND;
+    case 'グループ':
+      return CARD_TYPE.GROUP;
     default:
       throw Error('Wrong card type!');
   }
@@ -41,5 +43,7 @@ export const getCardTypeImageName = (target: CARD_TYPE) => {
       return 'i_type5.png';
     case CARD_TYPE.FRIEND:
       return 'i_type6.png';
+    case CARD_TYPE.GROUP:
+      return 'i_type7.png';
   }
 };

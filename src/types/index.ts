@@ -52,6 +52,7 @@ export enum CARD_TYPE {
   GUTS = '根性',
   INTELLIGENT = '賢さ',
   FRIEND = '友人',
+  GROUP = 'グループ',
 }
 
 
