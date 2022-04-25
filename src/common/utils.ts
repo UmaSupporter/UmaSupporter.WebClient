@@ -47,3 +47,16 @@ export const getCardTypeImageName = (target: CARD_TYPE) => {
       return 'i_type7.png';
   }
 };
+
+export const generalEventName: string[] = [
+  "追加の自主トレ",
+  "新年の抱負",
+  "夏合宿(2年目)にて",
+  "初詣",
+  "ダンスレッスン",
+  "お大事に！",
+  "無茶は厳禁！",
+  "レース敗北(6着以下)",
+  "レース入着(2~5着)",
+  "レース勝利！(1着)",
+];
