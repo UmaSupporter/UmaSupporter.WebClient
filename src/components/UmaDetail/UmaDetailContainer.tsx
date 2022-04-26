@@ -56,7 +56,9 @@ const UmaDetailContainer: React.FC<Props> = (props: Props) => {
 
   const orderedList: UmaEventWithChoice[] = [];
   events.forEach(x => {
-    if(generalEventName.includes(x.title) || x.title.includes("の後に")) {
+    if(generalEventName.includes(x.title) 
+      || x.title.slice(-3) === "の後に"
+      || x.title.slice(0,3) === "レース") {
       orderedList.push(x);
     }
     else {
