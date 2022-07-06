@@ -1,0 +1,17 @@
+.CardFilterWrapper {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  padding: 1rem;
+  background-color: #DDD;
+}
+
+.CardFilter {
+  display: flex;
+  gap: 1rem;
+}
+
+.WhiteTraits{
+    display: flex;
+    flex-direction: column;
+}
