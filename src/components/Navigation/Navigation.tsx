@@ -17,7 +17,7 @@ const Navigation = () => {
         <div>이벤트</div>
       </Link>
       <Link to="/info" className={'navItem'}>
-        <div>정보</div>
+        <div>인자검색</div>
       </Link>
     </div>
   );
