@@ -2,11 +2,12 @@ import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { UseAutocompleteProps } from '@material-ui/lab/useAutocomplete';
 import React, { useReducer, useRef, useState } from 'react';
+import { TraitKind } from '../../../types/trait';
 
 import './TraitDropdown.scss';
 
 interface TraitDropddownProps {
-  type: 'status' | 'aptitude' | 'unique' | 'common';
+  type: TraitKind;
   items: string[];
   onChange: UseAutocompleteProps<
     string,
