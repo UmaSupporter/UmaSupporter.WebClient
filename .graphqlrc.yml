@@ -1,0 +1,2 @@
+schema: "./src/friend.graphql"
+documents: "./src/components/Friend*/*.{ts,tsx}"
