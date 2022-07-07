@@ -1,74 +1,68 @@
-import React from 'react';
-import Autocomplete from '@material-ui/lab/Autocomplete';
-import { TextField } from '@material-ui/core';
+import React, { useReducer } from 'react';
+import { TraitDropdown } from './TraitDropdown';
 import './CardFilter.scss';
 
+interface Trait {
+  name: string;
+  type: string;
+}
+
+type Action =
+  | { type: 'add'; trait: Trait }
+  | { type: 'remove'; index: number }
+  | { type: 'clear' };
+
 const CardFilter: React.FC<{}> = () => {
+  const [traits, dispatch] = useReducer((state: Trait[], action: Action) => {
+    switch (action.type) {
+      case 'add':
+        if (
+          action.trait.type !== 'common' &&
+          state.filter((x) => x.type === action.trait.type).length >= 3
+        )
+          return state;
+        return [...state, action.trait];
+      case 'remove':
+        return state.filter((_, i) => i !== action.index);
+      case 'clear':
+        return [];
+    }
+  }, []);
+
   return (
     <div className={`CardFilter`}>
-      <Autocomplete
-        multiple
-        options={stats as TempOption[]}
-        getOptionLabel={(option) => option.title}
-        renderInput={(params) => (
-          <TextField {...params} label="스탯" variant="outlined" />
-        )}
+      <TraitDropdown
+        items={stats}
+        type="status"
+        onChange={(_, v) =>
+          v && dispatch({ type: 'add', trait: { name: v, type: 'status' } })
+        }
       />
-      <Autocomplete
-        multiple
-        options={stats as TempOption[]}
-        getOptionLabel={(option) => option.title}
-        renderInput={(params) => (
-          <TextField {...params} label="적성" variant="outlined" />
-        )}
+      <TraitDropdown
+        items={stats}
+        type="aptitude"
+        onChange={(_, v) =>
+          v && dispatch({ type: 'add', trait: { name: v, type: 'aptitude' } })
+        }
       />
-      <Autocomplete
-        multiple
-        options={stats as TempOption[]}
-        getOptionLabel={(option) => option.title}
-        renderInput={(params) => (
-          <TextField {...params} label="고유스킬" variant="outlined" />
-        )}
+      <TraitDropdown
+        items={stats}
+        type="unique"
+        onChange={(_, v) =>
+          v && dispatch({ type: 'add', trait: { name: v, type: 'unique' } })
+        }
       />
-      <div className={`WhiteTraits`}>
-        <Autocomplete
-          multiple
-          options={stats as TempOption[]}
-          getOptionLabel={(option) => option.title}
-          renderInput={(params) => (
-            <TextField {...params} label="레이스" variant="outlined" />
-          )}
-        />
-        <Autocomplete
-          multiple
-          options={stats as TempOption[]}
-          getOptionLabel={(option) => option.title}
-          renderInput={(params) => (
-            <TextField {...params} label="시나리오" variant="outlined" />
-          )}
-        />
-        <Autocomplete
-          multiple
-          options={stats as TempOption[]}
-          getOptionLabel={(option) => option.title}
-          renderInput={(params) => (
-            <TextField {...params} label="스킬" variant="outlined" />
-          )}
-        />
-      </div>
+      <TraitDropdown
+        items={stats}
+        type="common"
+        onChange={(_, v) =>
+          v && dispatch({ type: 'add', trait: { name: v, type: 'common' } })
+        }
+      />
     </div>
   );
 };
 
-interface TempOption {
-  title: string;
-  id: number;
-}
-
-const stats = [
-  { title: '스킬1', id: 1 },
-  { title: '스킬2', id: 2 },
-  { title: '스킬3', id: 2 },
-];
+const stats = ['스킬1', '스킬2', '스킬3'];
 
 export default CardFilter;
