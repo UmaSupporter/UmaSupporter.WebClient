@@ -1,0 +1,10 @@
+@import '../../components/common/styles/LayerCard.scss';
+.FriendSearch {
+  display: flex;
+  height: calc(100% - 16px);
+  right: 0px;
+  margin: 8px;
+  margin-left: 4px;
+  @include LayerCard;
+  flex-direction: column;
+}

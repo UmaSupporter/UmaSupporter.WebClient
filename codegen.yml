@@ -1,8 +1,9 @@
-overwrite: true
-schema: 'https://uma.hitagi.moe/graphql'
-documents: ['./src/**/*.tsx', './src/**/*.ts']
 generates:
-  src/generated/graphql.tsx:
+  src/generated/friends.tsx:
+    schema: './src/friend.graphql'
+    documents:
+      - './src/components/Friend*/*.{ts,tsx}'
+      - './src/components/CardFilter/*.{ts,tsx}'
     plugins:
       - 'typescript'
       - 'typescript-operations'
