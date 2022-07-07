@@ -1,0 +1,7 @@
+@import '../../components/common/styles/LayerCard.scss';
+
+.TraitList {
+  margin: 1rem;
+  padding: 0.25rem;
+  @include LayerCard2;
+}
