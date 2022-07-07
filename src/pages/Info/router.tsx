@@ -1,7 +1,7 @@
-import { Route } from "react-router-dom";
-import { Redirect } from "react-router-dom";
-import { CardFilter } from "../../components/CardFilter";
-import "./Info.scss";
+import { Route } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
+import FriendSearchView from '../../views/FriendSearch/FriendSearchView';
+import './Info.scss';
 
 type Props = {
   match: any;
@@ -13,7 +13,7 @@ const InfoPageRouter: React.FC<Props> = (props: Props) => {
 
   return (
     <div className="InfoPage">
-      <CardFilter />
+      <FriendSearchView />
     </div>
   );
 };
