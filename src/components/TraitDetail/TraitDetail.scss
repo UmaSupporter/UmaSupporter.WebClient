@@ -1,0 +1,24 @@
+@import '../../components/common/styles/Palette.scss';
+
+.Trait {
+  border-radius: 0.25rem;
+  padding: 0.1rem;
+  margin: 0.1rem;
+  cursor: pointer;
+}
+
+.Trait[data-type='status'] {
+  background-color: var(--status);
+}
+
+.Trait[data-type='aptitude'] {
+  background-color: var(--aptitude);
+}
+
+.Trait[data-type='unique'] {
+  background-color: var(--unique);
+}
+
+.Trait[data-type='common'] {
+  background-color: var(--common);
+}

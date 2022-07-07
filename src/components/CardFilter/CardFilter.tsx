@@ -1,17 +1,14 @@
 import React, { useReducer } from 'react';
 import { TraitDropdown } from './TraitDropdown';
+import TraitList from './../TraitList/TraitList';
+import TraitDetail from '../TraitDetail/TraitDetail';
+import type { Trait } from '../../types/trait';
 import './CardFilter.scss';
-
-interface Trait {
-  name: string;
-  type: string;
-}
 
 type Action =
   | { type: 'add'; trait: Trait }
   | { type: 'remove'; index: number }
   | { type: 'clear' };
-
 const CardFilter: React.FC<{}> = () => {
   const [traits, dispatch] = useReducer((state: Trait[], action: Action) => {
     switch (action.type) {
@@ -30,35 +27,45 @@ const CardFilter: React.FC<{}> = () => {
   }, []);
 
   return (
-    <div className={`CardFilter`}>
-      <TraitDropdown
-        items={stats}
-        type="status"
-        onChange={(_, v) =>
-          v && dispatch({ type: 'add', trait: { name: v, type: 'status' } })
-        }
-      />
-      <TraitDropdown
-        items={stats}
-        type="aptitude"
-        onChange={(_, v) =>
-          v && dispatch({ type: 'add', trait: { name: v, type: 'aptitude' } })
-        }
-      />
-      <TraitDropdown
-        items={stats}
-        type="unique"
-        onChange={(_, v) =>
-          v && dispatch({ type: 'add', trait: { name: v, type: 'unique' } })
-        }
-      />
-      <TraitDropdown
-        items={stats}
-        type="common"
-        onChange={(_, v) =>
-          v && dispatch({ type: 'add', trait: { name: v, type: 'common' } })
-        }
-      />
+    <div>
+      <div className={`CardFilter`}>
+        <TraitDropdown
+          items={stats}
+          type="status"
+          onChange={(_, v) =>
+            v && dispatch({ type: 'add', trait: { name: v, type: 'status' } })
+          }
+        />
+        <TraitDropdown
+          items={stats}
+          type="aptitude"
+          onChange={(_, v) =>
+            v && dispatch({ type: 'add', trait: { name: v, type: 'aptitude' } })
+          }
+        />
+        <TraitDropdown
+          items={stats}
+          type="unique"
+          onChange={(_, v) =>
+            v && dispatch({ type: 'add', trait: { name: v, type: 'unique' } })
+          }
+        />
+        <TraitDropdown
+          items={stats}
+          type="common"
+          onChange={(_, v) =>
+            v && dispatch({ type: 'add', trait: { name: v, type: 'common' } })
+          }
+        />
+      </div>
+      <TraitList>
+        {traits.map((trait, index) => (
+          <TraitDetail
+            trait={trait}
+            onClick={() => dispatch({ type: 'remove', index })}
+          />
+        ))}
+      </TraitList>
     </div>
   );
 };

@@ -1,6 +1,5 @@
 import React from 'react';
-import { CardFilterContainer } from '../../components/CardFilter';
-import TraitList from '../../components/TraitList';
+import { CardFilter } from '../../components/CardFilter';
 import './FriendSearch.scss';
 
 const FriendSearchView: React.FC = () => {
@@ -11,8 +10,7 @@ const FriendSearchView: React.FC = () => {
           <div className={'MainPagelabel'}>
             <span>필터</span>
           </div>
-          <CardFilterContainer />
-          <TraitList />
+          <CardFilter />
           <div className={'MainPagelabel'}>
             <span>목록</span>
           </div>

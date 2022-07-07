@@ -1,8 +1,6 @@
 import React from 'react';
 import './TraitList.scss';
 
-const TraitList: React.FC = () => {
-  
-};
-
-export default TraitList
+export default function TraitList({ children }: { children: React.ReactNode }) {
+  return <div className={`TraitList`}>{children}</div>;
+}
